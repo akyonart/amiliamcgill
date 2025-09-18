@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Free Creative Portfolio Template: April 2025 Version | Work Page</title>
+    <meta name="description" content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="screenshot.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+
+  <body class="work-page" id="top">
+    <section class="hero-background">
+      <header class="hero-header">
+        <div class="nav-branding">
+  
+            <a href="index.html" class="nav-branding-logo">
+              <img src="assets/logo.svg" alt="Your portfolio logo" />
+            </a>
+          <ul class="nav-list">
+          <li class="nav-branding-item">
+            <a href="work.html" class="nav-link-primary">Work</a>
+          </li>
+          <li class="nav-branding-item">
+            <a href="about.html" class="nav-link-primary">About</a>
+          </li>
+        </ul>
+        </div>
+      </header>
+      <div class="hero-description">
+        <h1 class="hero-headline">Hi, My name's Amilia, and I design stuff with lots of thought and yeup.</h1>
+      </div>
+    </section>
+
+    <main class="main-work-section">
+    <!-- Projects -->
+<section id="projects">
+  <div class="projects-header">
+    <div class="filter-tags">
+      <span class="pill active" data-tag="All">All</span>
+      <span class="pill" data-tag="Branding">Branding</span>
+      <span class="pill" data-tag="Editorial">Editorial</span>
+      <span class="pill" data-tag="Illustration">Illustration</span>
+    </div>
+  </div>
+
+  <ul class="projects">
+    <!-- Project 1 -->
+    <li class="project-card">
+      <div class="image-wrapper">
+        <img src="assets/cover-images/cover1.png" alt="Project Cover" class="cover">
+        <img src="assets/cover-images/menu-cover-no-background.png" alt="Project Cover Hover" class="hover">
+      </div>
+      <div class="project-content">
+        <h3>La Compagnia Restaurant</h3>
+        <div class="tags">Branding, Editorial, Illustration</div>
+      </div>
+    </li>
+
+    <!-- Project 2 -->
+    <li class="project-card">
+      <div class="image-wrapper">
+        <img src="assets/cover-images/side-view-woman-holding-comics.png" alt="Project Cover" class="cover">
+        <img src="assets/cover-images/ONSI-cover-hover.png" alt="Project Cover Hover" class="hover">
+      </div>
+      <div class="project-content">
+        <h3>ONSI Project</h3>
+        <div class="tags">Branding, Editorial, Illustration</div>
+      </div>
+    </li>
+
+    <!-- Project 3 -->
+    <li class="project-card">
+      <div class="image-wrapper">
+        <img src="assets/cover-images/cover1.png" alt="Project Cover" class="cover">
+      </div>
+      <div class="project-content">
+        <h3>La Compagnia Restaurant</h3>
+        <div class="tags">Branding, Editorial, Illustration</div>
+      </div>
+    </li>
+
+    <!-- Project 4 -->
+    <li class="project-card">
+      <div class="image-wrapper">
+        <img src="cover.jpg" alt="Project Cover" class="cover">
+      </div>
+      <div class="project-content">
+        <h3>Project Title</h3>
+        <p>Project description goes here...</p>
+      </div>
+    </li>
+        <!-- Project 5 -->
+    <li class="project-card">
+      <div class="image-wrapper">
+        <img src="cover.jpg" alt="Project Cover" class="cover">
+      </div>
+      <div class="project-content">
+        <h3>Project Title</h3>
+        <p>Project description goes here...</p>
+      </div>
+    </li>
+  </ul>
+</section>
+ </section>
+
+    </main>
+
+        <script>
+          document.getElementById("copyright-years").textContent += new Date().getFullYear();
+        </script>
+      </li>
+    </ul>
+
+    <div id="myID" class="bottomMenu hide">
+      <a href="#">Back to top</a>
+    </div>
+
+
+    <script>
+      myID = document.getElementById("myID");
+
+      var myScrollFunc = function () {
+        var y = window.scrollY;
+        if (y >= 800) {
+          myID.className = "bottomMenu show";
+        } else {
+          myID.className = "bottomMenu hide";
+        }
+      };
+
+      window.addEventListener("scroll", myScrollFunc);
+
+
+
+ const filterPills = document.querySelectorAll('.filter-tags .pill');
+ const projects = document.querySelectorAll('.project-card');
+
+
+ filterPills.forEach(pill => {
+   pill.addEventListener('click', () => {
+     filterPills.forEach(p => p.classList.remove('active'));
+     pill.classList.add('active');
+
+
+     const tag = pill.dataset.tag;
+
+
+     projects.forEach(project => {
+       const tagsDiv = project.querySelector('.tags');
+       const projectTags = tagsDiv ? tagsDiv.textContent.split(',').map(t => t.trim()) : [];
+
+
+       if (tag === 'All' || projectTags.includes(tag)) {
+         project.classList.remove('hidden');
+       } else {
+         project.classList.add('hidden');
+       }
+     });
+   });
+ });
+    </script>
+  </body>
+</html>
