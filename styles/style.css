@@ -116,7 +116,7 @@
   --color-highlight: lemonchiffon;
   --color-fallback: orangered; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
-  --color-bg: #000000;
+  --color-bg: #130E09;
   --color-bg-about: #f5f5f5;
   --color-bg-footer: #f5f5f5;
   --color-bg-holding-page: rgba(82, 0, 255, 0.6);
@@ -458,12 +458,7 @@ em {
   font-style: italic; /* Adds emphasis with italic style */
 }
 
-/* ------------------------------------------------------------------ */
-/* 🎨 Custom Class Styles for Headlines, Projects, and Highlights     */
-/* Use these utility classes to style key text elements across pages  */
-/* ------------------------------------------------------------------ */
 
-/* Main hero headline — usually sits in the intro section */
 
 
 /* Large project title — appears on individual project pages */
@@ -496,7 +491,6 @@ em {
 
 .highlight-gradient {
   background: var(--color-gradient-hero);
-  -webkit-background-clip: text;
   color: transparent;
   font-weight: bold;
 }
@@ -619,6 +613,7 @@ a.nav-link-primary:hover {
 
 
 
+
 ██   ██ ███████ ██████   ██████  
 ██   ██ ██      ██   ██ ██    ██ 
 ███████ █████   ██████  ██    ██ 
@@ -633,101 +628,217 @@ a.nav-link-primary:hover {
 /* Great place for first impression and personal branding                    */
 /* -------------------------------------------------------------------------- */
 
-.hero-description {
-  width: 100%;
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white; /* ensures text is visible on dark background */
+}
+
+/* padding utility */
+.small-padding {
+  padding: 1.25rem;
+}
+
+
+/* height container utility */
+.sliver {
+  height: 40vh;
+}
+.medium {
+  height: 80vh;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .two-column {
+    grid-template-columns: 1fr; /* stack into 1 column */
+  }}
+  
+.left {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-    color: var(--color-overlay-primary); /* Uses your brand's dominant color */
-  size: 1rem;
-  text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
-padding: 0 var(--padding-small);
-margin-top: 6rem;
-margin-bottom: 4rem;
+  justify-content: space-between; /* top & bottom split */
+  padding: 2rem;
+  height: 100vh;
 }
 
-.hero-background{
-height: 100vh;
-display: flex;
+.left-top .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;}
+
+.left-top .tag {
+  border: 1px solid var(--color-text-primary); 
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
 }
 
-.hero-work {
+
+
+.right {
+ background: var(--color-bg-selection);
+  min-height: 80vh;
+}
+
+
+.sliver-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Base frame style */
+.gallery-frame {
+  width: 100%;          /* mobile width */
+  overflow: hidden;
+}
+
+.gallery-frame img {
+  object-fit: cover;
+  height: 100%;
+}
+
+ /* Optional: different desktop widths if desired */
+  .gallery-frame.wide {
+    height: 60vh;
+  }
+
+  .gallery-frame.narrow {
+    height: 150vh;
+  }
+
+/* Desktop: landscape override for all frames */
+@media (min-width: 1024px) {
+  .gallery-frame.narrow {
+    height: 50vh; /* landscape */}
+    .gallery-frame.wide {
+    height:150vh; /*
+     landscape */
+    padding-top:10rem;
+  }
+  }
+
+ 
+
+  .gallery {
+    display: flew;
+    flex-direction: collumn;
+gap: 1rem;
+  }
+
+
+
+.work-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  position: absolute;
+}
+
+/*hero*/
+
+.hero-container {
+  position: relative; 
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero {
   position: relative;
-  height: 100vh; /* full screen height */
-  background: url("assets/work-2/cover.jpg") center center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;}
-
-.hero-logo {
-  max-width: rem;
-  width: 100rem;
-  height: auto;
-  margin-bottom: 2rem;
-  justify-content: center;
-  align-items: center;}
-
-.hero-header {
-  min-height: 6rem;
-    width: 100%;
-        position: absolute; /* Sticks the nav to the top */
-top: 0;
-   /* Space reserved for logo + nav */
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  
 }
 
-.nav-branding {
+/* Sticky Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding: var(--padding-small);
-  width:100%
+  align-items: center;
+  background: transparent; /* lets hero show behind navbar */
+  z-index: 1000;
 }
 
-
-.nav-branding-item {
-  padding: var(--padding-tiny);
+/* Nav Items */
+.navbar a, .logo, .navbar{
+  color: white; 
+  fill: white;
+  text-decoration: none;
+    mix-blend-mode: difference;
 }
 
-
-
-.nav-list {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
+/* Exclusion / Inversion effect on hover */
+.navbar a:hover, .logo:hover {
+  color: orangered;
+  cursor: pointer;
 }
 
+.logo {
+  width: clamp(4rem, 6vw, 8rem);
+}
 
-.hero-headline-wrapper {
+.logo path {
+  fill: currentColor; 
+}
+
+.big-ass-logo path {
+  transition: fill 0.2s ease;
+}
+
+background-gradient { background-color: #8cffa0;
+  margin: 10px;
+  border: 20px solid #8ca0ff;
+  padding: 20px;
+  mask-image: url("assets/big-ass-logo.svg");
+  mask-size: 100% 100%;
+}
+
+.content-box {
+  mask-clip: content-box;
+}
+.border-box {
+  mask-clip: border-box;
+}
+.padding-box {
+  mask-clip: padding-box;
+}
+
+.hero-box {
   width: 100%;
   display: flex;
   flex-direction: column;
-  flex: 1;
-  gap: 3rem;
-  align-items: center;
   justify-content: center;
-  padding: var(--padding-small);
-  text-align: center; /* Keeps text centered */
+  align-items: flex-start; /* align content to left */
+  padding-top:0;
 }
 
-.hero-icon {
-  font-size: 4rem;
+.hero-blurb {
+  font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
 .hero-footer {
-  padding: var(--padding-small);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: flex-start;
+  background-color: grey;
 }
 
-.hero-footer-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: var(--padding-small);
+.big-ass-logo {
+width: 100%;
+padding-top: 2rem;
 }
 
 /*
@@ -777,6 +888,7 @@ top: 0;
   padding: var(--padding-small);
   margin-bottom: 1rem;
 }
+
 .section-item {
   padding: var(--padding-small);
   margin: 1rem;
@@ -872,10 +984,6 @@ top: 0;
   opacity: 0.8; /* Set opacity on hover */
 }
 
-/* Optional container for future overlay customization */
-.project-details-overlay {
-  /* Placeholder: no custom styles yet */
-}
 
 /*
 
@@ -904,55 +1012,8 @@ top: 0;
   margin-bottom: 1rem; /* Space between each navigation item */
 }
 
-/* 
 
- █████  ██████   ██████  ██    ██ ████████ 
-██   ██ ██   ██ ██    ██ ██    ██    ██    
-███████ ██████  ██    ██ ██    ██    ██    
-██   ██ ██   ██ ██    ██ ██    ██    ██    
-██   ██ ██████   ██████   ██████     ██    
-                                           
-*/
-
-/* -------------------------------------------------------------------------- */
-/* 📚 About Page Grid Styles                                                   */
-/* These styles structure the layout of the "About" page using a grid system.  */
-/* The grid has 3 main sections: an image, text, and footer.                   */
-/* -------------------------------------------------------------------------- */
-
-/* Grid container for the About section */
-.about-grid {
-  display: grid; /* Set to grid layout */
-  grid-template-columns: 1fr; /* Single column layout for mobile and smaller screens */
-  grid-gap: 3rem; /* Space between grid items */
-  background: var(--color-bg-about); /* Background color for the section */
-  padding: var(--padding-small); /* Padding around the grid */
-  flex: 1; /* Flex-grow to take up available space */
-}
-
-/* Image section in the About page grid */
-.about-grid-image {
-  grid-column: 1 / 2; /* Image spans the first column */
-  grid-row: 1 / 2; /* Image spans the first row */
-}
-
-/* Text section in the About page grid */
-.about-grid-text {
-  grid-column: 1 / 2; /* Text spans the first column */
-  grid-row: 2 / 3; /* Text spans the second row */
-}
-
-/* 
-
-███████  ██████   ██████  ████████ ███████ ██████  
-██      ██    ██ ██    ██    ██    ██      ██   ██ 
-█████   ██    ██ ██    ██    ██    █████   ██████  
-██      ██    ██ ██    ██    ██    ██      ██   ██ 
-██       ██████   ██████     ██    ███████ ██   ██ 
-                                                   
-*/
-
-/* -------------------------------------------------------------------------- */
+-------------------------------------------------------------------------- */
 /* 📱 MOBILE FOOTER LAYOUT                                                    */
 /* Designed with mobile-first approach using CSS Grid                          */
 /* -------------------------------------------------------------------------- */
@@ -1157,6 +1218,9 @@ color: var(--h4-color);
 }
 
 
+.cover {
+  background-color: #9d9d9d;
+}
 /* Default image visible */
 .project-card img.cover {
  opacity: 1;
@@ -1242,157 +1306,7 @@ color: var(--h4-color);
   padding: var(--padding-small);
 }
 
-/* Container for the project content with full-width display */
-.project-full-width {
-  width: 100%;
-  margin-bottom: 2rem;
-}
 
-/* Sidebar Styles */
-.project-aside {
-  width: 100%;
-  padding: var(--padding-small);
-  display: flex;
-  flex-direction: column;
-  color: var(--color-text-project-sidebar);
-  background: var(--color-bg-sidebar-project);
-}
-
-/* Container for project images with center alignment */
-.project-image-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 1rem; /* Space below the image */
-}
-
-/* Container for project description */
-.project-description-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-  background: var(--color-bg-project-description);
-  padding: var(--padding-small);
-  width: 100%;
-  margin-bottom: 1rem; /* Space below the description */
-}
-
-/* Column styles for two-column layouts */
-.col-2 {
-  width: 100%;
-  padding: var(--padding-small);
-}
-
-/* Project image styling */
-.project-image {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-/* Project details section */
-.project-details {
-  width: 100%;
-  padding: var(--padding-small);
-  background: var(--color-gradient-project-details); /* TODO: Remove gradient background if you prefer a simpler design */
-}
-
-/* Previous/Next Arrow Styles */
-
-.project-navigation {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  align-items: flex-end;
-  justify-content: space-between;
-  width: 100%;
-}
-
-/* Styling for left and right arrows */
-.arrow-left,
-.arrow-right {
-  width: 50%;
-}
-.arrow-right {
-  text-align: right;
-}
-
-.arrow {
-  padding: 0;
-}
-
-/*
-
-██████  ██       ██████   ██████      ██ ██████  ███████ ███████ ██    ██ ███    ███ ███████ 
-██   ██ ██      ██    ██ ██          ██  ██   ██ ██      ██      ██    ██ ████  ████ ██      
-██████  ██      ██    ██ ██   ███   ██   ██████  █████   ███████ ██    ██ ██ ████ ██ █████   
-██   ██ ██      ██    ██ ██    ██  ██    ██   ██ ██           ██ ██    ██ ██  ██  ██ ██      
-██████  ███████  ██████   ██████  ██     ██   ██ ███████ ███████  ██████  ██      ██ ███████ 
-                                                                                             
-*/
-
-/* Blog and Resume page styles */
-
-.text-section {
-  width: 100%;
-  background: var(--color-bg);
-  padding: var(--padding-small);
-}
-.list-item {
-  line-height: 1.3;
-  list-style-type: disc;
-  margin-left: 1.2rem;
-}
-
-/* 
-
-██   ██  ██████  ██      ██████  ██ ███    ██  ██████  
-██   ██ ██    ██ ██      ██   ██ ██ ████   ██ ██       
-███████ ██    ██ ██      ██   ██ ██ ██ ██  ██ ██   ███ 
-██   ██ ██    ██ ██      ██   ██ ██ ██  ██ ██ ██    ██ 
-██   ██  ██████  ███████ ██████  ██ ██   ████  ██████  
-                                                       
-*/
-
-/* Holding page styles */
-
-.holding-page-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
-  place-items: center;
-  text-align: center;
-  width: 100%;
-  min-height: 100vh;
-  /* TODO: Delete the following if you do not want a grainy gradient background on index.html. Be careful not to delete the closing } */
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1), var(--color-bg-holding-page)), var(--image-noise-texture);
-  /* For more on grainy gradients see https://grainy-gradients.vercel.app/ */
-}
-
-.holding-page-animation {
-  margin-bottom: 1rem;
-}
-
-.holding-page-title {
-  font-size: 1.5rem;
-  color: var(--color-text-holding-title);
-}
-
-.holding-page-footer {
-  display: grid;
-  place-items: center;
-  min-height: 10vh;
-  width: 100%;
-}
-
-.holding-page-copyright {
-  font-size: 0.8rem; /* Smaller font size for copyright text */
-  color: var(--color-text-holding-footer); /* Custom color for the footer text */
-  margin-bottom: 0; /* Removes default margin from the bottom of the copyright text */
-}
 
 /*
 ███████ ██████  ██████   ██████  ██████  
@@ -1442,11 +1356,6 @@ Custom styles specific to the "Play" page layout and content.
 Use this section to style elements that are *unique to the Play page*.
 For common layout or effects, continue using the base utility classes
 to keep your styles reusable and consistent.
-*/
-
-.play-page {
-  /* Add page-specific layout or container styles here */
-}
 
 /*
 
@@ -1524,14 +1433,13 @@ to keep your styles reusable and consistent.
   .padding-jumbo {
     padding: var(--padding-jumbo);
   }
-  .nav-branding-logo {
-    width: 10rem;
-    /* TODO: Adjust the width of the logo on large devices here. */
-  }
+  
+.nav-links-right {
+  display: flex;
+  width: 10rem;
+  justify-content: space-between;
 
-  .hero {
-    min-height: 100vh;
-  }
+}
 
   .hero-headline-wrapper {
     padding-top: var(--padding-jumbo);
@@ -1550,156 +1458,6 @@ to keep your styles reusable and consistent.
     font-size: 5rem;
   }
 
-  /* Work Page Grid for Large Devices */
-
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 1rem;
-  }
-
-  /* Grayscale filter with full-colour on hover and tap */
-
-  .work-page-grid-item a.grayscale img {
-    filter: grayscale(100);
-  }
-
-  .work-page-grid-item > a.grayscale:active img,
-  .work-page-grid-item > a.grayscale:hover img {
-    filter: grayscale(0);
-  }
-
-  /* Padding around work grid and project page */
-
-  .portfolio,
-  .project-wrapper,
-  .work-sidebar-wrapper {
-    padding: var(--padding-small);
-  }
-
-  /* Project Page Flex Direction on Large Devices */
-
-  .project-wrapper,
-  .work-sidebar-wrapper {
-    flex-direction: row;
-  }
-
-  /* Project Full Width Styles */
-
-  .project-wrapper-full-width {
-    padding: var(--padding-small) var(--padding-jumbo);
-  }
-
-  /* Sidebar on Large Devices */
-
-  .project-aside {
-    width: 35%;
-    height: 80vh;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 8rem;
-    padding-right: 2rem;
-  }
-
-  /* Main Project Image Area on Large Devices */
-
-  .project-details {
-    width: 65%;
-  }
-
-  .project-image-container,
-  .project-description-container {
-    flex-direction: row;
-  }
-
-  .section-container {
-    width: 80%; /* Adjust this width for larger screens if needed */
-    flex-direction: row;
-  }
-  .col-2 {
-    width: 50%;
-  }
-
-  .project-navigation {
-    justify-content: flex-start;
-  }
-
-  .arrow {
-    padding-right: 1rem;
-  }
-
-  /* About Page Grid for Large Devices */
-
-  .about-grid {
-    padding: var(--padding-jumbo);
-    grid-template-columns: 2fr 3fr;
-  }
-
-  .about-grid-image {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
-  .about-grid-text {
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
-  }
-
-  /* ------------------------------- */
-  /* 🖥️ FOOTER GRID - DESKTOP LAYOUT */
-  /* ------------------------------- */
-
-  .footer-global {
-    padding-top: var(--padding-jumbo);
-    padding-right: var(--padding-jumbo);
-    padding-bottom: 0;
-    padding-left: var(--padding-jumbo);
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
-  }
-
-  /* Column 1: Tagline/Message */
-  .footer-tagline {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
-
-  /* Column 2: Awards & Works */
-  .footer-highlights {
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
-  }
-
-  /* Column 3: Contact & Social */
-  .footer-contact-social {
-    grid-row: 1 / 2;
-    grid-column: 3 / 4;
-  }
-
-  /* ------------------------------- */
-  /* 📏 FULL-WIDTH BOTTOM SECTION */
-  /* ------------------------------- */
-  .footer-full-width {
-    grid-row: 2 / 3;
-    grid-column: 1 / 4; /* Spans all three columns */
-    text-align: center;
-    align-self: end; /* Aligns content to bottom */
-  }
-
-  /* Work Sidebar on Large Devices */
-
-  .work-sidebar {
-    width: 25%;
-    height: 80vh;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 1rem;
-  }
-
-  /* Main Work Area on Large Devices */
-
-  .work-details {
-    width: 75%;
-  }
-}
-
 /* X-Large devices (large desktops, 1200px and up)*/
 
 @media (min-width: 1200px) {
@@ -1717,21 +1475,4 @@ to keep your styles reusable and consistent.
 
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  }
-}
-
-/*
-
-███████ ██ ███    ██
-██      ██ ████   ██
-█████   ██ ██ ██  ██
-██      ██ ██  ██ ██
-██      ██ ██   ████
-                                              
-That’s a wrap, class! 🧑‍🎓✨
-
-*/
-
-/* 🎉 You made it to the end! */
-/* This is a great place to celebrate your progress, add Easter eggs, or leave notes for your future self. */
-/* Happy coding, and don’t forget to take breaks, stay hydrated, and share your work proudly. 💻✨🎨 */
+  }}}

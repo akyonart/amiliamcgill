@@ -8,9 +8,29 @@
 .text-stroke {
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: -webkit-gradient(linear, left top, right top, from(#09f1b8), color-stop(#00a2ff), color-stop(#ff00d2), to(#fed90f));
-  background-image: -o-linear-gradient(left, #09f1b8, #00a2ff, #ff00d2, #fed90f);
-  background-image: linear-gradient(to right, #09f1b8, #00a2ff, #ff00d2, #fed90f);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#09f1b8),
+    color-stop(#00a2ff),
+    color-stop(#ff00d2),
+    to(#fed90f)
+  );
+  background-image: -o-linear-gradient(
+    left,
+    #09f1b8,
+    #00a2ff,
+    #ff00d2,
+    #fed90f
+  );
+  background-image: linear-gradient(
+    to right,
+    #09f1b8,
+    #00a2ff,
+    #ff00d2,
+    #fed90f
+  );
   color: whitesmoke;
   font-size: var(--font-size);
   font-weight: var(--font-weight);
