@@ -797,14 +797,6 @@ gap: 1rem;
   transition: fill 0.2s ease;
 }
 
-background-gradient { background-color: #8cffa0;
-  margin: 10px;
-  border: 20px solid #8ca0ff;
-  padding: 20px;
-  mask-image: url("assets/big-ass-logo.svg");
-  mask-size: 100% 100%;
-}
-
 .content-box {
   mask-clip: content-box;
 }
