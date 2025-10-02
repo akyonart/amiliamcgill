@@ -105,16 +105,16 @@
 :root {
   /* Typography */
   --font-family-body: "Inter", sans-serif;
-  --font-family-heading: "inter", serif;
+  --font-family-heading: "host-grotesk", sans-serif;
   --font-family-project-title: "inter", serif;
   /* Core Colours */
   --color-text-primary: #ffffff;
-  --color-text-secondary: #333;
-  --color-accent-primary: #ff8534;
-  --color-accent-secondary: #ff8534;
+  --color-text-secondary: #b8b8b8;
+  --color-accent-primary: orangered;
+  --color-accent-secondary: orangered;
   --color-overlay-primary: #ffffff;
   --color-highlight: lemonchiffon;
-  --color-fallback: #ff8534; /* Fallback color for glitch effect on 404 page */
+  --color-fallback: orangered; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
   --color-bg: #000000;
   --color-bg-about: #f5f5f5;
@@ -124,23 +124,23 @@
   --h1-color: #ffffff;
   --h2-color: #ffffff;
   --h3-color: #ffffff;
-  --h4-color: #5200ff;
-  --h5-color: #5200ff;
-  --h6-color: #5200ff;
+  --h4-color: orangered;
+  --h5-color: orangered;
+  --h6-color: orangered;
   /* Special Text Colours */
   --color-text-holding-title: #ebedf0;
   --color-text-project-category: #ffffff;
-  --color-text-project-description: #222;
-  --color-text-project-sidebar: #222;
+  --color-text-project-description: #b8b8b8;
+  --color-text-project-sidebar: #ffffff;
   --color-text-project-title: #5200ff;
   --color-text-work-grid-title: #ffffff;
   /* Link States */
   --color-link: #ffffff;
-  --color-link-hover: #111;
-  --color-link-visited: #5200ff;
+  --color-link-hover: orangered;
+  --color-link-visited: orangered;
   /* Navigation */
   --color-nav-link: #ffffff;
-  --color-nav-link-hover: #ffffff;
+  --color-nav-link-hover: orangered;
   --color-nav-arrow: #5200ff;
   --color-nav-arrow-hover: #000;
   --color-nav-arrow-stroke: #5200ff;
@@ -198,7 +198,7 @@
 html {
   box-sizing: border-box; /* Makes sure padding and borders don't add extra width to elements */
   scroll-behavior: smooth; /* Adds smooth scrolling between sections */
-  cursor: url("../assets/temp/up-cursor.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
+  cursor: url("assets/Little/cursor.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
 
   /* TODO: Replace the URL above to add a custom cursor. 
      If you want to use the default browser cursor, just delete this line. */
@@ -403,11 +403,12 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h2-color);
+  text-transform: uppercase;
 }
 
 h3 {
@@ -463,12 +464,7 @@ em {
 /* ------------------------------------------------------------------ */
 
 /* Main hero headline — usually sits in the intro section */
-.hero-headline {
-  color: var(--color-overlay-primary); /* Uses your brand's dominant color */
-  max-width: 40ch; /* Optimal line length for readability (~40 characters) */
-  text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
-  margin-inline: auto; /* Horizontally centers the text in its container */
-}
+
 
 /* Large project title — appears on individual project pages */
 .project-title {
@@ -516,6 +512,10 @@ em {
   color: var(--color-text-project-category);
 }
 
+.cover-description{
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
 /*
 
 ██   ██ ██    ██ ██████  ███████ ██████  ██      ██ ███    ██ ██   ██ ███████ 
@@ -566,9 +566,12 @@ a:active {
 
 a.nav-link-primary {
   color: var(--color-nav-link);
+  text-transform: capitalize;
 }
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
+  text-transform: capitalize;
+
 }
 
 /* -------------------------------------------------------------------------- */
@@ -604,7 +607,17 @@ a.nav-link-primary:hover {
   -webkit-text-stroke-color: var(--color-nav-arrow-stroke-hover);
 }
 
-/* 
+.project-card a {
+  display: block;          /* fill the li */
+  color: inherit;          /* keep text color */
+  text-decoration: none;   /* remove underline */
+}
+
+.project-card a:hover {
+  cursor: pointer;         /* show pointer on hover */
+}
+
+
 
 ██   ██ ███████ ██████   ██████  
 ██   ██ ██      ██   ██ ██    ██ 
@@ -620,15 +633,48 @@ a.nav-link-primary:hover {
 /* Great place for first impression and personal branding                    */
 /* -------------------------------------------------------------------------- */
 
-.hero {
+.hero-description {
   width: 100%;
-  min-height: 80vh; 
   display: flex;
   flex-direction: column;
-  color: green;
+  align-items: center;
+  justify-content: center;
+    color: var(--color-overlay-primary); /* Uses your brand's dominant color */
+  size: 1rem;
+  text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
+padding: 0 var(--padding-small);
+margin-top: 6rem;
+margin-bottom: 4rem;
 }
+
+.hero-background{
+height: 100vh;
+display: flex;
+}
+
+.hero-work {
+  position: relative;
+  height: 100vh; /* full screen height */
+  background: url("assets/work-2/cover.jpg") center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;}
+
+.hero-logo {
+  max-width: rem;
+  width: 100rem;
+  height: auto;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;}
+
 .hero-header {
-  min-height: 6rem; /* Space reserved for logo + nav */
+  min-height: 6rem;
+    width: 100%;
+        position: absolute; /* Sticks the nav to the top */
+top: 0;
+   /* Space reserved for logo + nav */
 }
 
 .nav-branding {
@@ -636,20 +682,15 @@ a.nav-link-primary:hover {
   flex-direction: row;
   justify-content: space-between;
   padding: var(--padding-small);
+  width:100%
 }
 
-.nav-branding-group {
-  display: flex;
-  flex-direction: row;
-}
+
 .nav-branding-item {
   padding: var(--padding-tiny);
 }
 
-.nav-branding-logo {
-  width: 6rem;
-  /* TODO: Adjust the width of the logo on mobile devices here */
-}
+
 
 .nav-list {
   display: flex;
@@ -657,11 +698,7 @@ a.nav-link-primary:hover {
   gap: 1.5rem;
 }
 
-logo.svg {
-  width: 100%;
-  height: auto;
-  color: white;
-}
+
 .hero-headline-wrapper {
   width: 100%;
   display: flex;
@@ -679,6 +716,7 @@ logo.svg {
 }
 
 .hero-footer {
+  padding: var(--padding-small);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -1057,6 +1095,9 @@ logo.svg {
  margin: 1rem;
 }
 
+.project-card .tags {
+  display: none;
+}
 
 /* Projects header: pills + search box */
 
@@ -1097,6 +1138,11 @@ logo.svg {
  overflow: hidden;
 }
 
+section-title {
+ font-size: 1rem;
+ margin-bottom: 0.5rem;
+color: var(--h4-color);
+}
 
 /* Both images fill the wrapper */
 .project-card img.cover,
@@ -1107,7 +1153,7 @@ logo.svg {
  width: 100%;
  height: 100%;
  object-fit: cover;
- transition: opacity 0.3s ease, transform 0.3s ease;
+ transition: transform 0.3s ease;
 }
 
 
@@ -1148,13 +1194,11 @@ logo.svg {
 /* Filter pills */
 .filter-tags .pill {
  display: inline-block;
- padding: 0.4rem;
- font-size: 14pt;
- font-weight: 200;
- color: #737373;
- font-family: 'Host Grotesk', sans-serif;                  
+ font-family: var(--font-family-heading);
+  font-size: 1rem;
+ padding: 0.2rem;
+ color:var(--color-text-secondary);              
  text-transform: uppercase; 
- background-color: transparent;
  cursor: pointer;
  transition: all 0.3s ease;
  user-select: none;
@@ -1163,13 +1207,13 @@ logo.svg {
 
 /* Hover effect */
 .filter-tags .pill:hover {
- color: #fff;       
+ color: var(--color-accent-primary);       
 }
 
 
 /* Active pill (selected) */
 .filter-tags .pill.active {
- color: #fff;
+ color: var(--color-accent-primary);
 }
 
 
@@ -1481,8 +1525,7 @@ to keep your styles reusable and consistent.
     padding: var(--padding-jumbo);
   }
   .nav-branding-logo {
-    width: 5rem;
-    color:#ebedf0
+    width: 10rem;
     /* TODO: Adjust the width of the logo on large devices here. */
   }
 
