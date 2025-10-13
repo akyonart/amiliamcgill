@@ -32,16 +32,7 @@
 /* TODO: Replace these Google Fonts with the ones you want to use on your site. */
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
-/* Eczar Font (for headers or special text) */
-@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&display=swap");
-
-/* Rubik Font (clean and modern for body text) */
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap");
-
-/* Inter Font (great for readability and minimal design) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-
+@import url("https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap");
 
 /*
 
@@ -104,9 +95,9 @@
 
 :root {
   /* Typography */
-  --font-family-body: "Inter", sans-serif;
-  --font-family-heading: "host-grotesk", sans-serif;
-  --font-family-project-title: "inter", serif;
+  --font-family-body: "Lato", sans-serif;
+  --font-family-heading: "Faculty Glyphic", serif;
+  --font-family-project-title: "Faculty Glyphic", serif;
   /* Core Colours */
   --color-text-primary: #ffffff;
   --color-text-secondary: #b8b8b8;
@@ -116,7 +107,7 @@
   --color-highlight: lemonchiffon;
   --color-fallback: orangered; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
-  --color-bg: #130E09;
+  --color-bg: #130e09;
   --color-bg-about: #f5f5f5;
   --color-bg-footer: #f5f5f5;
   --color-bg-holding-page: rgba(82, 0, 255, 0.6);
@@ -151,7 +142,12 @@
   --color-bg-sidebar-project: orangered;
   --color-bg-sidebar-work: lemonchiffon;
   --color-gradient-hero: linear-gradient(90deg, #ff00ff, #00ffff);
-  --color-gradient-project-details: linear-gradient(-225deg, #ff057c 0%, #8d0b93 50%, #321575 100%);
+  --color-gradient-project-details: linear-gradient(
+    -225deg,
+    #ff057c 0%,
+    #8d0b93 50%,
+    #321575 100%
+  );
   /* Special Elements */
   --color-icon-heart: darkred;
   --color-text-holding-footer: #f8f8ff;
@@ -226,7 +222,9 @@ body {
 /* ------------------------------- */
 
 ::selection {
-  background: var(--color-bg-selection); /* Uses your custom color for highlighted text */
+  background: var(
+    --color-bg-selection
+  ); /* Uses your custom color for highlighted text */
 }
 
 /* ---------------------------------------- */
@@ -378,7 +376,6 @@ svg {
   background: lightblue;
   padding: var(--padding-small);
 }
-
 /* ------------------------------------------------------------------ */
 /* 🔤 Global & Mobile Typography                                      */
 /* Heading styles that scale nicely for mobile-first, responsive sites */
@@ -458,9 +455,6 @@ em {
   font-style: italic; /* Adds emphasis with italic style */
 }
 
-
-
-
 /* Large project title — appears on individual project pages */
 .project-title {
   font-size: 3.625rem;
@@ -506,7 +500,7 @@ em {
   color: var(--color-text-project-category);
 }
 
-.cover-description{
+.cover-description {
   font-size: 1rem;
   color: var(--color-text-secondary);
 }
@@ -565,7 +559,6 @@ a.nav-link-primary {
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
   text-transform: capitalize;
-
 }
 
 /* -------------------------------------------------------------------------- */
@@ -602,17 +595,14 @@ a.nav-link-primary:hover {
 }
 
 .project-card a {
-  display: block;          /* fill the li */
-  color: inherit;          /* keep text color */
-  text-decoration: none;   /* remove underline */
+  display: block; /* fill the li */
+  color: inherit; /* keep text color */
+  text-decoration: none; /* remove underline */
 }
 
 .project-card a:hover {
-  cursor: pointer;         /* show pointer on hover */
+  cursor: pointer; /* show pointer on hover */
 }
-
-
-
 
 ██   ██ ███████ ██████   ██████  
 ██   ██ ██      ██   ██ ██    ██ 
@@ -640,11 +630,11 @@ body {
   padding: 1.25rem;
 }
 
-
 /* height container utility */
 .sliver {
   height: 40vh;
 }
+
 .medium {
   height: 80vh;
 }
@@ -658,8 +648,9 @@ body {
 @media (max-width: 1024px) {
   .two-column {
     grid-template-columns: 1fr; /* stack into 1 column */
-  }}
-  
+  }
+}
+
 .left {
   display: flex;
   flex-direction: column;
@@ -671,22 +662,20 @@ body {
 .left-top .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;}
+  gap: 0.5rem;
+}
 
 .left-top .tag {
-  border: 1px solid var(--color-text-primary); 
+  border: 1px solid var(--color-text-primary);
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
   font-size: 0.875rem;
 }
 
-
-
 .right {
- background: var(--color-bg-selection);
+  background: var(--color-bg-selection);
   min-height: 80vh;
 }
-
 
 .sliver-cover {
   width: 100%;
@@ -696,7 +685,7 @@ body {
 
 /* Base frame style */
 .gallery-frame {
-  width: 100%;          /* mobile width */
+  width: 100%; /* mobile width */
   overflow: hidden;
 }
 
@@ -705,51 +694,52 @@ body {
   height: 100%;
 }
 
- /* Optional: different desktop widths if desired */
-  .gallery-frame.wide {
-    height: 60vh;
-  }
+/* Optional: different desktop widths if desired */
+.gallery-frame.wide {
+  height: 60vh;
+}
 
-  .gallery-frame.narrow {
-    height: 150vh;
-  }
+.gallery-frame.narrow {
+  height: 150vh;
+}
 
 /* Desktop: landscape override for all frames */
 @media (min-width: 1024px) {
   .gallery-frame.narrow {
-    height: 50vh; /* landscape */}
-    .gallery-frame.wide {
-    height:150vh; /*
+    height: 50vh; /* landscape */
+  }
+  .gallery-frame.wide {
+    height: 150vh; /*
      landscape */
-    padding-top:10rem;
+    padding-top: 10rem;
   }
-  }
+}
 
- 
+.gallery {
+  display: flew;
+  flex-direction: collumn;
+  gap: 1rem;
+}
 
-  .gallery {
-    display: flew;
-    flex-direction: collumn;
-gap: 1rem;
-  }
-
-
-
-.work-background {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  top: 0;
+.work-backgorund,
+.work-backgorund img {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* fill the container */
+  object-fit: cover; /* maintain aspect ratio, cover entire area */
+  z-index: 0; /* behind nav */
 }
 
 /*hero*/
 
 .hero-container {
-  position: relative; 
+  position: relative;
   max-width: 100%;
   width: 100%;
   margin: 0 auto;
+  padding-top: clamp(4rem, 8vw, 6rem); 
 }
 
 .hero {
@@ -757,32 +747,44 @@ gap: 1rem;
   object-position: center;
   width: 100%;
   height: 100%;
-  
 }
 
-/* Sticky Navbar */
+.hero-text {
+  font-family: var(--font-family-body);
+  font-size: clamp(.10rem, 2vw, 1.4rem);
+}
+
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: transparent; /* lets hero show behind navbar */
+  background: transparent;
   z-index: 1000;
+  mix-blend-mode: difference;
 }
 
-/* Nav Items */
-.navbar a, .logo, .navbar{
-  color: white; 
-  fill: white;
-  text-decoration: none;
-    mix-blend-mode: difference;
+.navbar a,
+.logo {
+  color: white;
+  text-transform: uppercase;
+  font-family: var(--font-family-heading);
 }
 
 /* Exclusion / Inversion effect on hover */
-.navbar a:hover, .logo:hover {
+.navbar a:hover,
+.logo:hover {
   color: orangered;
   cursor: pointer;
+}
+
+.nav-links-right {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  font-size: 1.5rem;
 }
 
 .logo {
@@ -790,11 +792,13 @@ gap: 1rem;
 }
 
 .logo path {
-  fill: currentColor; 
+  fill: currentColor;
 }
 
 .big-ass-logo path {
   transition: fill 0.2s ease;
+  filter: blur(1px) brightness(1.1);
+  padding-top: 1rem;
 }
 
 .content-box {
@@ -813,24 +817,20 @@ gap: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start; /* align content to left */
-  padding-top:0;
-}
-
-.hero-blurb {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  padding-top: 0;
 }
 
 .hero-footer {
-display: flex;
-width: 100%;
-justify-content: center;
-align-items: flex-start;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
   background-color: grey;
 }
 
 .big-ass-logo {
-width: 100%;
-padding-top: 2rem;
+  width: 100%;
+  padding-top: 2rem;
 }
 
 /*
@@ -856,7 +856,9 @@ padding-top: 2rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-full-width); /* Background color for full-width sections */
+  background: var(
+    --color-bg-full-width
+  ); /* Background color for full-width sections */
   margin-bottom: 1rem;
 }
 
@@ -911,13 +913,17 @@ padding-top: 2rem;
 .portfolio,
 .project-wrapper,
 .work-sidebar-wrapper {
-  padding: var(--padding-tiny); /* Padding to keep content from touching edges */
+  padding: var(
+    --padding-tiny
+  ); /* Padding to keep content from touching edges */
 }
 
 /* Work Sidebar on Mobile */
 .work-sidebar {
   width: 100%;
-  background: var(--color-bg-sidebar-work); /* Background color for the sidebar */
+  background: var(
+    --color-bg-sidebar-work
+  ); /* Background color for the sidebar */
 }
 
 /* Main Work Area with Sidebar on Mobile */
@@ -934,14 +940,14 @@ padding-top: 2rem;
 
 /* Individual Work Grid Item */
 .work-page-grid-item {
- display: flex;
- flex-direction: column;
- justify-content: flex-start;
- gap: 1rem;
- width: 100%;
- position: relative;
- overflow: hidden;
- transition: transform 0.3s ease, opacity 0.5s ease, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.5s ease, box-shadow 0.3s;
 }
 
 /* Project container for background and padding */
@@ -966,7 +972,9 @@ padding-top: 2rem;
   align-items: center;
   flex-direction: column;
   padding: var(--padding-small);
-  background-color: var(--color-overlay-primary); /* Background color of the overlay */
+  background-color: var(
+    --color-overlay-primary
+  ); /* Background color of the overlay */
   transition: opacity var(--duration-normal), visibility var(--duration-normal);
 }
 
@@ -975,7 +983,6 @@ padding-top: 2rem;
   visibility: visible; /* Make overlay visible on hover */
   opacity: 0.8; /* Set opacity on hover */
 }
-
 
 /*
 
@@ -1003,7 +1010,6 @@ padding-top: 2rem;
 .sidebar-nav-item {
   margin-bottom: 1rem; /* Space between each navigation item */
 }
-
 
 -------------------------------------------------------------------------- */
 /* 📱 MOBILE FOOTER LAYOUT                                                    */
@@ -1138,14 +1144,12 @@ padding-top: 2rem;
 /* including the project image, description, sidebar, and navigation arrows.         */
 /* ---------------------------------------------------------------------------------- */
 
-
-
 /* Wrapper for the main project section and sidebar */
 
 /* Projects Section */
 #projects {
- padding: 0;
- margin: 1rem;
+  padding: 0;
+  margin: 1rem;
 }
 
 .project-card .tags {
@@ -1154,136 +1158,122 @@ padding-top: 2rem;
 
 /* Projects header: pills + search box */
 
-
 .projects {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
- gap: 1.5rem;
- margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
-
 
 @media (min-width: 1200px) {
- .projects {
-   grid-template-columns: repeat(2, 1fr); /* 2 columns on large screens */
- }
+  .projects {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on large screens */
+  }
 }
-
 
 .project-card {
- background: var(--card-bg);
- display: flex;
- flex-direction: column;
- justify-content: flex-start;
- gap: 1rem;
- width: 100%;
- position: relative;
- overflow: hidden;
- transition: transform 0.3s ease, opacity 0.5s ease, box-shadow 0.3s;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.5s ease, box-shadow 0.3s;
 }
-
 
 /* Image wrapper enforces aspect ratio */
 .project-card .image-wrapper {
- position: relative;
- width: 100%;
- aspect-ratio: 16/9;
- overflow: hidden;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
 }
 
 section-title {
- font-size: 1rem;
- margin-bottom: 0.5rem;
-color: var(--h4-color);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--h4-color);
 }
 
 /* Both images fill the wrapper */
 .project-card img.cover,
 .project-card img.hover {
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- object-fit: cover;
- transition: transform 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
-
 
 .cover {
   background-color: #9d9d9d;
 }
 /* Default image visible */
 .project-card img.cover {
- opacity: 1;
- z-index: 1;
+  opacity: 1;
+  z-index: 1;
 }
-
 
 /* Hover image hidden initially */
 .project-card img.hover {
- opacity: 0;
- z-index: 2;
+  opacity: 0;
+  z-index: 2;
 }
-
 
 /* Hover effect */
 .project-card:hover img.cover {
- opacity: 0;
- transform: scale(1.05);
+  opacity: 0;
+  transform: scale(1.05);
 }
-
 
 .project-card:hover img.hover {
- opacity: 1;
- transform: scale(1.05);
+  opacity: 1;
+  transform: scale(1.05);
 }
-
 
 .tags {
- font-size: 10pt;
- color: #9d9d9d;
- margin-top: 0;
+  font-size: 10pt;
+  color: #9d9d9d;
+  margin-top: 0;
 }
-
 
 /* Filter pills */
 .filter-tags .pill {
- display: inline-block;
- font-family: var(--font-family-heading);
+  display: inline-block;
+  font-family: var(--font-family-heading);
   font-size: 1rem;
- padding: 0.2rem;
- color:var(--color-text-secondary);              
- text-transform: uppercase; 
- cursor: pointer;
- transition: all 0.3s ease;
- user-select: none;
+  padding: 0.2rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
 }
-
 
 /* Hover effect */
 .filter-tags .pill:hover {
- color: var(--color-accent-primary);       
+  color: var(--color-accent-primary);
 }
-
 
 /* Active pill (selected) */
 .filter-tags .pill.active {
- color: var(--color-accent-primary);
+  color: var(--color-accent-primary);
 }
-
 
 /* Hidden projects */
 .project-card.hidden {
- display: none !important;
- opacity: 0;
- pointer-events: none;
- height: auto;
- margin: 0;
- padding: 0;
- overflow: hidden;
+  display: none !important;
+  opacity: 0;
+  pointer-events: none;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
-
 
 .project-wrapper,
 .work-sidebar-wrapper {
@@ -1297,8 +1287,6 @@ color: var(--h4-color);
   width: 100%;
   padding: var(--padding-small);
 }
-
-
 
 /*
 ███████ ██████  ██████   ██████  ██████  
@@ -1406,7 +1394,7 @@ to keep your styles reusable and consistent.
   }
 
   h1 {
-    font-size: 4.275rem;
+    font-size: 2.25rem;
   }
 
   h2 {
@@ -1425,13 +1413,6 @@ to keep your styles reusable and consistent.
   .padding-jumbo {
     padding: var(--padding-jumbo);
   }
-  
-.nav-links-right {
-  display: flex;
-  width: 10rem;
-  justify-content: space-between;
-
-}
 
   .hero-headline-wrapper {
     padding-top: var(--padding-jumbo);
@@ -1450,21 +1431,23 @@ to keep your styles reusable and consistent.
     font-size: 5rem;
   }
 
-/* X-Large devices (large desktops, 1200px and up)*/
+  /* X-Large devices (large desktops, 1200px and up)*/
 
-@media (min-width: 1200px) {
-  /* TODO: Add styles here for X-large devices. */
+  @media (min-width: 1200px) {
+    /* TODO: Add styles here for X-large devices. */
 
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    }
+  }
+
+  /* XX-Large devices (larger desktops, 1400px and up) */
+
+  @media (min-width: 1400px) {
+    /* TODO: Add styles here for XX-large devices. */
+
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    }
   }
 }
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-
-@media (min-width: 1400px) {
-  /* TODO: Add styles here for XX-large devices. */
-
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  }}}
