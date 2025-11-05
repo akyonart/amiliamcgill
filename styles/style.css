@@ -625,9 +625,23 @@ body {
   color: white; /* ensures text is visible on dark background */
 }
 
+.preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* padding utility */
 .small-padding {
   padding: 1.25rem;
+}
+
+.medium-padding {
+  padding: 2.5rem;
+}
+
+.large-padding {
+  padding: 4rem;
 }
 
 /* height container utility */
@@ -655,8 +669,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* top & bottom split */
-  padding: 2rem;
-  height: 100vh;
+  height: 100%;
 }
 
 .left-top .tags {
@@ -673,8 +686,7 @@ body {
 }
 
 .right {
-  background: var(--color-bg-selection);
-  min-height: 80vh;
+  height: 100vh;
 }
 
 .sliver-cover {
@@ -687,32 +699,20 @@ body {
 .gallery-frame {
   width: 100%; /* mobile width */
   overflow: hidden;
+  height: auto;
+background-color: #00ffff;
+}
+
+/* For smaller screens / phones */
+@media (max-width: 600px) {
+  .gallery-frame {
+    height: auto; /* lets content define height */
+  }
 }
 
 .gallery-frame img {
   object-fit: cover;
   height: 100%;
-}
-
-/* Optional: different desktop widths if desired */
-.gallery-frame.wide {
-  height: 60vh;
-}
-
-.gallery-frame.narrow {
-  height: 150vh;
-}
-
-/* Desktop: landscape override for all frames */
-@media (min-width: 1024px) {
-  .gallery-frame.narrow {
-    height: 50vh; /* landscape */
-  }
-  .gallery-frame.wide {
-    height: 150vh; /*
-     landscape */
-    padding-top: 10rem;
-  }
 }
 
 .gallery {
@@ -729,17 +729,25 @@ body {
   width: 100%;
   height: 100%; /* fill the container */
   object-fit: cover; /* maintain aspect ratio, cover entire area */
-  z-index: 0; /* behind nav */
+  z-index: -1000;
 }
 
 /*hero*/
+.work-hero-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center; /* vertical centering */
+  text-align: center; /* optional: center text inside */
+}
 
 .hero-container {
   position: relative;
   max-width: 100%;
   width: 100%;
   margin: 0 auto;
-  padding-top: clamp(4rem, 8vw, 6rem); 
+  padding-top: clamp(4rem, 8vw, 6rem);
 }
 
 .hero {
@@ -751,7 +759,7 @@ body {
 
 .hero-text {
   font-family: var(--font-family-body);
-  font-size: clamp(.10rem, 2vw, 1.4rem);
+  font-size: clamp(0.1rem, 2vw, 1.4rem);
 }
 
 .navbar {
@@ -909,7 +917,27 @@ body {
   flex: 1;
 }
 
-/* Padding around work grid and project page */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1rem;                             
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; 
+  aspect-ratio: 16 / 9; 
+  background-color: #5200ff;
+}
+
+@media (max-width: 600px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .portfolio,
 .project-wrapper,
 .work-sidebar-wrapper {
@@ -953,7 +981,7 @@ body {
 /* Project container for background and padding */
 .project-container {
   background: var(--color-accent-primary); /* Set project background color */
-  padding: var(--padding-medium);
+  padding:#DFDFDF;
 }
 
 /* Overlay (appears on hover) */
@@ -1210,7 +1238,7 @@ section-title {
 }
 
 .cover {
-  background-color: #9d9d9d;
+  background-color: #DFDFDF;
 }
 /* Default image visible */
 .project-card img.cover {
