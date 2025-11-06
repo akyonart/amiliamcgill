@@ -1,0 +1,25 @@
+.block-carousel {
+  overflow: hidden;
+  width: 100%;
+  background: var(--color-bg);
+}
+
+.carousel-items {
+  display: flex;
+  gap: 2rem;
+  height: 16vh;
+  z-index: 1;
+}
+
+.block-carousel[data-animated] .carousel-items {
+  animation: scroll 18s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

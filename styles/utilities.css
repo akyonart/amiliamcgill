@@ -1,0 +1,95 @@
+/* =========================================================
+   UTILITY CLASSES
+========================================================= */
+
+/* Spacing */
+.small-padding { padding: var(--padding-small); }
+.medium-padding { padding: var(--padding-medium); }
+.large-padding { padding: var(--padding-large); }
+.top-padding { padding-top: var(--padding-medium); }
+.top-padding-small { padding-top: var(--padding-small); }
+.padding-jumbo { padding: var(--padding-jumbo); }
+.padding-ultra { padding: var(--padding-ultra); }
+.top-padding-large { padding-top: 6rem }
+.top-bottom-padding { padding-top: var(--padding-large); padding-bottom: var(--padding-large);}
+.top-bottom-padding-small{
+  padding-top: var(--padding-small); padding-bottom: var(--padding-small);
+}
+.bottom-padding-small{
+  padding-bottom: var(--padding-small);
+}
+/* Rounded corners */
+.rounded-small { border-radius: var(--radius-sm); }
+.rounded-medium { border-radius: var(--radius-md); }
+.rounded-large { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: var(--radius-full); }
+.rounded-frame { border-radius: var(--radius-md); overflow: hidden; }
+
+/* Grid helpers */
+.one-column { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.two-column { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.67rem; }
+.two-column-offset {
+  display: grid;
+  grid-template-columns: 8fr 6fr; /* first box twice as wide as second */
+  gap: 1rem; /* space between boxes */
+}
+.three-column { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.four-column { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+@media (max-width:1024px){.two-column{grid-template-columns:1fr;}}
+
+/* Column & row spans */
+.span-1{grid-column:span 1;}
+.span-2{grid-column:span 2;}
+.span-3{grid-column:span 3;}
+.span-4{grid-column:span 4;}
+.span-5{grid-column:span 5;}
+.span-6{grid-column:span 6;}
+
+.row-span-1{grid-row:span 1;}
+.row-span-2{grid-row:span 2;}
+.row-span-3{grid-row:span 3;}
+.row-span-4{grid-row:span 4;}
+
+.col-full{grid-column:1/-1;}
+.row-full{grid-row:1/-1;}
+.gap{gap:1rem;}
+
+/* Background colors for specific projects */
+.spudbuds-purple {
+  background-color: #bf7dd2;
+}
+.spudbuds-cream {
+  background-color: #f1f0ec;
+}
+.spudbuds-boots { 
+    background-color: #2E2226
+}
+
+.onsi-grey {
+  background-color: grey;
+}
+
+.la-compagnia-red {
+  background-color: #CD4437;
+}
+
+
+
+/* Flex shorthand positioning utilities */
+.flex { display: flex; }
+
+/* Alignment */
+.center-vert { align-items: center; }      /* vertical centering */
+.center-horz { justify-content: center; }  /* horizontal centering */
+.center { justify-content: center; align-items: center; } /* both */
+.space-between { justify-content: space-between; }
+.space-around { justify-content: space-around; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+
+/* Direction */
+.row { flex-direction: row; }
+.col { flex-direction: column; }
+
+

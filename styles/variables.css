@@ -1,0 +1,66 @@
+/* =========================================================
+   CSS VARIABLES
+========================================================= */
+
+:root {
+  /* Fonts */
+  --font-heading: "Newsreader", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-family-body: "DM Sans", sans-serif;
+  --font-family-heading: "Newsreader", serif;
+  --font-family-project-title: "Newsreader", serif;
+
+  /* Colors */
+  --color-accent-primary: #ff9720;
+  --color-accent-secondary: #ff9720;
+  --color-highlight: #ff9720;
+  --color-fallback: #ff9720;
+
+  --color-bg: #000000;
+  --color-bg-about: #b8b8b8;
+  --color-bg-footer: #b8b8b8;
+  --color-bg-rgb: 248, 248, 248;
+
+  --color-bg-project-description: #f2f6fa;
+  --color-bg-sidebar-project: #ff9720;
+  --color-bg-sidebar-work: lemonchiffon;
+  --color-gradient-hero: linear-gradient(90deg, #ff00ff, #00ffff);
+
+  --color-text-primary: #f2f6fa;
+  --color-text-secondary: #000000;
+  --color-text-project-title: #f2f6fa;
+  --color-text-project-description: #f2f6fa;
+  --color-text-project-category: #f2f6fa;
+
+  --color-link: #000000;
+  --color-link-hover: #ff9720;
+  --color-link-visited: #ffffff;
+
+  --color-nav-link: #000000;
+  --color-nav-link-hover: #ff9720;
+
+  --color-bg-navbar: #000000;
+
+  --small-gap: 1.6667vw;
+
+  --image-noise-texture: url(/assets/temp/noise.svg);
+
+  /* Animation durations */
+  --duration-fast: 0.15s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.75s;
+
+  /* Spacing */
+  --padding-tiny: 0.5rem;
+  --padding-small: 1.6667vw;
+  --padding-medium: 2rem;
+  --padding-large: 3rem;
+  --padding-jumbo: 4rem;
+  --padding-ultra: 8rem;
+
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
+  --radius-full: 50%;
+}

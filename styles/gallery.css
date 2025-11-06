@@ -1,0 +1,79 @@
+/* Gallery container */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-bg);
+}
+
+/* Fills container completely, may crop */
+.gallery-cover {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Shows full image inside container */
+.gallery-fill {
+  width: 100%;
+  overflow: hidden;
+  object-fit: contain;
+  position: relative;
+}
+
+.gallery-fill img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.gallery-contain {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-contain img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+/* Moodboard layout */
+.gallery-moodboard {
+  display: flex;
+}
+
+/* Each column stacks items vertically */
+.gm-col-1,
+.gm-col-2,
+.gm-col-3 {
+  display: flex;
+  flex-direction: column;
+  flex: 2; /* equal width columns */
+}
+.gm-col-2 {
+  flex: 3; /* equal width columns */
+}
+
+/* Placeholder blocks for now */
+.gm-block {
+  width: 100%;
+  height: 100%;
+}
+
+.gm-block-bob {
+  width: 100%;
+  height: 100%;
+}
+
+.gm-block-rob {
+  width: 100%;
+  min-height: 60%; /* temporary height to see layout */
+}
