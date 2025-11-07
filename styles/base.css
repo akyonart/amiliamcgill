@@ -71,7 +71,7 @@ p { font-size: 1.2rem; line-height: 1.5; font-weight: 300; margin-bottom: 1rem; 
 .hero-text {
   font-size: 2rem;
   line-height: 1.1;
-  padding-top: 0.5rem;
+  padding-top: 4rem;
   font-family: var(--font-family-heading);
   font-weight: 400;
   color: var(--color-text-secondary);

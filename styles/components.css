@@ -339,7 +339,7 @@ color: white;
     }
 
 .gif {
-  transform: translate( -12rem, 7rem ); /* Move left 30px and down 20px */
+  transform: translate( -12rem, 2rem ); /* Move left 30px and down 20px */
 }
 
 .case-btn {
@@ -404,4 +404,31 @@ color: white;
   height: 100%;
   object-fit: cover;    /* scale image to cover the container */
   z-index: 0;           /* behind other content */
+}
+
+.pill{
+  display: inline-block; /* shrink to fit text */
+  border: 1px solid var(--color-nav-link-hover);
+  color: var(--color-nav-link-hover);
+  padding: 0.5rem 1rem; /* adjust as needed */
+  border-radius: var(--radius-lg);
+  white-space: nowrap; /* optional: prevent text wrap inside tag */
+  text-transform: uppercase;
+}
+
+.filter-tags{
+  gap: 1rem;
+flex-wrap: wrap;
+}
+
+.pill:hover {
+  background-color: orange; /* fill background */
+}
+
+.pill:hover p {
+  color: black; /* text and arrow black */
+}
+
+.pill:active{
+    background-color: orange;
 }
