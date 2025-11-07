@@ -50,7 +50,6 @@
 .navbar a,
 .logo {
   color: white;
-  text-transform: uppercase;
   size: 3rem;
   font-family: var(--font-family-heading);
 }
@@ -61,7 +60,6 @@
 }
 
 .nav-links-right a {
-  text-transform: uppercase;
   font-family: var(--font-family-heading);
 }
 
