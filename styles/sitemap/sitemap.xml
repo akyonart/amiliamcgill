@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home page -->
+  <url>
+    <loc>https://amiliamcgill.com/</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About page -->
+  <url>
+    <loc>https://amiliamcgill.com/about</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact page -->
+  <url>
+    <loc>https://amiliamcgill.com/contact</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Project pages -->
+  <url>
+    <loc>https://amiliamcgill.com/onsi</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://amiliamcgill.com/la-compagnia</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
