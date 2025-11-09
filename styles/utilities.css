@@ -56,6 +56,9 @@
 .gap{gap:1rem;}
 
 /* Background colors for specific projects */
+.cream {
+background-color: #f2f6fa;
+}
 .spudbuds-purple {
   background-color: #bf7dd2;
 }
@@ -93,3 +96,15 @@
 .col { flex-direction: column; }
 
 
+.bottom-boy {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5; /* above hero background, below text */
+  pointer-events: none; /* doesn't block clicks */
+}
+
+.margin-bottom {
+  margin-bottom: 4rem;
+}

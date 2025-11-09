@@ -31,11 +31,15 @@
     />
 
     <!-- Custom Styles -->
-   <link rel="stylesheet" href="./styles/components.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
     <link rel="stylesheet" href="./styles/utilities.css" />
-     <link rel="stylesheet" href="./styles/base.css" />
-      <link rel="stylesheet" href="./styles/variables.css" />
-      <link rel="stylesheet" href="./styles/logo.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/media.css" />
+    <link rel="stylesheet" href="./styles/logo.css" />
+    <link rel="stylesheet" href="./styles/gallery.css" />
+    <link rel="stylesheet" href="./styles/carousel.css" />
+    <link rel="stylesheet" href="./styles/stt-button.css" />
 
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
@@ -43,10 +47,11 @@
   </head>
 
   <body class="work-page" id="top">
+    
     <!-- Navbar -->
     <nav class="navbar small-padding">
       <!-- SVG Logo -->
-      <a href="work.html"
+      <a href="index.html"
         ><svg
           class="logo"
           xmlns="http://www.w3.org/2000/svg"
@@ -67,9 +72,10 @@
     </div>
   </nav>
 
-
-   <!-- Scroll Container -->
-<main data-scroll-container>
+<!-- Scroll To Top Button -->
+<button id="scrollTop" class="scroll-top flex">
+  <span class="arrow">↑</span>
+</button>
 
 <!-- 
 ██╗  ██╗███████╗██████╗  ██████╗ 
@@ -80,13 +86,14 @@
 ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝ 
 -->
 
+
 <!-- Hero Section -->
 <section class="hero-container medium" data-scroll-section>
 
  <!-- Project Background -->
 <div class="work-background overlay-dark">
     <img 
-      src="assets/onsi/Photography/Group_of_people_at_indoor_climbing_gym.jpg" 
+      src="assets/onsi/Photography/People_waiting_in_line_indoors.jpg" 
       alt="La Compagnia Project Cover" 
       loading="lazy"
     >
@@ -127,25 +134,29 @@
  ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚══════╝ ╚══╝╚══╝ 
 -->
 
-        <section class="project" data-scroll-section>
-      <!-- Left: Title + Button -->
-      <div class="project-left span-6">
-        <h1 class="project-title">ONSI</h1>
-<ul class="tags one-column">
-        <li class="tag">Brand Identity</li>
-        <li class="tag">Packaging</li>
-        <li class="tag">Web Design</li>
-        <li class="tag">Product Development</li>
-      </ul>
-      </div>      
+ <section class="project" data-scroll-section>
+        <!-- Left: Title + Button -->
+        <div class="span-6">
+          <h1 class="project-title">ONSI Magazine</h1>
+          <ul class="tags top-padding-small">
+            <li class="tag">Editoral</li>
+            <li class="tag">Art Direction</li>
+            <li class="tag">Branding</li>
+          </ul>
+        </div>
 
-      <!-- right: Paragraph -->
-      <div class="project-right span-6">
-        <p>
-       ONSI is a magazine that celebrates the energy, creativity, and community of the young, urban climbing scene. The visual direction uses vibrant colours, bold geometric shapes, and textured elements to express the sport’s physicality and the diversity within its community. Through its lively design and inclusive tone, ONSI fosters a sense of belonging and inspires readers to embrace both the challenges and the joy of climbing culture.
-        </p>
-      </div>
-    </section>
+        <!-- right: Paragraph -->
+        <div class="project-right span-5">
+          <p class="project-description bottom-padding-small">
+ONSI is a magazine that celebrates the energy, creativity, and community of the young, urban climbing scene. The visual direction uses vibrant colours, bold geometric shapes, and textured elements to express the sport’s physicality and the diversity within its community. Through its lively design and inclusive tone, ONSI fosters a sense of belonging and inspires readers to embrace both the challenges and the joy of climbing culture.
+          </p>
+            <a href="la-compagnia.html" class="case-btn span-2 flex center-horz"
+              ><p>View Case Study</p>
+              <span class="arrow">→</span>
+            </a>
+        </div>
+      </section>
+
 
   <!-- 
  ██████╗  █████╗ ██╗     ██╗     ███████╗██████╗ ██╗   ██╗
@@ -157,38 +168,48 @@
 -->
     <!-- Gallery Section -->
     <section class="gallery small-padding" data-scroll-section>
-      <img
-        class="gallery-frame wide"
-        src="assets/onsi/Front and Back.png"
-        alt="Gallery Image 2"
-      />
-      <div class="image-grid large-padding">
-        <img src="assets/onsi/04-brochure-a4-vert.png" alt="Image 1" />
-        <img src="assets/onsi/05-brochure-a4-vert.png" alt="Image 2" />
-        <img src="assets/onsi/06-brochure-a4-vert.png" alt="Image 3" />
-        <img src="assets/onsi/07-brochure-a4-vert.png" alt="Image 4" />
-        <img src="assets/onsi/08-brochure-a4-vert.png" alt="Image 5" />
-        <img src="assets/onsi/09-brochure-a4-vert.png" alt="Image 6" />
-        <img src="assets/onsi/10-brochure-a4-vert.png" alt="Image 7" />
-
+      
+          <div class="two-column margin-bottom">
+      <img src="assets/onsi/Photography/Three_women_lifting_a_barbell_together.jpeg" class="rounded-frame">
+      <img src="assets/onsi/Photography/Girl_climbing_indoor_bouldering_wall.jpg" class="rounded-frame">
       </div>
+
+    <img src="assets/onsi/Front and Back.png" class=" onsi-grey gallery-fill edge" alt="magazine cover">
+
+    <div class="two-column">
+  <img src="assets/onsi/04-brochure-a4-vert.png">
+    <img src="assets/onsi/05-brochure-a4-vert.png">
+</div>
+
+   <img src="assets/onsi/06-brochure-a4-vert.png" class="gallery-cover edge onsi-grey" alt="magazine cover">
+
+   <img src="assets/onsi/08-brochure-a4-vert.png" class="gallery-cover edge" alt="magazine cover">
+
+      <img src="assets/onsi/07-brochure-a4-vert.png" class="gallery-cover edge onsi-grey" alt="magazine cover">
+
+<div class="two-column">
+  <img src="assets/onsi/09-brochure-a4-vert.png">
+    <img src="assets/onsi/10-brochure-a4-vert.png">
+</div>
     </section>
     <!-- Close gallery -->
-    <section class="project">
-      <!-- Left: Title + Button -->
-      <div class="project-left">
-        <h3 class="project-title-2">La Compagnia</h3>
-      </div>
 
-      <div class="project-right">
-        <p>
-          The house wine collection captures the spirit of living in the moment.
-          Each bottle evokes spontaneity, connection, and the unfolding stories
-          of the evening, celebrating the unexpected joys of gathering. The best
-          memories aren’t planned, but with La Compagnia, you’ll always ready
-          welcome them in.
-        </p>
-      </div>
-    </section>
+   <script> // Scroll detection
+const scrollTopBtn = document.getElementById('scrollTop');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > window.innerHeight) {
+    scrollTopBtn.classList.add('show');
+  } else {
+    scrollTopBtn.classList.remove('show');
+  }
+});
+
+// Smooth scroll to top
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
   </body>
 </html>

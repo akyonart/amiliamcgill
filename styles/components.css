@@ -33,9 +33,9 @@
   justify-content: space-between;
   align-items: center;
   z-index: 9999;
+  pointer-events: auto;
   background-color: transparent;
    mix-blend-mode: exclusion; /* add this line */
-  pointer-events: none;
 }
 
 
@@ -80,8 +80,6 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  padding-top: 4rem;
-
 }
 
 .hero-container-a {
@@ -228,6 +226,7 @@
   inset: 0; /* fills the hero container */
   z-index: 0; /* behind everything */
   overflow: hidden;
+  
 }
 
 
@@ -238,6 +237,12 @@
   object-fit: cover; /* make it behave like background-size: cover */
   object-position: center; /* centers the image */
   display: block;
+}
+
+.work-background,
+.hero-bg,
+.background-img {
+  pointer-events: none;
 }
 
 /* Foreground logo box */
@@ -332,13 +337,11 @@ color: white;
 
     .gif-container{
     height: 100%;
-    width: 122%;
-
+    width: 100%;
+overflow: hidden;
     }
 
-.gif {
-  transform: translate( -12rem, 2rem ); /* Move left 30px and down 20px */
-}
+
 
 .case-btn {
   display: inline-flex;
@@ -351,8 +354,7 @@ color: white;
   text-transform: uppercase;
   font-size: 1rem;
   text-decoration: none;
-  color: orange; /* initial text color */
-  background: transparent;
+  background: orange;
   width: fit-content;
   transition: all 0.3s ease;
     white-space: nowrap;
@@ -361,23 +363,23 @@ color: white;
 
 .case-btn p {
   margin: 0;
-    color: orange; /* initial text color */
+    color: rgb(0, 0, 0); /* initial text color */
   transition: color 0.3s ease;
 }
 
 .case-btn .arrow {
   transition: transform 0.3s ease, color 0.3s ease;
-  color: orange;
+  color: rgb(0, 0, 0);
 }
 
 /* Hover state */
 .case-btn:hover {
-  background-color: orange; /* fill background */
+  background-color: transparent; /* fill background */
 }
 
 .case-btn:hover p,
 .case-btn:hover .arrow {
-  color: black; /* text and arrow black */
+  color: orange; /* text and arrow black */
 }
 
 .case-btn:hover .arrow {
@@ -404,29 +406,33 @@ color: white;
   z-index: 0;           /* behind other content */
 }
 
-.pill{
-  display: inline-block; /* shrink to fit text */
-  border: 1px solid var(--color-nav-link-hover);
-  color: var(--color-nav-link-hover);
-  padding: 0.5rem 1rem; /* adjust as needed */
-  border-radius: var(--radius-lg);
-  white-space: nowrap; /* optional: prevent text wrap inside tag */
-  text-transform: uppercase;
+/* --- Filter Pills --- */
+.filter-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
-.filter-tags{
-  gap: 1rem;
-flex-wrap: wrap;
+.pill {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* rounded pill shape */
+  background-color: none;
+  color: orange;
+    border: 1px solid orange;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .pill:hover {
-  background-color: orange; /* fill background */
+  background-color: orange;
+  transform: translateY(-2px);
 }
 
-.pill:hover p {
-  color: black; /* text and arrow black */
-}
-
-.pill:active{
-    background-color: orange;
+/* Active state for selected pill */
+.pill.active {
+  background-color: orange;
+  color: black;
 }

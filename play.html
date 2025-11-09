@@ -1,151 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Free Creative Portfolio Template: April 2025 Version | Play Page</title>
-    <meta name="description" content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!" />
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amilia McGill — Designer</title>
+    <meta
+      name="La Compagnia – Branding & Visual Design | Amilia McGill"
+      content="description"
+      content="Branding, packaging, and visual design for La Compagnia, a contemporary Italian long-table dining concept — a project by Amilia McGill."
+    />
     <meta property="og:image" content="screenshot.jpg" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS Resets & Libraries -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Locomotive Scroll -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
+    />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./styles/components.css" />
+    <link rel="stylesheet" href="./styles/utilities.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/media.css" />
+    <link rel="stylesheet" href="./styles/logo.css" />
+    <link rel="stylesheet" href="./styles/gallery.css" />
+    <link rel="stylesheet" href="./styles/carousel.css" />
     <link rel="stylesheet" href="./styles/masonry.css" />
-    <link rel="stylesheet" href="./lightbox2/dist/css/lightbox.min.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
-  <body class="play-page">
-    <section class="hero">
-      <header class="hero-header">
-        <ul class="nav-branding">
-          <li><a href="work.html" class="custom-navigation">Work</a></li>
-          <li class="nav-branding-logo">
-            <a href="index.html"><img src="assets/branding-images/logo.svg" alt="Describe your project" /></a>
-          </li>
-          <li><a href="about.html" class="custom-navigation">About</a></li>
-        </ul>
-      </header>
-      <div class="hero-headline-wrapper">
-        <h1 class="hero-headline">
-          A <span class="highlight-primary"><strong>masonry</strong></span> layout with <span class="highlight-gradient"><strong>Lightbox</strong></span> and <span class="highlight-gradient"><strong>rotate</strong></span> effects—perfect for a fun playground for creatives or a <em>Work</em> page for illustrators!
-        </h1>
+  <body class="work-page" id="top">
+     <!-- Navbar -->
+    <nav class="navbar small-padding">
+      <!-- SVG Logo -->
+      <a href="index.html"
+        ><svg
+          class="logo"
+          xmlns="http://www.w3.org/2000/svg"
+          width="118"
+          height="43"
+          viewBox="0 0 118 43"
+          fill="none"
+        >
+          <path
+            d="M116.988 5.91929C116.729 5.48378 116.126 4.4959 115.021 3.93557C113.234 3.03002 110.931 3.9223 105.413 7.51795C103.651 8.66649 101.503 10.135 99.0916 11.9368C99.3956 9.91063 99.2642 7.92691 98.1847 6.19946C97.9271 5.78651 97.3256 4.84909 96.2222 4.31931C93.5879 3.05392 90.0002 5.39349 86.609 7.74102C84.5828 9.14317 82.214 10.852 79.5797 12.8862C80.448 9.02633 80.5596 5.94983 78.9529 4.69507C77.2308 3.35002 74.1397 4.57026 73.0841 4.98851C69.6863 6.33356 68.3346 9.02101 66.0415 11.7377C64.1029 14.0348 61.0596 17.0661 56.3579 19.954C57.2728 16.8868 58.3695 14.4225 59.2924 12.618C61.4606 8.37704 62.7393 5.87415 65.4546 3.5213C66.732 2.41393 68.3638 1.3092 68.0956 0.586885C67.8752 -0.00530951 66.5049 1.64914e-06 66.0415 1.64914e-06C58.7161 0.0185907 41.3937 15.259 41.3937 15.259C39.2135 17.1763 35.3111 20.5954 30.2429 24.9426C29.4715 24.4752 28.4703 23.7356 27.602 22.595C25.5187 19.8571 26.1945 17.4246 24.6675 16.7262C23.3318 16.1154 21.1462 17.2135 20.2659 18.7803C19.0244 20.9897 20.651 23.6519 21.4397 24.9426C22.9175 27.3618 25.0473 28.5462 26.1348 29.0507C22.6267 32.8987 19.5556 35.1466 17.6249 36.3868C16.3303 37.2193 14.9614 37.9748 13.2233 37.854C13.1277 37.8474 10.9223 37.6641 9.40857 36.0933C6.08113 32.6411 9.67015 26.1243 7.94137 25.236C6.07847 24.28 -0.389195 29.311 0.0184369 34.9196C0.254784 38.1607 2.69128 40.2746 2.95285 40.495C8.37024 45.0546 18.9328 41.9343 25.2531 37.2671C27.8795 35.3285 29.5937 33.2545 30.5351 31.9852C31.8323 31.9546 33.2052 31.863 34.6432 31.6917C39.4259 31.1208 43.477 29.8248 46.6744 28.4639C46.4234 29.2021 46.0808 30.3108 45.794 31.6917C45.4076 33.5533 45.2271 34.5013 45.5006 35.5065C45.8047 36.6218 46.4526 37.0507 47.8481 38.4409C48.7563 39.3451 49.4255 40.0993 49.9328 40.7141C51.5274 42.6447 51.7027 42.8916 51.9563 42.8425C52.9482 42.6513 52.6149 38.0319 53.1301 33.1589C53.3 31.5496 53.6253 29.3336 54.3038 26.7032C56.2557 25.8999 59.1277 24.5389 62.2268 22.3016C67.1011 18.7816 69.1977 15.5046 70.0023 15.9932C70.9982 16.5974 69.2959 22.5286 66.6284 27.5835C64.4561 31.6997 62.4326 33.8348 63.2545 36.2394C63.4324 36.7599 64.3539 37.6694 66.1889 39.4673C68.6984 41.925 69.9837 43.132 70.5905 42.9886C72.0737 42.6367 71.832 38.8631 72.9381 33.5984C73.8184 29.4039 74.5181 29.1968 76.4594 23.328C76.6984 22.6056 76.9374 21.8833 77.1737 21.1623C79.8731 17.1179 82.6681 14.615 84.6439 13.1133C85.6238 12.3684 90.1661 9.01172 91.5656 10.07C93.1537 11.2703 90.3321 17.2878 87.5756 22.3733C86.1881 25.6848 84.5204 27.8916 83.1607 29.3508C82.0892 30.5007 80.4122 32.0423 80.8052 33.536C80.9858 34.2251 81.6245 34.966 81.8675 35.2489C82.222 35.6605 82.7292 36.1411 83.5989 37.1808C83.6095 37.1927 84.6226 38.405 85.7977 39.7541C87.0312 41.1695 87.3127 41.4364 87.5119 41.4589C87.5119 41.4589 87.5438 41.4589 87.5796 41.4589C88.6631 41.4111 92.6624 30.9574 95.1786 24.0782C97.064 20.5502 99.8351 16.2469 103.459 13.173C104.686 12.1334 108.472 8.9201 110.306 9.94117C110.335 9.95711 110.351 9.9664 110.375 9.98233C111.804 10.9729 109.285 17.7034 106.39 22.7437C104.238 26.5585 102.087 30.3732 99.9347 34.188C99.8378 34.6129 99.7794 35.2011 100.058 35.7402C100.158 35.934 100.186 35.8968 100.725 36.4665C101.446 37.2299 102.045 37.9801 102.46 38.5033C102.46 38.5033 102.46 38.5046 102.463 38.5073C103.78 40.1511 104.431 40.9783 104.664 41.216C105.503 42.0697 107.211 42.8969 108.151 42.403C109.431 41.7311 108.312 39.1154 109.031 35.3604C109.59 32.4446 110.658 31.9745 112.759 27.6951C114.41 24.3304 115.121 21.6855 116.102 18.5798C118.027 12.4919 118.734 8.85637 116.989 5.92062L116.988 5.91929ZM48.1429 23.1806C45.4807 24.3623 42.1041 25.3927 38.1659 25.5281C37.5617 25.5494 36.9748 25.548 36.4052 25.5281C39.4047 22.2671 42.9114 18.7856 46.9691 15.2576C51.0614 11.7005 55.0315 8.69172 58.7068 6.16095C55.1855 11.8346 51.6642 17.5069 48.1429 23.1806Z"
+          />
+        </svg>
+      </a>
+
+      <div class="nav-links-right">
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+    <section class="play-page small-padding" data-scroll-section>
+      <h1 class="play-title">Sandbox</h1>
+
+      <div class="masonry">
+        <div class="masonry-item">
+          <img
+            src="assets/play/IMG_1870.png"
+            alt="Project 1"
+          />
+        </div>
+        <div class="masonry-item ">
+          <img src="assets/play/IMG_0366.png" alt="Project 2" />
+        </div>
+        <div class="masonry-item">
+          <img src="assets/play/IMG_1983.png" alt="Project 3"/>
+        </div>
+        <div class="masonry-item">
+          <img src="assets/play/IMG_4257.png" alt="Project 4" />
+        </div>
+        <div class="masonry-item">
+          <img src="assets/play/IMG_4765.png" alt="Project 5" />
+        </div>
+        <div class="masonry-item">
+          <img src="assets/play/IMG_9437.png" alt="Project 5" />
+        </div>
       </div>
     </section>
-    <main class="main-work-section">
-      <section class="portfolio">
-        <ul class="masonry-grid padding-jumbo">
-          <li class="masonry-item">
-            <a href="css-masonry/files/images/cherry-plant.jpg" data-lightbox="project-1" data-title="Cherry plant">
-              <figure class="project-image border">
-                <img src="css-masonry/files/images/cherry-plant.jpg" width="800" height="1200" loading="lazy" class="rotate" alt="Cherry plant" title="Cherry plant" />
-              </figure>
-            </a>
-          </li>
-          <li class="masonry-item">
-            <a href="css-masonry/files/images/oranges-pomegranates.jpg" data-lightbox="project-2" data-title="Oranges and Pomegranates">
-              <figure class="project-image border">
-                <img src="css-masonry/files/images/oranges-pomegranates.jpg" width="1152" height="768" loading="lazy" class="rotate" alt="Oranges and Pomegranates" title="Oranges and Pomegranates" />
-              </figure>
-            </a>
-          </li>
-          <li class="masonry-item">
-            <a href="css-masonry/files/images/strawberry.jpg" data-lightbox="project-3" data-title="Strawberry">
-              <figure class="project-image border">
-                <img src="css-masonry/files/images/strawberry.jpg" width="1072" height="657" loading="lazy" class="rotate" alt="Strawberry" title="Strawberry" />
-              </figure>
-            </a>
-          </li>
-          <li class="masonry-item">
-            <a href="css-masonry/files/images/blueberries.jpg" data-lightbox="project-4" data-title="Blueberries">
-              <figure class="project-image border">
-                <img src="css-masonry/files/images/blueberries.jpg" width="986" height="657" loading="lazy" class="rotate" alt="Blueberries" title="Blueberries" />
-              </figure>
-            </a>
-          </li>
-          <li class="masonry-item">
-            <a href="css-masonry/files/images/pears.jpg" data-lightbox="project-5" data-title="Pears">
-              <figure class="project-image border">
-                <img src="css-masonry/files/images/pears.jpg" width="1028" height="657" loading="lazy" class="rotate" alt="Pears" title="Pears" />
-              </figure>
-            </a>
-          </li>
-          <li class="masonry-item">
-            <a href="css-masonry/files/images/easter-eggs.jpg" data-lightbox="project-6" data-title="Easter eggs">
-              <figure class="project-image border">
-                <img src="css-masonry/files/images/easter-eggs.jpg" width="523" height="657" loading="lazy" class="rotate" alt="Easter eggs" title="Easter eggs" />
-              </figure>
-            </a>
-          </li>
-          <li class="masonry-item">
-            <a href="css-masonry/files/images/lemons.jpg" data-lightbox="project-7" data-title="Lemons">
-              <figure class="project-image border">
-                <img src="css-masonry/files/images/lemons.jpg" width="493" height="657" loading="lazy" class="rotate" alt="Lemons" title="Lemons" />
-              </figure>
-            </a>
-          </li>
-          <li class="masonry-item">
-            <a href="css-masonry/files/images/cherries.jpg" data-lightbox="project-8" data-title="Cherries">
-              <figure class="project-image border">
-                <img src="css-masonry/files/images/cherries.jpg" width="985" height="657" loading="lazy" class="rotate" alt="Cherries" title="Cherries" />
-              </figure>
-            </a>
-          </li>
-          <li class="masonry-item">
-            <a href="css-masonry/files/images/grapes.jpg" data-lightbox="project-9" data-title="Grapes">
-              <figure class="project-image border">
-                <img src="css-masonry/files/images/grapes.jpg" width="985" height="657" loading="lazy" class="rotate" alt="Grapes" title="Grapes" />
-              </figure>
-            </a>
-          </li>
-        </ul>
-      </section>
-      <section class="full-width-section">
-        <div class="full-width-headline-wrapper">
-          <h1 class="h1-full-width">🍨 Finally, dessert:</h1>
-          <h2 class="h2-full-width">The Playground page</h2>
-          <p class="max-text-width">A Playground page is often a scattered grid of half-finished projects, random ideas, personal experiments, and rejected work we don’t usually get to see in a polished portfolio. It’s the space where the rules don’t apply—you don’t need to fit a brief, explain your process, or curate what stays and what goes.</p>
-          <p class="max-text-width">This is the low-pressure zone.</p>
-          <p class="max-text-width">If you’re feeling unsure about sharing your work, start with a Play page.</p>
-          <p class="max-text-width">It’s a space for dreams and ideas still finding their footing.</p>
-        </div>
-      </section>
-    </main>
-
-    <ul class="footer-global">
-      <li class="footer-tagline">
-        <h2>Let's Connect!</h2>
-        <p>Feel free to reach out with any questions, collaborations, or just to chat about design.</p>
-      </li>
-      <li class="footer-highlights">
-        <h2>Awards & Recognition</h2>
-        <ul class="footer-awards-list">
-          <li class="footer-item"><a href="#">Dean’s List – Year or Term</a></li>
-          <li class="footer-item"><a href="#">Your Award – Name of Student Award and Year</a></li>
-          <li class="footer-item"><a href="#">Honourable Mention – Project or Competition Name</a></li>
-          <li class="footer-item"><a href="#">Other Recognition or Accolade</a></li>
-        </ul>
-      </li>
-
-      <li class="footer-contact-social">
-        <h2>Contact & Social</h2>
-        <ul class="footer-socials-list">
-          <li class="footer-item"><a href="#">Insta</a></li>
-          <li class="footer-item"><a href="#">LinkedIn</a></li>
-          <li class="footer-item"><a href="#">Behance</a></li>
-        </ul>
-      </li>
-
-      <li class="footer-full-width">
-        <p><a href="#top">Smooth scroll to the top</a></p>
-        <p class="footer-fineprint">
-          &copy; <span id="copyright-years">2020-</span>. Hand crafted with
-          <span class="heart">❤</span>
-          by James Neufeld.
-        </p>
-        <script>
-          document.getElementById("copyright-years").textContent += new Date().getFullYear();
-        </script>
-      </li>
-    </ul>
-    <script src="./lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>
 </html>

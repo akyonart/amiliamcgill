@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amilia McGill — Designer</title>
-  <meta name="Amilia McGill — " content="Amilia is a super cool designer who does a lot of stuff and wants to be hired super duper bad." />
+<meta name="description" content="Amilia is a super cool designer who does a lot of stuff and wants to be hired super duper bad." />
   <meta property="og:image" content="screenshot.jpg" />
 
   <!-- CSS Resets & Libraries -->
@@ -41,13 +41,13 @@
     </a>
 
   <div class="nav-links-right">
-      <a href="#">About</a>
+      <a href="play.html">Sandbox</a>
       <a href="#">Contact</a>
     </div>
   </nav>
 
 <!-- Hero Section -->
-  <section class="hero-container-a medium small-padding" data-scroll-section>
+  <section class="hero-container-a full small-padding" data-scroll-section>
       <h1 class="hero-text">
         Designing with intention,<br>
         strategy, and above all,<br>
@@ -81,8 +81,8 @@
   <li class="project-card">
     <a class="page-link" href="onsi.html">
       <div class="card-frame">
-        <img src="assets/onsi/07-brochure-a4-vert.png" alt="Project Cover" class="cover onsi-grey">
-        <img src="assets/onsi/08-brochure-a4-vert.png" alt="Project Cover Hover" class="hover">
+        <img src="assets/onsi/07-brochure-a4-vert.png" alt="Project Cover" class="cover cream">
+        <img src="assets/onsi/08-brochure-a4-vert.png" alt="Project Cover Hover" class="hover cream">
       </div>
     </a>
     <div class="project-content top-padding-small">
@@ -152,7 +152,7 @@
       <div class="project-content top-padding-small">
         <h3 class="heading-3">Project 5 Title</h3>
         <p class="project-description">Brief description of Project 5 goes here.</p>
-        <div class="project-category">Branding, Editorial, Illustration</div>
+        <div class="project-category"> Editorial, Illustration</div>
       </div>
     </li>
 
@@ -211,5 +211,55 @@
     <script src="./scripts/scroll.js"></script>
     <script src="./scripts/filter.js"></script>
   
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const pills = document.querySelectorAll(".pill");
+  const projects = document.querySelectorAll(".project-card");
+  let activeTags = ["All"]; // start with 'All' selected
+
+  pills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      const tag = pill.getAttribute("data-tag");
+
+      // If "All" clicked, reset everything
+      if (tag === "All") {
+        activeTags = ["All"];
+        pills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+      } else {
+        // Toggle this tag
+        const isActive = pill.classList.toggle("active");
+
+        // Remove 'All' if another tag is selected
+        activeTags = activeTags.filter(t => t !== "All");
+
+        if (isActive) {
+          activeTags.push(tag);
+        } else {
+          activeTags = activeTags.filter(t => t !== tag);
+        }
+
+        // If none left, fall back to "All"
+        if (activeTags.length === 0) {
+          activeTags = ["All"];
+          document.querySelector('[data-tag="All"]').classList.add("active");
+        } else {
+          document.querySelector('[data-tag="All"]').classList.remove("active");
+        }
+      }
+
+      // Filter projects
+      projects.forEach(project => {
+        const tagsText = project.querySelector(".tags, .project-category")?.textContent || "";
+        const hasMatch = activeTags.includes("All") || activeTags.some(tag => tagsText.includes(tag));
+
+        project.style.display = hasMatch ? "block" : "none";
+      });
+    });
+  });
+});
+
+</script> 
+
   </body>
 </html>

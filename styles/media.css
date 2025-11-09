@@ -71,5 +71,7 @@ height: auto;}
   {
   height: 20vh;
   }
-
+.project-title {
+  font-size: 2.75rem;
+}
 }
