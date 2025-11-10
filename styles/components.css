@@ -5,10 +5,10 @@
   height: 20vh;
 }
 
-.sliverish{
-    height: 60vh;
-    display: flex;
-    width: 100%;
+.sliverish {
+  height: 60vh;
+  display: flex;
+  width: 100%;
 }
 
 .medium {
@@ -18,7 +18,7 @@
 
 .edge {
   height: 90vh;
-  position: relative
+  position: relative;
 }
 
 .full {
@@ -28,6 +28,10 @@
 
 .navbar {
   position: fixed;
+  padding-left: var(--padding-large);
+  padding-right: var(--padding-large);
+  padding-top: var(--padding-small);
+  height: 8vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -35,16 +39,16 @@
   z-index: 9999;
   pointer-events: auto;
   background-color: transparent;
-   mix-blend-mode: exclusion; /* add this line */
+  mix-blend-mode: exclusion; /* add this line */
 }
-
 
 .nav-links-right {
   display: flex;
   gap: 1.5rem;
   font-size: 2rem;
   align-items: center;
-  color: white; 
+  color: white;
+  text-transform: uppercase;
 }
 
 .navbar a,
@@ -54,18 +58,19 @@
   font-family: var(--font-family-heading);
 }
 
-.nav-links-right a, :hover{
-  color: var(--color-nav-link-hover); 
+.nav-links-right a,
+:hover {
+  color: var(--color-nav-link-hover);
   transition: ease 0.3s;
 }
 
 .nav-links-right a {
-  font-family: var(--font-family-heading);
+  font-family: var(--font-family-body);
 }
 
 .navbar a,
-.logo :hover{
-  color: var(--color-nav-link-hover); 
+.logo :hover {
+  color: var(--color-nav-link-hover);
   transition: ease 0.3s;
 }
 
@@ -80,6 +85,8 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  margin-top: 8vh;
+  padding: var(--padding-small);
 }
 
 .hero-container-a {
@@ -124,6 +131,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none; /* so hover triggers on parent */
+
   opacity: 0;
   transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 2;
@@ -184,6 +193,7 @@
   line-height: 1.6;
   margin: 0;
   max-width: min(50ch, 90%);
+  margin-bottom: var(--padding-small);
 }
 
 .tag {
@@ -200,7 +210,7 @@
   display: flex;
   flex-direction: column; /* allow multiple rows of tags */
   gap: 1rem; /* spacing between tags */
-   align-items: flex-start;
+  align-items: flex-start;
 }
 
 /* =========================================================
@@ -226,10 +236,9 @@
   inset: 0; /* fills the hero container */
   z-index: 0; /* behind everything */
   overflow: hidden;
-  
+  margin: var(--padding-small);
+  border-radius: var(--radius-md);
 }
-
-
 
 .work-background img {
   width: 100%;
@@ -267,7 +276,7 @@
 }
 
 .footer .footer-links a {
-color: white;
+  color: white;
 }
 
 .footer ul {
@@ -335,13 +344,11 @@ color: white;
   background-color: var(--color-text-project-title);
 }
 
-    .gif-container{
-    height: 100%;
-    width: 100%;
-overflow: hidden;
-    }
-
-
+.gif-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 
 .case-btn {
   display: inline-flex;
@@ -350,20 +357,20 @@ overflow: hidden;
   border-radius: 40px;
   border: 1px solid orange; /* initial border color */
   padding: 0.5rem 1rem;
-  font-family: var(--font-family-heading, 'DM Sans', sans-serif);
+  font-family: var(--font-family-heading, "DM Sans", sans-serif);
   text-transform: uppercase;
   font-size: 1rem;
   text-decoration: none;
   background: orange;
   width: fit-content;
   transition: all 0.3s ease;
-    white-space: nowrap;
-    height: fit-content;
+  white-space: nowrap;
+  height: fit-content;
 }
 
 .case-btn p {
   margin: 0;
-    color: rgb(0, 0, 0); /* initial text color */
+  color: rgb(0, 0, 0); /* initial text color */
   transition: color 0.3s ease;
 }
 
@@ -393,17 +400,17 @@ overflow: hidden;
   width: 100%;
   height: 100%;
   object-fit: cover; /* cover the whole section */
-  z-index: -1;       /* behind the text and GIF */
+  z-index: -1; /* behind the text and GIF */
 }
 
 .background-img {
- position: absolute;   /* fill the parent */
+  position: absolute; /* fill the parent */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;    /* scale image to cover the container */
-  z-index: 0;           /* behind other content */
+  object-fit: cover; /* scale image to cover the container */
+  z-index: 0; /* behind other content */
 }
 
 /* --- Filter Pills --- */
@@ -414,25 +421,51 @@ overflow: hidden;
 }
 
 .pill {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px; /* rounded pill shape */
-  background-color: none;
-  color: orange;
-    border: 1px solid orange;
-  font-family: inherit;
-  font-size: 0.9rem;
+  display: inline-block; /* shrink to fit text */
+  border: 1px solid var(--color-nav-link-hover);
+  color: var(--color-nav-link-hover);
+  padding: 0.5rem 1rem; /* adjust as needed */
+  border-radius: var(--radius-lg);
+  white-space: nowrap; /* optional: prevent text wrap inside tag */
+  text-transform: uppercase;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .pill:hover {
   background-color: orange;
-  transform: translateY(-2px);
+  color: black;
 }
 
 /* Active state for selected pill */
 .pill.active {
   background-color: orange;
   color: black;
+}
+
+.content {
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.project-description-b {
+  max-width: 30ch;
+  color: var(--color-text-project-description);
+}
+
+.project-title-b {
+  font-size: 3rem;
+  text-transform: capitalize;
+  text-align: center;
+  justify-self: center;
+}
+.environmental-goals {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8vh;
 }

@@ -76,6 +76,13 @@ background-color: #f2f6fa;
 .la-compagnia-red {
   background-color: #CD4437;
 }
+.la-compagnia-cream {
+  background-color: #EAEBE5;
+}
+
+.gap{
+  gap: 1.6667rem
+}
 
 
 
@@ -107,4 +114,12 @@ background-color: #f2f6fa;
 
 .margin-bottom {
   margin-bottom: 4rem;
+}
+
+.margin-bottom-small {
+  margin-bottom: 1.6667rem;
+}
+
+.hero-height {
+  height: 92vh;
 }

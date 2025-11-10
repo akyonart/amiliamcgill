@@ -48,32 +48,31 @@
 /* Moodboard layout */
 .gallery-moodboard {
   display: flex;
+  gap: 1rem;
 }
 
-/* Each column stacks items vertically */
 .gm-col-1,
 .gm-col-2,
 .gm-col-3 {
+  gap: 1rem;
   display: flex;
   flex-direction: column;
-  flex: 2; /* equal width columns */
+  flex: 2;
 }
+
 .gm-col-2 {
-  flex: 3; /* equal width columns */
+  flex: 3;
 }
 
-/* Placeholder blocks for now */
-.gm-block {
+.gm-block,
+.gm-block-bob,
+.gm-block-rob {
   width: 100%;
   height: 100%;
-}
-
-.gm-block-bob {
-  width: 100%;
-  height: 100%;
+  min-height: 200px;  /* prevent collapsing */
 }
 
 .gm-block-rob {
-  width: 100%;
-  min-height: 60%; /* temporary height to see layout */
+  min-height: 60%;
 }
+

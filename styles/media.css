@@ -11,33 +11,61 @@
     gap: 1rem;
     font-size: 1.5rem;
   }
+
+  :root {
+    --padding-small: 0.8rem;
+    --padding-medium: 1.6rem;
+    --padding-large: 3rem;
+    --padding-jumbo: 4.5rem;
+    --padding-ultra: 5rem; /* slightly smaller for tablet */
+  }
 }
+
 
 @media (max-width: 768px) {
+  .gallery-moodboard {
+    flex-direction: column; /* columns stacked on top of each other */
+    gap: 1rem;
+  }
+
+  .gm-col-1 {
+    flex-direction: row;
+    flex-wrap: wrap; /* allows items to wrap to next line */
+    gap: 1rem;
+    width: 100%;
+  }
+   /* Other columns stay vertical */
+  .gm-col-2,
+  .gm-col-3 {
+    flex-direction: column;
+    width: 100%;
+  }
+
   .two-column-offset {
-grid-template-columns: auto;  
-height: auto;}
-
-.nav-links-right {
-  font-size: 2rem;
-}
-
-.bottom-padding-small{
-  padding-bottom: var(--padding-medium) 
-}
-
-.block-carousel[data-animated] .carousel-items {
-  animation: scroll 130s linear infinite;
-}
-
-@keyframes auto {
-  0% {
-    transform: translateX(0);
+    grid-template-columns: auto;
+    height: auto;
   }
-  100% {
-    transform: translateX(-50%);
+
+  .nav-links-right {
+    font-size: 2rem;
   }
-}
+
+  .bottom-padding-small {
+    padding-bottom: var(--padding-medium);
+  }
+
+  .block-carousel[data-animated] .carousel-items {
+    animation: scroll 130s linear infinite;
+  }
+
+  @keyframes auto {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 
   .span-2 {
     grid-column: span 1;
@@ -56,22 +84,42 @@ height: auto;}
   }
 
   .full {
-    height: auto;
+    height: 100vh;
   }
 
   .hero-text {
     font-size: 2rem;
   }
 
-  .sliver{
+  .sliver {
     height: 20vh;
   }
 
-  .carousel-items 
-  {
-  height: 20vh;
+  .carousel-items {
+    height: 20vh;
   }
-.project-title {
-  font-size: 2.75rem;
-}
+  .project-title {
+    font-size: 2.75rem;
+  }
+  .small-padding {
+    padding: calc(var(--padding-small) * 0.75);
+  }
+  .medium-padding {
+    padding: calc(var(--padding-medium) * 0.75);
+  }
+  .large-padding {
+    padding: calc(var(--padding-large) * 0.6);
+  }
+  .top-padding {
+    padding-top: calc(var(--padding-medium) * 0.7);
+  }
+  .top-padding-small {
+    padding-top: calc(var(--padding-small) * 0.7);
+  }
+  .padding-jumbo {
+    padding: calc(var(--padding-jumbo) * 0.6);
+  }
+  .padding-ultra {
+    padding: calc(var(--padding-ultra) * 0.5);
+  }
 }
