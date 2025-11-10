@@ -87,6 +87,10 @@
     height: 100vh;
   }
 
+  .medium{
+    height: auto;
+  }
+
   .hero-text {
     font-size: 2rem;
   }
