@@ -74,12 +74,14 @@ p { font-size: 1.2rem; line-height: 1.5; font-weight: 300; margin-bottom: 1rem; 
 .em { font-style: italic; }
 
 .hero-text {
-  font-size: 1.6rem;
-  line-height: 1.1;
-  padding-top: 4rem;
-  font-family: var(--font-family-heading);
-  font-weight: 400;
-  color: var(--color-text-secondary);
+padding-top: 4rem;
+  font-family: var(--font-family-body);
+  font-size: 1.2rem;
+  color: var(--color-text-project-description);
+  line-height: 1.6;
+  margin: 0;
+  max-width: min(50ch, 90%);
+  margin-bottom: var(--padding-small);
 }
 
 html, body {
