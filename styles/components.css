@@ -85,8 +85,6 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  margin-top: 8vh;
-  padding: var(--padding-small);
 }
 
 .hero-container-a {
@@ -348,6 +346,7 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
+
 }
 
 .case-btn {

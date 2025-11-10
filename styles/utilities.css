@@ -116,6 +116,10 @@ background-color: #f2f6fa;
   margin-bottom: 4rem;
 }
 
+.margin-top{
+  margin-top: 8vh;
+}
+
 .margin-bottom-small {
   margin-bottom: 1.6667rem;
 }
