@@ -34,7 +34,7 @@ a:hover, a:active { color: var(--color-link-hover); }
 a:focus { outline: 1px solid var(--color-accent-primary); }
 
 a:visited {
-  color: inherit;      /* keep the same color as normal links */
+  color: var(--color-accent-secondary);     /* keep the same color as normal links */
   text-decoration: none; /* optional: remove underline if desired */
 }
 
