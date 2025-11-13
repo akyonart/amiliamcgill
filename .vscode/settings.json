@@ -1,3 +1,5 @@
 {
-    "editor.wordWrap": "on"
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

@@ -21,7 +21,6 @@
   }
 }
 
-
 @media (max-width: 768px) {
   .gallery-moodboard {
     flex-direction: column; /* columns stacked on top of each other */
@@ -34,7 +33,7 @@
     gap: 1rem;
     width: 100%;
   }
-   /* Other columns stay vertical */
+  /* Other columns stay vertical */
   .gm-col-2,
   .gm-col-3 {
     flex-direction: column;
@@ -87,7 +86,7 @@
     height: 100vh;
   }
 
-  .medium{
+  .medium {
     height: auto;
   }
 
