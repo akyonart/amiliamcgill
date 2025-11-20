@@ -288,6 +288,22 @@
       prefersReducedMotion.addEventListener("change", (e) =>
         handleCarouselState(e.matches)
       );
+
+    let lastScroll = 0;
+const nav = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  const current = window.pageYOffset;
+
+  if (current > lastScroll) {
+    nav.classList.add("hide-nav");   // scrolling down
+  } else {
+    nav.classList.remove("hide-nav"); // scrolling up
+  }
+
+  lastScroll = current;
+});
+
     </script>
   </body>
 </html>

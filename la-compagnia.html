@@ -94,7 +94,7 @@
 
       <!-- Hero Section -->
       <section
-        class="hero-container margin-top hero-height"
+        class="hero-container margin-top hero-height hero full-bleed"
         data-scroll-section
       >
         <!-- Project Background -->
@@ -229,22 +229,26 @@ _character4.svg"
 
         <!-- wine image -->
         <div
-          class=" gallery-item edge small-padding la-compagnia-cream rounded-frame margin-bottom"
+          class="gallery-item edge small-padding la-compagnia-cream rounded-frame margin-bottom"
         >
           <img
-            class=" gallery-cover"
+            class="gallery-cover"
             src="assets/La Compagnia/wine/bining.png"
             alt="Gallery Image 5"
           />
         </div>
-        <div class=" gallery-item gallery-item medium la-compagnia-cream rounded-frame margin-bottom">
+        <div
+          class="gallery-item gallery-item medium la-compagnia-cream rounded-frame margin-bottom"
+        >
           <img
             class="gallery-cover"
             src="assets/La Compagnia/wine/bining-2.png"
             alt="Gallery Image 5"
           />
         </div>
-        <div class="medium gallery-item gallery-item la-compagnia-cream rounded-frame margin-bottom">
+        <div
+          class="medium gallery-item gallery-item la-compagnia-cream rounded-frame margin-bottom"
+        >
           <img
             class="gallery-cover"
             src="assets/La Compagnia/wine/bining-3.png"
@@ -275,8 +279,16 @@ _character4.svg"
 
         <!-- Image grid row -->
         <div class="two-column">
-          <img src="assets/La Compagnia/menu/menu-mockup-3.png" alt="Image 3" class="gallery-item"/>
-          <img src="assets/La Compagnia/menu/menu-mockup-4.png" alt="Image 4" class="gallery-item"/>
+          <img
+            src="assets/La Compagnia/menu/menu-mockup-3.png"
+            alt="Image 3"
+            class="gallery-item"
+          />
+          <img
+            src="assets/La Compagnia/menu/menu-mockup-4.png"
+            alt="Image 4"
+            class="gallery-item"
+          />
         </div>
       </section>
 
@@ -390,6 +402,23 @@ _character4.svg"
       );
 
       elementsToLoadIn.forEach((el) => observer.observe(el));
+
+      let lastScroll = 0;
+      const nav = document.querySelector(".navbar");
+
+      window.addEventListener("scroll", () => {
+        const current = window.pageYOffset;
+
+        if (current > lastScroll) {
+          nav.classList.add("hide-nav"); // scrolling down
+        } else {
+          nav.classList.remove("hide-nav"); // scrolling up
+        }
+
+        lastScroll = current;
+      });
+
+      
     </script>
   </body>
 </html>

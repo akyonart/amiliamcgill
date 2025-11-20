@@ -26,7 +26,12 @@
   display: flex;
 }
 
+.hide-nav {
+  transform: translateY(-100%);
+}
+
 .navbar {
+    transition: transform 0.35s ease;
   position: fixed;
   padding-left: var(--padding-large);
   padding-right: var(--padding-large);
@@ -49,6 +54,8 @@
   align-items: center;
   color: white;
   text-transform: uppercase;
+   transform: translateY(-20px);
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .navbar a,
@@ -99,6 +106,9 @@
   width: 100%;
   object-position: center;
 }
+
+
+
 
 /* Project cards */
 /* Card frame container */
@@ -498,3 +508,66 @@
   height: auto;
   z-index: 10;
 }
+
+.glass-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  
+  /* Glassmorphism styles */
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  
+  /* Hide initially */
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show button on hover of card */
+.project-card:hover .glass-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Shiny spot effect: use a ::before pseudo‑element */
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 60%);
+  transform: translate(-50%, -50%);
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  transition: background 0.2s;
+  filter: blur(30px);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
