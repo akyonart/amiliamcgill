@@ -127,13 +127,12 @@ p {
 }
 
 .hero-text {
-  padding-top: 4rem;
   font-family: var(--font-family-body);
   font-size: 1.2rem;
   color: var(--color-text-project-description);
   line-height: 1.6;
   margin: 0;
-  max-width: min(50ch, 90%);
+  text-align: center;
   margin-bottom: var(--padding-small);
 }
 

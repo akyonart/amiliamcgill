@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="./styles/media.css" />
     <link rel="stylesheet" href="./styles/gallery.css" />
     <link rel="stylesheet" href="./styles/stt-button.css" />
+        <link rel="stylesheet" href="./styles/motion.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
@@ -76,25 +77,23 @@
       </a>
 
       <div class="nav-links-right">
-        <a href="play.html">Sandbox</a>
-        <a href="about.html">Contact</a>
+        <a href="play.html">Illustration</a>
+        <a href="about.html">About</a>
       </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-container-a small-padding" data-scroll-section>
-      <h1 class="hero-text project-description cream-colour">
-        Designing with intention,<br />
-        strategy, and above all,<br />
-        with love.
-      </h1>
-      <div class="gif-container center-horz hero-container cream gallery-fill">
+      <div class="margin-top gif-container center-horz hero-container cream gallery-fill margin-bottom">
         <img
           src="assets/hero/logo-animation.gif"
           alt="Animated GIF"
           class="gif"
         />
       </div>
+            <h1 class="hero-text cream-colour flex center-horz">
+       Hi, I'm Amilia — a graphic designer specializing <br> in branding, editorial, and illustration. <br> Scroll down to see my work!
+      </h1>
     </section>
 
     <section id="projects" class="small-padding" data-scroll-section>
@@ -143,7 +142,7 @@
                 class="cover cream"
               />
               <img
-                src="assets/La Compagnia/menu/menu-mockup-lighting.png"
+                src="assets/La Compagnia/menu/menu-mockup-table.png"
                 alt="La Compagnia branding project hover effect"
                 class="hover"
               />
@@ -163,12 +162,12 @@
           <a class="page-link" href="miingle.html">
             <div class="card-frame rounded-frame">
               <img
-                src="assets/mingle-cover.jpg"
+                src="assets/miingle/mingle-cover.jpg"
                 alt="Miingle branding project cover"
                 class="cover cream"
               />
               <img
-                src="assets/spudbuds/spudbuds-cover-background-2.jpg"
+                src="assets/miingle/mingle-cover.jpg"
                 alt="Miingle branding project hover effect"
                 class="hover"
               />
@@ -183,7 +182,34 @@
           </div>
         </li>
 
-        <!-- Project 4 -->
+    <!-- Project 4 -->
+        <li class="project-card one-column rounded-frame">
+           <a class="page-link" href="sardine.html">
+          <div class="card-frame rounded-frame cream">
+            <img
+              src="assets/sardine-website/25.png"
+              alt="sardine cover"
+              class="cover"
+            />
+            <img
+              src="assets/sardine-website/25.png"
+              alt="sardine hover effect"
+              class="hover"
+            />
+          </div>
+          </a>
+          <div class="project-content top-padding-small">
+            <h3 class="heading-3">Sardine</h3>
+            <p class="cover-description">
+              UI and illustration for indie video game concept.
+            </p>
+            <div class="project-category">
+              Branding, Editorial, Illustration
+            </div>
+          </div>
+        </li>
+
+        <!-- Project 5 -->
         <li class="project-card">
           <a class="page-link" href="spudbuds.html">
             <div class="card-frame rounded-frame">
@@ -231,30 +257,7 @@
           </div>
         </li>
 
-        <!-- Project 6 -->
-        <li class="project-card one-column rounded-frame">
-          <div class="card-frame rounded-frame cream">
-            <img
-              src="assets/spudbuds/spudbuds-cover-background-2.jpg"
-              alt="Project 6 cover"
-              class="cover"
-            />
-            <img
-              src="assets/spudbuds/spudbuds-cover-background-2.jpg"
-              alt="Project 6 hover effect"
-              class="hover"
-            />
-          </div>
-          <div class="project-content top-padding-small">
-            <h3 class="heading-3">Project 6 Title</h3>
-            <p class="project-description">
-              Brief description of Project 6 goes here.
-            </p>
-            <div class="project-category">
-              Branding, Editorial, Illustration
-            </div>
-          </div>
-        </li>
+    
       </ul>
     </section>
 
@@ -404,6 +407,36 @@
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       });
+
+const elementsToLoadIn = new Set([
+  ...document.querySelectorAll(".hero-text"),
+  ...document.querySelectorAll(".hero-container-a"),
+  ...document.querySelectorAll(".project-card"),
+  ...document.querySelectorAll(".pill"),
+]);
+
+elementsToLoadIn.forEach((el) => {
+ el.classList.add('loadin');
+});
+
+const observerOptions = {
+ root: null,
+ rootMargin: '0px',
+ threshold: 0.3,
+};
+
+function observerCallback(entries) {
+  entries.forEach(entry => {
+    entry.target.classList.toggle("loaded", entry.isIntersecting);
+  });
+}
+
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+
+elementsToLoadIn.forEach((el) => observer.observe(el));
+
     </script>
   </body>
 </html>
