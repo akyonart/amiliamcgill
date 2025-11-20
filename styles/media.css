@@ -90,6 +90,8 @@
     height: auto;
   }
 
+
+
   .nav-links-right {
     font-size: 2rem;
   }
@@ -136,7 +138,11 @@
   }
 
   .hero-text {
-    font-size: 2rem;
+    font-size: 1rem;
+  }
+
+  .margin-bottom {
+    margin-bottom: var(--padding-small);
   }
 
   .sliver {

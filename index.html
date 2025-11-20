@@ -437,17 +437,18 @@ const observerOptions = {
  threshold: 0.3,
 };
 
-function observerCallback(entries) {
+function observerCallback(entries, observer) {
   entries.forEach(entry => {
-    entry.target.classList.toggle("loaded", entry.isIntersecting);
+    if (entry.isIntersecting) {
+      entry.target.classList.add("loaded");
+      observer.unobserve(entry.target); // stop observing after first load
+    }
   });
 }
 
-
 const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-
-elementsToLoadIn.forEach((el) => observer.observe(el));
+elementsToLoadIn.forEach(el => observer.observe(el));
 
 let lastScroll = 0;
 const nav = document.querySelector(".navbar");
