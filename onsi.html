@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Amilia McGill — Designer</title>
     <meta
-      name="La Compagnia – Branding & Visual Design | Amilia McGill"
-      content="description"
+      name="description"
       content="Branding, packaging, and visual design for La Compagnia, a contemporary Italian long-table dining concept — a project by Amilia McGill."
     />
+    <meta
+      property="og:title"
+      content="La Compagnia – Branding & Visual Design | Amilia McGill"
+    />
+
     <link
       rel="icon"
       type="image/png"
@@ -115,23 +119,15 @@
 -->
 
     <!-- Hero Section -->
-    <section class="hero-container hero-height" data-scroll-section>
+<section class="hero-container hero-height" data-scroll data-scroll-target="body">
+
       <!-- Project Background -->
       <div class="work-background overlay-dark margin-top">
         <img
-          src="assets/onsi/Photography/People_waiting_in_line_indoors.jpg"
+          src="assets/onsi/grain.png"
           alt="La Compagnia Project Cover"
           loading="lazy"
         />
-      </div>
-
-      <!-- Hero Logo Box -->
-      <div
-        class="work-hero-box large-padding"
-        data-scroll
-        data-scroll-speed="2"
-      >
-        <img class="" src="assets/onsi/onsi-logo.svg" alt="La Compagnia Logo" />
       </div>
     </section>
     <!-- END HERO SECTION -->
@@ -186,30 +182,72 @@
     <section class="gallery small-padding" data-scroll-section>
       <img
         src="assets/onsi/hand-held-magazine-mockup.jpg"
-        class="rounded-frame onsi-grey gallery-cover medium margin-bottom-small"
+        class="rounded-frame gallery-item onsi-grey gallery-cover medium margin-bottom-small"
         alt="magazine cover"
       />
+      <div class="project gallery-item" data-scroll-section>
+        <!-- Left: Title + Button -->
+        <div class="span-6">
+          <h1 class="project-title">Why ONSI.</h1>
+        </div>
 
+        <!-- right: Paragraph -->
+        <div class="project-right span-5">
+          <p class="project-description bottom-padding-small">
+            ONSI, short for “onsight,” a climbing term for
+            tackling a route blind. Even if you’ve never climbed, ONSI captures
+            the energy of community, encouragement, and curiosity: trying,
+            failing, learning, and cheering each other on.
+          </p>
+        </div>
+      </div>
       <div class="two-column margin-bottom">
         <img
           src="assets/onsi/Photography/Three_women_lifting_a_barbell_together.jpeg"
-          class="rounded-frame"
+          class="gallery-item rounded-frame"
         />
         <img
           src="assets/onsi/Photography/Girl_climbing_indoor_bouldering_wall.jpg"
-          class="rounded-frame"
+          class="rounded-frame gallery-item"
         />
       </div>
 
+           <img
+        src="assets/onsi/colours.png"
+        class="gallery-fill gallery-item margin-bottom"
+        alt="colour palette"
+      />
+      
+      <img
+        src="assets/onsi/onsi-type-animated.gif"
+        class="gallery-fill border gallery-item rounded-frame margin-bottom"
+        alt="Typefaces used in the magazine"
+      />
+ 
+
       <img
         src="assets/onsi/onsi-spreads-animated.gif"
-        class="gallery-cover edge rounded-frame onsi-grey"
+        class="gallery-cover edge rounded-frame onsi-grey margin-bottom gallery-item"
         alt="magazine cover"
       />
+
+      <div
+        class="two-column edge margin-bottom"
+        style="display: flex; align-items: center; gap: 1rem"
+      >
+        <div class="video-wrapper large-padding">
+          <video class="video-center rounded-frame border gallery-item" muted loop playsinline autoplay>
+            <source src="assets/onsi/social-media-campaign_video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <img
+          src="assets/onsi/gemmy.png"
+          class="rounded-frame gallery-cover gallery-item"
+        />
     </section>
     <!-- Close gallery -->
 
-    // Scroll detection
     <script>
       const scrollTopBtn = document.getElementById("scrollTop");
 
@@ -224,6 +262,43 @@
       scrollTopBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
+
+      const video = document.querySelector("video");
+
+      const elementsToLoadIn = new Set([
+        ...document.querySelectorAll(".project-description"),
+        ...document.querySelectorAll(".hero-container"),
+        ...document.querySelectorAll(".project-card"),
+        ...document.querySelectorAll(".tags"),
+        ...document.querySelectorAll(".gallery-item"),
+        ...document.querySelectorAll(".project-title"),
+      ]);
+
+      elementsToLoadIn.forEach((el) => {
+        el.classList.add("loadin");
+      });
+
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.3,
+      };
+
+      function observerCallback(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("loaded");
+            observer.unobserve(entry.target); // stop observing after first load
+          }
+        });
+      }
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
+
+      elementsToLoadIn.forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>

@@ -56,6 +56,20 @@
   overflow: hidden;
 }
 
+.video-wrapper {
+  height: 100%;  
+  width: 100%;  
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-center {
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Grid helpers */
 .one-column {
   display: grid;
@@ -66,6 +80,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.67rem;
+  align-items: center;
 }
 .two-column-offset {
   display: grid;
@@ -146,8 +161,12 @@
   background-color: #2e2226;
 }
 
+.miingle-cream {
+  background-color: #f4f1ed;
+}
+
 .onsi-grey {
-  background-color: #eaebe5;
+  background-color: #b2b1b1;
 }
 
 .la-compagnia-red {
@@ -225,4 +244,8 @@
 
 .hero-height {
   height: 92vh;
+}
+
+.border{
+  border: 1px solid white;
 }

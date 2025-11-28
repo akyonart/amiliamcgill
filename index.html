@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="./styles/media.css" />
     <link rel="stylesheet" href="./styles/gallery.css" />
     <link rel="stylesheet" href="./styles/stt-button.css" />
-        <link rel="stylesheet" href="./styles/motion.css" />
+    <link rel="stylesheet" href="./styles/motion.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
@@ -76,34 +76,38 @@
         </svg>
       </a>
 
-        <!-- Hamburger menu -->
-  <button class="hamburger" aria-label="Toggle Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+      <!-- Hamburger menu -->
+      <button class="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
       <div class="nav-links-right">
         <a href="play.html">Illustration</a>
+        <a href="desk.html">desk</a>
         <a href="about.html">About</a>
       </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-container-a small-padding" data-scroll-section>
-      <div class="margin-top gif-container center-horz hero-container cream gallery-fill margin-bottom">
+      <div
+        class="margin-top gif-container center-horz hero-container cream gallery-fill margin-bottom"
+      >
         <img
           src="assets/hero/logo-animation.gif"
           alt="Animated GIF"
           class="gif"
         />
       </div>
-            <h1 class="hero-text cream-colour flex center-horz">
-       Hi, I'm Amilia — a graphic designer specializing <br> in branding, editorial, and illustration. <br> Scroll down to see my work!
+      <h1 class="hero-text cream-colour flex center-horz">
+        Hi, I'm Amilia — a graphic designer specializing in branding,<br />
+        editorial, and illustration. Scroll down to see my work!
       </h1>
     </section>
 
-    <section id="projects" class="small-padding" data-scroll-section>
+    <section id="projects" class="small-padding margin-top" data-scroll-section>
       <!-- Projects Header with Filter Tags -->
       <div class="projects-header">
         <div class="filter-tags flex description">
@@ -117,7 +121,7 @@
       <!-- Projects List -->
       <ul class="two-column top-padding-small">
         <!-- Project 1 -->
-                <li class="project-card">
+        <li class="project-card">
           <a class="page-link" href="la-compagnia.html">
             <div class="card-frame rounded-frame">
               <img
@@ -155,19 +159,16 @@
                 alt="Project Cover Hover"
                 class="hover onsi-grey"
               />
-               <!-- Glass button that appears on hover -->
-  <button class="glass-btn">View Case Study</button>
+              <!-- Glass button that appears on hover -->
+              <button class="glass-btn">View Case Study</button>
             </div>
           </a>
           <div class="project-content top-padding-small">
-            <h3>ONSI</h3>
+            <h3>ONSI Magazine</h3>
             <p class="cover-description">Description</p>
             <div class="tags">Branding, Editorial</div>
           </div>
-          
         </li>
-
- 
 
         <!-- Project 3 -->
         <li class="project-card">
@@ -194,21 +195,21 @@
           </div>
         </li>
 
-    <!-- Project 4 -->
+        <!-- Project 4 -->
         <li class="project-card one-column rounded-frame">
-           <a class="page-link" href="sardine.html">
-          <div class="card-frame rounded-frame cream">
-            <img
-              src="assets/sardine-website/25.png"
-              alt="sardine cover"
-              class="cover"
-            />
-            <img
-              src="assets/sardine-website/25.png"
-              alt="sardine hover effect"
-              class="hover"
-            />
-          </div>
+          <a class="page-link" href="sardine.html">
+            <div class="card-frame rounded-frame cream">
+              <img
+                src="assets/sardine-website/25.png"
+                alt="sardine cover"
+                class="cover"
+              />
+              <img
+                src="assets/sardine-website/25.png"
+                alt="sardine hover effect"
+                class="hover"
+              />
+            </div>
           </a>
           <div class="project-content top-padding-small">
             <h3 class="heading-3">Sardine</h3>
@@ -250,7 +251,7 @@
         <li class="project-card">
           <div class="card-frame rounded-frame">
             <img
-              src="assets/Untitled-1_Part2_Page_1.jpg"
+              src="assets/cappy/Slide 16_9 - 101-2.png"
               alt="Project 5 cover"
               class="cover"
             />
@@ -268,8 +269,6 @@
             <div class="project-category">Editorial, Illustration</div>
           </div>
         </li>
-
-    
       </ul>
     </section>
 
@@ -420,59 +419,61 @@
         }
       });
 
-const elementsToLoadIn = new Set([
-  ...document.querySelectorAll(".hero-text"),
-  ...document.querySelectorAll(".hero-container-a"),
-  ...document.querySelectorAll(".project-card"),
-  ...document.querySelectorAll(".pill"),
-]);
+      const elementsToLoadIn = new Set([
+        ...document.querySelectorAll(".hero-text"),
+        ...document.querySelectorAll(".hero-container-a"),
+        ...document.querySelectorAll(".project-card"),
+        ...document.querySelectorAll(".pill"),
+      ]);
 
-elementsToLoadIn.forEach((el) => {
- el.classList.add('loadin');
-});
+      elementsToLoadIn.forEach((el) => {
+        el.classList.add("loadin");
+      });
 
-const observerOptions = {
- root: null,
- rootMargin: '0px',
- threshold: 0.3,
-};
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.3,
+      };
 
-function observerCallback(entries, observer) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("loaded");
-      observer.unobserve(entry.target); // stop observing after first load
-    }
-  });
-}
+      function observerCallback(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("loaded");
+            observer.unobserve(entry.target); // stop observing after first load
+          }
+        });
+      }
 
-const observer = new IntersectionObserver(observerCallback, observerOptions);
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
 
-elementsToLoadIn.forEach(el => observer.observe(el));
+      elementsToLoadIn.forEach((el) => observer.observe(el));
 
-let lastScroll = 0;
-const nav = document.querySelector(".navbar");
+      let lastScroll = 0;
+      const nav = document.querySelector(".navbar");
 
-window.addEventListener("scroll", () => {
-  const current = window.pageYOffset;
+      window.addEventListener("scroll", () => {
+        const current = window.pageYOffset;
 
-  if (current > lastScroll) {
-    nav.classList.add("hide-nav");   // scrolling down
-  } else {
-    nav.classList.remove("hide-nav"); // scrolling up
-  }
+        if (current > lastScroll) {
+          nav.classList.add("hide-nav"); // scrolling down
+        } else {
+          nav.classList.remove("hide-nav"); // scrolling up
+        }
 
-  lastScroll = current;
-});
+        lastScroll = current;
+      });
 
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links-right');
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links-right");
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
-
-
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active"); // show/hide nav
+        hamburger.classList.toggle("active"); // animate hamburger to X
+      });
     </script>
   </body>
 </html>

@@ -86,12 +86,47 @@
 }
 
 /* Hero */
+/* HERO BEHAVIOR */
 .hero-container {
+  height: 100vh;
   position: relative;
-  width: 100%;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
+  z-index: 1;
+}
+
+/* The actual image fills the view cleanly */
+.hero-container .work-background img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* keeps scroll smooth */
+}
+
+.hero-container[data-scroll-sticky] {
+  position: sticky;
+  top: 0;
+}
+
+.hero-container {
+  transition: opacity 0.4s ease;
+}
+
+.hero-container[data-scroll="in"] {
+  opacity: 1;
+}
+
+.hero-container[data-scroll="out"] {
+  opacity: 0.2;
+}
+
+.work-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-container-a {
@@ -203,6 +238,7 @@
   max-width: min(50ch, 90%);
   margin-bottom: var(--padding-small);
 }
+
 
 .project-description-small {
   font-family: var(--font-family-body);

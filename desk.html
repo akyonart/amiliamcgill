@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Desk Portfolio</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    /* Full-screen background container */
+    .desk-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/desk-background.jpg'); /* your desk scan */
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Draggable scanned images */
+    .scan-image {
+      position: absolute;
+      cursor: grab;
+      transition: transform 0.2s ease;
+      user-select: none;
+    }
+
+    .scan-image:active {
+      cursor: grabbing;
+      z-index: 100; /* keep on top while dragging */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="desk-container">
+
+    <img src="assets/scanned1.png" class="scan-image" style="top: 20%; left: 10%; width: 150px;" alt="Scanned Paper 1">
+    <img src="assets/scanned2.png" class="scan-image" style="top: 40%; left: 50%; width: 200px;" alt="Scanned Paper 2">
+
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.scan-image');
+
+    images.forEach(img => {
+      img.addEventListener('mousedown', dragStart);
+      img.addEventListener('touchstart', dragStart);
+    });
+
+    let selected = null;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    function dragStart(e) {
+      e.preventDefault();
+      selected = e.target;
+
+      // For touch events
+      const clientX = e.clientX || e.touches[0].clientX;
+      const clientY = e.clientY || e.touches[0].clientY;
+
+      const rect = selected.getBoundingClientRect();
+      offsetX = clientX - rect.left;
+      offsetY = clientY - rect.top;
+
+      window.addEventListener('mousemove', dragMove);
+      window.addEventListener('mouseup', dragEnd);
+      window.addEventListener('touchmove', dragMove);
+      window.addEventListener('touchend', dragEnd);
+    }
+
+    function dragMove(e) {
+      if (!selected) return;
+      const clientX = e.clientX || e.touches[0].clientX;
+      const clientY = e.clientY || e.touches[0].clientY;
+
+      const left = clientX - offsetX;
+      const top = clientY - offsetY;
+
+      selected.style.left = left + 'px';
+      selected.style.top = top + 'px';
+    }
+
+    function dragEnd() {
+      selected = null;
+      window.removeEventListener('mousemove', dragMove);
+      window.removeEventListener('mouseup', dragEnd);
+      window.removeEventListener('touchmove', dragMove);
+      window.removeEventListener('touchend', dragEnd);
+    }
+  </script>
+</body>
+</html>
