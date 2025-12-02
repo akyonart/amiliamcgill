@@ -265,6 +265,7 @@
   flex-direction: column; /* allow multiple rows of tags */
   gap: 1rem; /* spacing between tags */
   align-items: flex-start;
+  padding-inline-start: 0; /* remove default ul padding */
 }
 
 /* =========================================================
@@ -614,6 +615,11 @@
   align-self: center;
 }
 
-.back{
-  z-index: 0;
+
+
+.bottom-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
