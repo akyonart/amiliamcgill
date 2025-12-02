@@ -281,7 +281,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 24px;
-  padding: 4rem 1.777vw;
+  padding: 2rem;
   background-color: var(--color-bg);
 }
 
