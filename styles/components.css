@@ -54,7 +54,6 @@
   align-items: center;
   color: white;
   text-transform: uppercase;
-   transform: translateY(-20px);
   transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -96,7 +95,7 @@
 
 /* The actual image fills the view cleanly */
 .hero-container .work-background img {
-  position: absolute;
+  position: relative;
   z-index: -1;
   top: 0;
   left: 0;
@@ -222,6 +221,7 @@
   font-size: 3.6rem;
   color: var(--color-text-project-title);
   margin: 0;
+  text-transform: none;
 }
 
 /* Tags / categories */
@@ -316,7 +316,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 100%;
+  align-self: center;
 }
 
 .work-hero-box img {
@@ -607,3 +608,12 @@
   border-radius: 2px;
 }
 
+.work-logo {
+  max-width: 60%;
+  height: auto;
+  align-self: center;
+}
+
+.back{
+  z-index: 0;
+}
