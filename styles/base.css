@@ -42,9 +42,6 @@ a:hover,
 a:active {
   color: var(--color-link-hover);
 }
-a:focus {
-  outline: 1px solid var(--color-accent-primary);
-}
 
 a:visited {
   color: var(
