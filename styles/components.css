@@ -623,3 +623,7 @@
   justify-content: space-between;
   width: 100%;
 }
+
+.project-credits{
+  color: grey;
+}

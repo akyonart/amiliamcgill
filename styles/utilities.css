@@ -85,12 +85,12 @@
 .two-column-offset {
   display: grid;
   grid-template-columns: 8fr 6fr; /* first box twice as wide as second */
-  gap: 1rem; /* space between boxes */
+  gap: 1.67rem; /* space between boxes */
 }
 .three-column {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1.67rem;
 }
 .four-column {
   display: grid;

@@ -10,7 +10,7 @@
 .gallery-cover {
   width: 100%;
   overflow: hidden;
-}
+  object-fit: cover;}
 
 .gallery-cover img {
   width: 100%;
@@ -48,13 +48,13 @@
 /* Moodboard layout */
 .gallery-moodboard {
   display: flex;
-  gap: 1rem;
+  gap: 1.67rem;
 }
 
 .gm-col-1,
 .gm-col-2,
 .gm-col-3 {
-  gap: 1rem;
+  gap: 1.67rem;
   display: flex;
   flex-direction: column;
   flex: 2;

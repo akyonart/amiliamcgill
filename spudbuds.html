@@ -48,27 +48,33 @@
           ></path></svg
       ></a>
       <div class="nav-links-right">
-        <a href="#">Sandbox</a> <a href="#">About</a>
+        <a href="about.html">About</a> <a href="#">Contact</a>
       </div>
     </nav>
     <main data-scroll-container="">
       <section
-        class="hero-container margin-top hero-height"
+        class="hero-container margin-top hero-height hero full-bleed"
         data-scroll-section=""
       >
         <div class="work-background">
           <img
-            class="work-hero-cover"
-            src="assets/spudbuds/spudbuds-cover.jpg"
+            class="gallery-fill back"
+            src="assets/spudbuds/spudbuds-cover-background.jpg"
             alt="La Compagnia Project Cover"
             loading="lazy"
+            width="1920"
+            height="1080"
           />
         </div>
-        <div
-          class="work-hero-box large-padding"
-          data-scroll=""
-          data-scroll-speed="2"
-        ></div>
+        <div class="work-hero-box large-padding">
+          <img
+            class="work-logo"
+            src="assets/spudbuds/logo-1.svg"
+            alt="La Compagnia Logo"
+            width="300"
+            height="200"
+          />
+        </div>
       </section>
       <section
         class="project margin-bottom"
@@ -77,12 +83,22 @@
       >
         <div class="span-6">
           <h1 class="project-title">Spudbuds</h1>
-          <ul class="tags top-padding-small">
+          <ul class="tags top-padding-small margin-bottom">
             <li class="tag">Brand Identity</li>
             <li class="tag">Packaging</li>
             <li class="tag">Web Design</li>
             <li class="tag">Product Development</li>
           </ul>
+          <p class="project-credits">
+            Illustration by
+            <a
+              href="https://brendanhurt.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Brendan Hurt</a
+            >
+          </p>
+          <p class="project-credits">Guided by Chelsea Bell Eady & Jai Dwai</p>
         </div>
         <div class="span-6">
           <p class="project-description">
@@ -101,21 +117,11 @@
         </div>
       </section>
       <section class="gallery-moodboard small-padding edge">
-        <div class="gm-col-1">
-          <div
-            class="gm-block-bob rounded-frame gallery-fill padding-jumbo spudbuds-cream"
-          >
-            <img src="assets/spudbuds/flower-icon.svg" alt="Menu Cover" />
-          </div>
-          <div class="gm-block-rob gallery-cover rounded-frame">
-            <img src="assets/spudbuds/flower-visual-100.jpg" alt="Menu Cover" />
-          </div>
-        </div>
         <div class="gm-col-2">
-          <div class="gm-block-rob gallery-cover rounded-frame">
+          <div class="gm-block-bob gallery-cover rounded-frame">
             <img
-              src="assets/spudbuds/senior-farmer-holding-potatoes-crouching-amidst-plants-at-back-yard-OSF00875.jpg"
-              alt="Menu Cover"
+              src="assets/spudbuds/fabric.png"
+              alt="Fabic with garden pattern"
             />
           </div>
           <div
@@ -124,41 +130,92 @@
             <img src="assets/spudbuds/logo-2.svg" alt="Menu Cover" />
           </div>
         </div>
-        <div class="gm-col-3">
-          <div
-            class="gm-block-bob gallery-fill large-padding spudbuds-boots rounded-frame"
-          >
-            <img src="assets/spudbuds/logo-1.svg" alt="Menu Cover" />
-          </div>
+        <div class="gm-col-1">
           <div
             class="gm-block-rob gallery-fill padding-ultra spudbuds-cream rounded-frame"
           >
             <img
               src="assets/spudbuds/stacked-logo_purple.svg"
               alt="Menu Cover"
+              width="400"
+              height="200"
+            />
+          </div>
+          <div class="gm-block-bob rounded-frame gallery-cover spudbuds-cream">
+            <img
+              src="assets/spudbuds/flower-visual-100.jpg"
+              alt="Flower visual"
+              width="1920"
+              height="1080"
             />
           </div>
         </div>
       </section>
-      <section class="gallery small-padding" data-scroll-section="">
+      <section class="gallery small-padding" aria-label="Project Gallery 1">
+        <div class="two-collumn gap gallery-item sliverish">
+          <img
+            src="assets/spudbuds/senior-farmer-holding-potatoes-crouching-amidst-plants-at-back-yard-OSF00875.jpg"
+            alt="Senior farmer holding potatoes crouching amidst plants at back yard"
+            width="1920"
+            height="1080"
+            class="rounded-frame gallery-cover"
+          />
+          <img
+            src="assets/spudbuds/Colour.png"
+            alt="Senior farmer holding potatoes crouching amidst plants at back yard"
+            width="1920"
+            height="1080"
+            class="rounded-frame gallery-cover"
+          />
+        </div>
+      </section>
+      <section class="gallery text-section">
+        <div class="project gallery-item">
+          <div class="span-6">
+            <h2 class="project-title">Lullaby Lavender</h2>
+          </div>
+          <div class="project-right span-5">
+            <p class="project-description bottom-padding-small">
+              Lavender serves a dual purpose—referencing Code Lavender, a
+              hospital support response, and the bloom of the potato plant. It
+              offers a calm, familiar tone that aligns with the brand’s hospital
+              setting while keeping the material story in view.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="gallery small-padding">
         <div class="two-column medium margin-bottom">
           <div class="gallery-cover spudbuds-purple rounded-frame">
             <img
               src="assets/spudbuds/Spudbuds-v3_flower-visual-04.jpg"
-              alt="Menu Cover"
+              alt="flower pattern"
             />
           </div>
           <div class="gallery-cover spudbuds-cream rounded-frame">
-            <img src="assets/spudbuds/buds-animated.gif" alt="Menu Cover" />
+            <img
+              src="assets/spudbuds/buds-animated.gif"
+              alt="Animated stuffed animal buds popping in and out of frame"
+            />
           </div>
         </div>
-        <div class="gallery-cover margin-bottom medium rounded-frame">
-          <img src="assets/spudbuds/computer-mockup.webp" alt="Menu Cover" />
+        <div class="project gallery-item">
+          <div class="span-6">
+            <h2 class="project-title">Meet the buds</h2>
+          </div>
+          <div class="project-right span-5">
+            <p class="project-description bottom-padding-small">
+              Lavender serves a dual purpose—referencing Code Lavender, a
+              hospital support response, and the bloom of the potato plant. It
+              offers a calm, familiar tone that aligns with the brand’s hospital
+              setting while keeping the material story in view.
+            </p>
+          </div>
         </div>
         <div class="gallery-cover margin-bottom medium rounded-frame">
           <img
             src="assets/spudbuds/tags.png"
-            alt="Menu Cover"
+            alt="Three hanging tags"
             class="spudbuds-purple-half"
           />
         </div>
@@ -183,6 +240,29 @@
             class="rounded-frame"
             alt="fabic-patternm_3"
           />
+        </div>
+        <div class="gallery-cover margin-bottom medium rounded-frame">
+          <img
+            src="assets/spudbuds/computer-mockup.webp"
+            alt="Computer mockup"
+          />
+        </div>
+      </section>
+      <section
+        class="bottom-nav small-padding"
+        aria-label="Navigate to other projects"
+      >
+        <div>
+          <a href="spudbuds.html" class="case-btn span-2 flex center-horz"
+            ><span class="arrow">←</span>
+            <p>This way</p></a
+          >
+        </div>
+        <div>
+          <a href="onsi.html" class="case-btn span-2 flex center-horz">
+            <p>That way</p>
+            <span class="arrow">→</span></a
+          >
         </div>
       </section>
       <section class="footer" data-scroll-section="" aria-label="Footer">
