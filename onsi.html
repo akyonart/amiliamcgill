@@ -279,11 +279,6 @@
         });
       }
 
-      const observer = new IntersectionObserver(
-        observerCallback,
-        observerOptions
-      );
-
       elementsToLoadIn.forEach((el) => observer.observe(el));
       const videoWrappers = document.querySelectorAll(
         ".video-wrapper[data-src]"
