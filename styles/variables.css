@@ -11,33 +11,31 @@
   --font-family-project-title: "Newsreader", serif;
 
   /* Colors */
-  --color-accent-primary: #ff9720;
-  --color-accent-secondary: #f2f6fa;
-  --color-highlight: #ff9720;
-  --color-fallback: #ff9720;
+  --color-accent-primary: #FFBA53;
+  --color-accent-secondary: #E2DBBE;
+  --color-highlight: #FFBA53;
+  --color-fallback: #FFBA53;
 
   --color-bg: #000000;
-  --color-bg-about: #b8b8b8;
-  --color-bg-footer: #b8b8b8;
+  --color-bg-about: #E2DBBE;
+  --color-bg-footer: #E2DBBE;
   --color-bg-rgb: 248, 248, 248;
 
-  --color-bg-project-description: #f2f6fa;
-  --color-bg-sidebar-project: #ff9720;
+  --color-bg-project-description: #E2DBBE;
+  --color-bg-sidebar-project: #FFBA53;
   --color-bg-sidebar-work: lemonchiffon;
-  --color-gradient-hero: linear-gradient(90deg, #ff00ff, #00ffff);
 
-  --color-text-primary: #f2f6fa;
+  --color-text-primary: #E2DBBE;
   --color-text-secondary: #000000;
-  --color-text-project-title: #f2f6fa;
-  --color-text-project-description: #f2f6fa;
-  --color-text-project-category: #f2f6fa;
+  --color-text-project-title: #E2DBBE;
+  --color-text-project-description: #E2DBBE;
+  --color-text-project-category: #E2DBBE;
 
-  --color-link: #d4d4d4;
-  --color-link-hover: #ffffff;
-  --color-link-visited: #ffffff;
+  --color-link: #E2DBBE;
+  --color-link-hover: #E2DBBE;
 
   --color-nav-link: #000000;
-  --color-nav-link-hover: #ff9720;
+  --color-nav-link-hover: #FFBA53;
 
   --color-bg-navbar: #000000;
 

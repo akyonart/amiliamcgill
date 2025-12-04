@@ -82,6 +82,15 @@
   gap: 1.67rem;
   align-items: center;
 }
+
+.two-column-about{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.67rem;
+  align-items: flex-start;
+  margin-top: 8rem;
+}
+
 .two-column-offset {
   display: grid;
   grid-template-columns: 8fr 6fr; /* first box twice as wide as second */

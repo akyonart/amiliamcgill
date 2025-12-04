@@ -10,14 +10,13 @@
     />
     <meta
       property="og:title"
-      content="ONSI Magazine — Branding & Editorial Design | Amilia McGill"
+      content="ONSI Magazine — Branding &amp; Editorial Design | Amilia McGill"
     />
     <meta
       property="og:description"
       content="ONSI Magazine celebrates the creativity, energy, and community of the urban climbing scene. Branding, editorial design, and visual direction by Amilia McGill."
     />
     <meta property="og:image" content="assets/onsi/onsi-cover-grainy.webp" />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -90,7 +89,6 @@
     </button>
     <section
       class="hero-container hero-height"
-      data-scroll=""
       data-scroll-target="body"
     >
       <div class="work-background overlay-dark margin-top">
@@ -162,35 +160,23 @@
         class="gallery-fill gallery-item margin-bottom"
         alt="colour palette"
       />
+   
       <img
         src="assets/onsi/video+gif/onsi-type-animated.gif"
         class="gallery-fill border gallery-item rounded-frame margin-bottom"
         alt="Typefaces used in the magazine"
       />
+               <img
+        src="assets/onsi/photography/man-wearing-beanie.webp"
+        class="rounded-frame medium margin-bottom gallery-item"
+        alt="man-laughing-climbing-gym"
+      />
       <img
         src="assets/onsi/video+gif/onsi-spreads-animated.gif"
         class="gallery-cover edge rounded-frame onsi-grey margin-bottom gallery-item"
         alt="magazine cover"
-      />
-      <div
-        class="two-column edge margin-bottom"
-        style="display: flex; align-items: center; gap: 1rem"
-      >
-        <div class="video-wrapper video-center gallery-item">
-          <iframe
-            src="https://player.vimeo.com/video/1141297268?autoplay=1&amp;loop=1&amp;muted=1&amp;background=1"
-            allow="autoplay; fullscreen; picture-in-picture"
-            style="width: 100%; height: 100%; display: block"
-            title="social-media-campaign_video"
-            class="rounded-frame"
-          ></iframe>
-        </div>
-        <img
-          src="assets/onsi/photography/man-laughing-climbing-gym.png"
-          class="rounded-frame gallery-cover gallery-item"
-          alt="man-laughing-climbing-gym"
-        />
-      </div>
+      />       
+
     </section>
     <section
       class="bottom-nav small-padding"
@@ -290,6 +276,29 @@
       );
 
       elementsToLoadIn.forEach((el) => observer.observe(el));
+      const videoWrappers = document.querySelectorAll(
+        ".video-wrapper[data-src]"
+      );
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const div = entry.target;
+              const iframe = document.createElement("iframe");
+              iframe.src = div.dataset.src;
+              iframe.allow = "autoplay";
+              iframe.style.width = "100%";
+              iframe.style.height = "100%";
+              iframe.style.border = "none";
+              div.appendChild(iframe);
+              obs.unobserve(div);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      videoWrappers.forEach((v) => observer.observe(v));
     </script>
   </body>
 </html>

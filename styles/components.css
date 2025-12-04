@@ -52,21 +52,18 @@
   gap: 1.5rem;
   font-size: 2rem;
   align-items: center;
-  color: white;
   text-transform: uppercase;
   transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .navbar a,
 .logo {
-  color: white;
   size: 3rem;
   font-family: var(--font-family-heading);
 }
 
 .nav-links-right a,
 :hover {
-  color: var(--color-nav-link-hover);
   transition: ease 0.3s;
 }
 
@@ -76,7 +73,6 @@
 
 .navbar a,
 .logo :hover {
-  color: var(--color-nav-link-hover);
   transition: ease 0.3s;
 }
 
@@ -538,14 +534,7 @@
   height: auto;
 }
 
-.image-container .orange-spikey {
-  position: absolute;
-  top: 5%; 
-  right: 5%; 
-  width: 10%; 
-  height: auto;
-  z-index: 10;
-}
+
 
 .glass-btn {
   position: absolute;
