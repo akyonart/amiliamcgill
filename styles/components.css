@@ -580,8 +580,6 @@
   align-self: center;
 }
 
-
-
 .bottom-nav{
   display: flex;
   flex-direction: row;
@@ -591,16 +589,6 @@
 
 .project-credits{
   color: grey;
-}
-
-.fa-brands {
-  color: var(--color-text-project-description);
-  font-size: 2rem; 
-}
-
-.fa-brands:hover {
-  color: var(--color-nav-link-hover);
-  cursor: pointer; /* optional, makes it clear it's interactive */
 }
 
 .social{

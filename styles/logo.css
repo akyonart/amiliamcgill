@@ -8,7 +8,11 @@
 }
 
 .logo path {
-  fill: #E2DBBE;
+  fill: var(--color-link);
+}
+
+.logo :hover{
+  fill: var(--color-link-hover);
 }
 
 .big-ass-logo path {
