@@ -24,6 +24,10 @@
 .padding-ultra {
   padding: var(--padding-ultra);
 }
+.padding-ultra-big {
+  padding: calc(var(--padding-ultra) * 1.5);
+}
+
 .top-padding-large {
   padding-top: 6rem;
 }
