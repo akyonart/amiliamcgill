@@ -9,6 +9,8 @@
       content="Branding, packaging, and visual design for Spudbuds, a social enterprise focused on reducing food waste."
     />
     <meta property="og:image" content="screenshot.jpg" />
+
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -23,6 +25,8 @@
     <link rel="stylesheet" href="./styles/media.css" />
     <link rel="stylesheet" href="./styles/logo.css" />
     <link rel="stylesheet" href="./styles/gallery.css" />
+    <link rel="stylesheet" href="./styles/motion.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
       rel="stylesheet"
@@ -53,7 +57,7 @@
     </nav>
     <main data-scroll-container="">
       <section
-        class="hero-container margin-top hero-height hero full-bleed"
+        class="hero-container margin-top hero-height hero full-bleed gallery-item"
         data-scroll-section=""
       >
         <div class="work-background">
@@ -82,14 +86,14 @@
         data-scroll-speed="1"
       >
         <div class="span-6">
-          <h1 class="project-title">Spudbuds</h1>
-          <ul class="tags top-padding-small margin-bottom">
+          <h1 class="project-title gallery-item">Spudbuds</h1>
+          <ul class="tags top-padding-small margin-bottom gallery-item">
             <li class="tag">Brand Identity</li>
             <li class="tag">Packaging</li>
             <li class="tag">Web Design</li>
             <li class="tag">Product Development</li>
           </ul>
-          <p class="project-credits">
+          <p class="project-credits gallery-item">
             Illustration by
             <a
               href="https://brendanhurt.com"
@@ -98,10 +102,12 @@
               >Brendan Hurt</a
             >
           </p>
-          <p class="project-credits">Guided by Chelsea Bell Eady & Jai Dwai</p>
+          <p class="project-credits gallery-item">
+            Guided by Chelsea Bell Eady & Jai Dwai
+          </p>
         </div>
         <div class="span-6">
-          <p class="project-description">
+          <p class="project-description gallery-item">
             Canada wastes over 2.6 million potatoes every day, and hospitals
             discard nearly half of their linens annually, which contributes to
             landfill and methane emissions.
@@ -116,7 +122,7 @@
           </p>
         </div>
       </section>
-      <section class="gallery-moodboard small-padding edge">
+      <section class="gallery-moodboard small-padding edge gallery-item">
         <div class="gm-col-2">
           <div class="gm-block-bob gallery-cover rounded-frame">
             <img
@@ -321,6 +327,9 @@
           All Rights Reserved
         </p>
       </section>
+  
+      <script src="scrolling.js"></script>
     </main>
+  
   </body>
 </html>

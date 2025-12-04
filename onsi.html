@@ -124,7 +124,7 @@
           </p>
         </div>
       </div>
-      <div class="two-column margin-bottom">
+      <div class="two-column margin-bottom gallery-item">
         <img
           src="assets/onsi/Photography/Three_women_lifting_a_barbell_together.jpeg"
           class="gallery-item rounded-frame"
@@ -234,75 +234,7 @@
         All Rights Reserved
       </p>
     </section>
-    <script>
-      const scrollTopBtn = document.getElementById("scrollTop");
+         <script src="scrolling.js"></script>
 
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          scrollTopBtn.classList.add("show");
-        } else {
-          scrollTopBtn.classList.remove("show");
-        }
-      });
-
-      scrollTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      const video = document.querySelector("video");
-
-      const elementsToLoadIn = new Set([
-        ...document.querySelectorAll(".project-description"),
-        ...document.querySelectorAll(".hero-container"),
-        ...document.querySelectorAll(".project-card"),
-        ...document.querySelectorAll(".tags"),
-        ...document.querySelectorAll(".gallery-item"),
-        ...document.querySelectorAll(".project-title"),
-      ]);
-
-      elementsToLoadIn.forEach((el) => {
-        el.classList.add("loadin");
-      });
-
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.3,
-      };
-
-      function observerCallback(entries, observer) {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("loaded");
-            observer.unobserve(entry.target); // stop observing after first load
-          }
-        });
-      }
-
-      elementsToLoadIn.forEach((el) => observer.observe(el));
-      const videoWrappers = document.querySelectorAll(
-        ".video-wrapper[data-src]"
-      );
-      const observer = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const div = entry.target;
-              const iframe = document.createElement("iframe");
-              iframe.src = div.dataset.src;
-              iframe.allow = "autoplay";
-              iframe.style.width = "100%";
-              iframe.style.height = "100%";
-              iframe.style.border = "none";
-              div.appendChild(iframe);
-              obs.unobserve(div);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      videoWrappers.forEach((v) => observer.observe(v));
-    </script>
   </body>
 </html>

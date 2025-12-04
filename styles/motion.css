@@ -1,13 +1,12 @@
 .loadin {
   opacity: 0;
-  transform: translateY(45px);
-  transition: transform 0.6s, opacity 0.9s;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
-  &.loaded {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0s;
-  }
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .video-wrapper {
