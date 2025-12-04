@@ -262,3 +262,12 @@
 .border{
   border: 1px solid white;
 }
+
+.project-subhead{
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-family: var(--font-family-body)
+  ;}

@@ -343,6 +343,7 @@
 .footer li {
   display: inline-block;
   padding: 0 10px;
+  
 }
 
 .footer ul a {
@@ -356,31 +357,6 @@
   color: var(--color-nav-link-hover);
 }
 
-.footer .social {
-  text-align: center;
-  padding-bottom: 25px;
-}
-
-.footer .social a {
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  display: inline-block;
-  text-align: center;
-  border-radius: 50%;
-  border: 1px solid var(--color-nav-link-hover);
-  margin: 0 8px;
-  color: white;
-  opacity: 0.75;
-  transition: all 0.3s ease;
-}
-
-.footer .social a:hover {
-  opacity: 1;
-  color: var(--color-nav-link-hover);
-  border-color: var(--color-nav-link-hover);
-}
 
 .footer .copyright {
   margin-top: 15px;
@@ -615,4 +591,21 @@
 
 .project-credits{
   color: grey;
+}
+
+.fa-brands {
+  color: var(--color-text-project-description);
+  font-size: 2rem; 
+}
+
+.fa-brands:hover {
+  color: var(--color-nav-link-hover);
+  cursor: pointer; /* optional, makes it clear it's interactive */
+}
+
+.social{
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
 }
