@@ -2,7 +2,6 @@ const elementsToLoadIn = new Set([
   ...document.querySelectorAll(".hero-container"),
   ...document.querySelectorAll(".overview"),
   ...document.querySelectorAll(".tag"),
-  ...document.querySelectorAll(".project-description"),
   ...document.querySelectorAll(".gallery-item"),
 ]);
 

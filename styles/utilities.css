@@ -42,6 +42,9 @@
 .bottom-padding-small {
   padding-bottom: var(--padding-small);
 }
+.bottom-padding-tiny {
+  padding-bottom: var(--padding-tiny);
+}
 /* Rounded corners */
 .rounded-small {
   border-radius: var(--radius-sm);

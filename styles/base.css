@@ -16,7 +16,7 @@ html {
 
 ::selection {
   background: var(--color-accent-primary);
-  color: #000;
+  color: #ffffff;
 }
 
 body,
@@ -80,20 +80,11 @@ h2 {
   color: var(--color-text-primary);
 }
 h3 {
-  font-family: var(--font-family-heading);
+  font-family: var(--font-family-body);
   font-weight: 400;
-  font-size: clamp(
-    2rem,
-    5vw,
-    2.5rem
-  ); /* scales between 2rem and 2.5rem based on viewport */
-  line-height: clamp(
-    2.5rem,
-    6vw,
-    3.5rem
-  ); /* keeps spacing proportional and responsive */
+  font-size: 1rem;
   margin: 0;
-  color: var(--color-text-primary);
+  color: grey;
 }
 
 h4 {
@@ -153,5 +144,5 @@ body {
 }
 
 body.work-page {
-  background-color: #000;
+  background-color: #FCFCFE;
 }

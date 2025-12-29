@@ -12,32 +12,31 @@
 
   /* Colors */
   --color-accent-primary: #FFBA53;
-  --color-accent-secondary: #E2DBBE;
+  --color-accent-secondary: #282828;
   --color-highlight: #FFBA53;
   --color-fallback: #FFBA53;
 
-  --color-bg: #000000;
-  --color-bg-about: #E2DBBE;
-  --color-bg-footer: #E2DBBE;
+  --color-bg: #FCFCFE;
+  --color-bg-about: #FCFCFE;
+  --color-bg-footer: #FCFCFE;
   --color-bg-rgb: 248, 248, 248;
 
-  --color-bg-project-description: #E2DBBE;
+  --color-bg-project-description: #282828;
   --color-bg-sidebar-project: #FFBA53;
-  --color-bg-sidebar-work: lemonchiffon;
 
-  --color-text-primary: #E2DBBE;
+  --color-text-primary: #282828;
   --color-text-secondary: #000000;
-  --color-text-project-title: #E2DBBE;
-  --color-text-project-description: #E2DBBE;
-  --color-text-project-category: #E2DBBE;
+  --color-text-project-title: #282828;
+  --color-text-project-description: #282828;
+  --color-text-project-category: #282828;
+  --color-text-project-title-secondary: lightgrey;
 
-  --color-link: #E2DBBE;
+  --color-link: #282828;
   --color-link-hover: #FFBA53;
 
-  --color-nav-link: #000000;
+  --color-nav-link: #282828;
   --color-nav-link-hover: #FFBA53;
 
-  --color-bg-navbar: #000000;
 
   --small-gap: 1.6667vw;
 
