@@ -122,10 +122,10 @@ p {
   color: var(--color-text-project-description);
   line-height: 1.6;
   margin: 0;
-  text-align: center;
+  text-align: left;
   margin-bottom: var(--padding-small);
   max-width: 40ch;
-  align-self: center;
+  align-self: left;
 }
 
 html,
@@ -145,4 +145,9 @@ body {
 
 body.work-page {
   background-color: #FCFCFE;
+}
+
+.small-padding-sides{
+  padding-left: var(--padding-small-sides);
+  padding-right: var(--padding-small-sides);
 }

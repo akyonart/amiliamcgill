@@ -42,7 +42,7 @@
   z-index: 9999;
   pointer-events: auto;
   background-color: transparent;
-  mix-blend-mode: exclusion; /* add this line */
+  mix-blend-mode: difference; /* add this line */
 }
 
 .nav-links-right {

@@ -2,14 +2,19 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y76882GVCX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Y76882GVCX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-Y76882GVCX');
-</script>
+      gtag("config", "G-Y76882GVCX");
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Amilia McGill — Graphic Designer</title>
@@ -24,8 +29,8 @@
       href="assets/Mena's Favicon Library/favicon.png"
     />
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
-</style>
+      @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -60,6 +65,10 @@
     />
   </head>
   <body class="work-page" id="top">
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
     <nav class="navbar">
       <a href="index.html"
         ><svg
@@ -79,17 +88,29 @@
         <a href="about.html">About</a>
       </div>
     </nav>
-    <section class="hero-container-a small-padding" data-scroll-section="">
+    <section
+      class="hero-container-a small-padding-sides"
+      data-scroll-section=""
+    >
       <div
-        class="margin-top gif-container center-horz hero-container cream gallery-fill margin-bottom"
+        class="margin-top gif-container center-horz hero-container gallery-fill margin-bottom"
       >
         <!-- Desktop GIF -->
-        <img
-          src="assets/hero/logo-animation.gif"
-          alt="Animated GIF"
+        <dotlottie-wc
+          src="assets/hero/hero-animation.lottie"
+          background="transparent"
+          speed="1.5"
+          autoplay
+          loop
           class="gif desktop-only"
-        />
-
+          style="
+            width: 100%;
+            overflow: hidden;
+            aspect-ratio: 1920 / 600 !important;
+            object-fit: cover;
+          "
+        >
+        </dotlottie-wc>
         <!-- Mobile static image -->
         <img
           src="assets/hero/mobile-hero-image.png"
@@ -97,14 +118,10 @@
           class="gif mobile-only"
         />
       </div>
-      <h1 class="hero-text cream-colour flex center-horz">
-        Hi, I'm Amilia — a graphic designer specializing in branding, editorial,
-        and illustration. Scroll down to see my work!
-      </h1>
     </section>
     <section
       id="projects"
-      class="small-padding margin-top"
+      class="small-padding-sides margin-top"
       data-scroll-section=""
     >
       <div class="projects-header">
@@ -400,7 +417,6 @@
       const elementsToLoadIn = new Set([
         ...document.querySelectorAll(".hero-text"),
         ...document.querySelectorAll(".hero-container-a"),
-        ...document.querySelectorAll(".project-card"),
         ...document.querySelectorAll(".pill"),
       ]);
 

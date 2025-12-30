@@ -50,6 +50,7 @@
   /* Spacing */
   --padding-tiny: 0.5rem;
   --padding-small: 1.6667vw;
+  --padding-small-sides: 6rem;
   --padding-medium: 2rem;
   --padding-large: 3rem;
   --padding-jumbo: 4rem;
