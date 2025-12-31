@@ -493,13 +493,13 @@
 }
 
 .pill:hover {
-  background-color: #fbd24b;
+  background-color: lightskyblue;
   color: #282828;
 }
 
 /* Active state for selected pill */
 .pill.active {
-  background-color: #fbd24b;
+  background-color: lightskyblue;
   color: #282828;
 }
 

@@ -22,7 +22,7 @@
   --color-bg-rgb: 248, 248, 248;
 
   --color-bg-project-description: #282828;
-  --color-bg-sidebar-project: #fbd24b;
+  --color-bg-sidebar-project: lightskyblue;
 
   --color-text-primary: #282828;
   --color-text-secondary: #000000;
@@ -32,10 +32,10 @@
   --color-text-project-title-secondary: lightgrey;
 
   --color-link: #282828;
-  --color-link-hover: #fbd24b;
+  --color-link-hover: lightskyblue;
 
   --color-nav-link: #282828;
-  --color-nav-link-hover: #fbd24b;
+  --color-nav-link-hover: lightskyblue;
 
 
   --small-gap: 1.6667vw;

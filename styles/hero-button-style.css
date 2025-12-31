@@ -19,7 +19,7 @@
 .btn-text {
   position: relative;
   z-index: 3;
-  color: #fbd24b;
+  color: lightskyblue;
   font-family: var(--font-family-body);
   font-weight: 600;
 }
@@ -32,7 +32,7 @@
   right: 0.5rem;
   bottom: 0.5rem;
   width: 3rem; 
-  background: #fbd24b;
+  background: lightskyblue;
   border-radius: 3.125rem;
   z-index: 1;
   /* Animate everything including position for the full-fill */
