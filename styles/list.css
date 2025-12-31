@@ -1,0 +1,54 @@
+.awards-section {
+  background-color: transparent; /* Or your olive green #b5b644 */
+  font-family: 'Inter', sans-serif;
+}
+
+.awards-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+}
+
+.awards-table {
+  border-top: 1px solid #000;
+}
+
+.award-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #000;
+  font-size: 1rem;
+}
+
+/* Specific column widths to match the screenshot layout */
+.award-name {
+  flex: 2;
+  text-align: left;
+}
+
+.award-org {
+  flex: 1;
+  text-align: left;
+}
+
+.award-year {
+  flex: 1;
+  text-align: right;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .award-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .award-org, .award-year {
+    text-align: left;
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+}
