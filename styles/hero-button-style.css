@@ -1,0 +1,94 @@
+.stranger-btn {
+  height: 4rem;
+  width: 16rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 2rem;
+  background: #2c2c16;
+  border: 1px solid #000; /* 1.5px */
+  border-radius: 6.25rem;
+  text-decoration: none;
+  color: var(--color-accent-secondary);
+  font-family: sans-serif;
+  font-weight: 700;
+  overflow: hidden;
+  align-self: center;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 3;
+  color: #fbd24b;
+  font-family: var(--font-family-body);
+  font-weight: 600;
+}
+
+
+
+.bg-fill {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: 3rem; 
+  background: #fbd24b;
+  border-radius: 3.125rem;
+  z-index: 1;
+  /* Animate everything including position for the full-fill */
+  transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.icon-wrap {
+  position: absolute;
+  right: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  /* This masks the arrows as they slide in and out */
+  overflow: hidden; 
+}
+
+.arrow {
+  position: absolute;
+  font-size: 1.5rem;
+  /* Crucial: same timing as the background fill */
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Arrow 2 starts off-screen to the left (-40px) */
+.arrow-2 {
+  transform: translateX(-2.5rem);
+}
+
+/* --- HOVER STATES --- */
+
+.stranger-btn:hover .bg-fill {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Arrow 1 slides out to the right (+40px) */
+.stranger-btn:hover .arrow-1 {
+  transform: translateX(2.5rem);
+}
+
+/* Arrow 2 slides into the center (0) */
+.stranger-btn:hover .arrow-2 {
+  transform: translateX(0);
+}
+
+ .stranger-btn:hover .btn-text {
+  position: relative;
+  z-index: 3;
+  color: var(--color-accent-secondary);
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  transition: .2s;
+}

@@ -55,6 +55,8 @@
     <link rel="stylesheet" href="./styles/gallery.css" />
     <link rel="stylesheet" href="./styles/stt-button.css" />
     <link rel="stylesheet" href="./styles/motion.css" />
+        <link rel="stylesheet" href="./styles/hero-button-style.css" />
+             <link rel="stylesheet" href="./styles/hero-button-style.js" />
     <link
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
       rel="stylesheet"
@@ -89,25 +91,26 @@
       </div>
     </nav>
     <section
-      class="hero-container-a small-padding-sides"
-      data-scroll-section=""
+      class="hero-container-a"
     >
+    <div class="work-background"><img src="assets/hero/green.webp"></div>
       <div
-        class="margin-top gif-container center-horz hero-container gallery-fill margin-bottom"
+        class="gif-container center-horz hero-container gallery-fill margin-bottom-large"
       >
         <!-- Desktop GIF -->
         <dotlottie-wc
-          src="assets/hero/hero-animation.lottie"
+          src="assets/hero/data.json"
           background="transparent"
           speed="1.5"
           autoplay
-          loop
           class="gif desktop-only"
           style="
             width: 100%;
+            scale: 1.08;
             overflow: hidden;
             aspect-ratio: 1920 / 600 !important;
-            object-fit: cover;
+            object-fit: fill;
+            padding-top: 2rem;
           "
         >
         </dotlottie-wc>
@@ -118,6 +121,16 @@
           class="gif mobile-only"
         />
       </div>
+      <h1 class="hero-text margin-bottom">
+       A designer who draws, an illustrator who designs, and a human who tries her best.</h1>
+      <a href="about.html" class="stranger-btn">
+  <span class="btn-text">Don’t be a stranger </span>
+  <div class="bg-fill"></div>
+  <div class="icon-wrap">
+    <span class="arrow arrow-1">→</span>
+    <span class="arrow arrow-2">→</span>
+  </div>
+</a>
     </section>
     <section
       id="projects"
@@ -135,16 +148,16 @@
       <ul class="two-column top-padding-small">
         <li class="project-card">
           <a class="page-link" href="la-compagnia.html">
-            <div class="card-frame rounded-frame">
+            <div class="card-frame rounded-frame border">
               <img
-                src="assets/La Compagnia/menu/la-compagnia-menu-macro-menu.webp"
+                src="assets/La Compagnia/covers/la-compagnia-cover-2.webp"
                 alt="La Compagnia branding project cover"
                 class="cover cream"
               />
               <img
                 src="assets/La%20Compagnia/wine/wine-labels-focused.webp"
                 alt="La Compagnia branding project hover effect"
-                class="hover la-compagnia-cream"
+                class=" la-compagnia-cream"
               /></div
           ></a>
           <div class="project-content top-padding-small one-column">
@@ -159,7 +172,7 @@
           <a class="page-link" href="onsi.html">
             <div class="card-frame rounded-frame">
               <img
-                src="assets/onsi/magazine-pages-mockups/hand-held-magazine-mockup.webp"
+                src="assets/onsi/onsi-cover.webp"
                 alt="Project Cover"
                 class="cover"
               />
@@ -248,7 +261,7 @@
         <li class="project-card">
           <div class="card-frame rounded-frame">
             <img
-              src="assets/cappy/Slide%2016_9%20-%20101-2.png"
+              src="assets/hero/Gemini_Generated_Image_bxwp8sbxwp8sbxwp.png"
               alt="Project 5 cover"
               class="cover"
             />

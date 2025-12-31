@@ -11,10 +11,10 @@
   --font-family-project-title: "Newsreader", serif;
 
   /* Colors */
-  --color-accent-primary: #FFBA53;
+  --color-accent-primary: #c2bd42;
   --color-accent-secondary: #282828;
-  --color-highlight: #FFBA53;
-  --color-fallback: #FFBA53;
+  --color-highlight: #fbd24b;
+  --color-fallback: #fbd24b;
 
   --color-bg: #FCFCFE;
   --color-bg-about: #FCFCFE;
@@ -22,7 +22,7 @@
   --color-bg-rgb: 248, 248, 248;
 
   --color-bg-project-description: #282828;
-  --color-bg-sidebar-project: #FFBA53;
+  --color-bg-sidebar-project: #fbd24b;
 
   --color-text-primary: #282828;
   --color-text-secondary: #000000;
@@ -32,10 +32,10 @@
   --color-text-project-title-secondary: lightgrey;
 
   --color-link: #282828;
-  --color-link-hover: #FFBA53;
+  --color-link-hover: #fbd24b;
 
   --color-nav-link: #282828;
-  --color-nav-link-hover: #FFBA53;
+  --color-nav-link-hover: #fbd24b;
 
 
   --small-gap: 1.6667vw;
