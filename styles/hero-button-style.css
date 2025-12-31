@@ -57,11 +57,13 @@
   font-size: 1.5rem;
   /* Crucial: same timing as the background fill */
   transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  font-family: inter, sans-serif;
 }
 
 /* Arrow 2 starts off-screen to the left (-40px) */
 .arrow-2 {
   transform: translateX(-2.5rem);
+  font-family: inter, sans-serif;
 }
 
 /* --- HOVER STATES --- */

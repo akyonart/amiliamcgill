@@ -4,11 +4,11 @@
 
 :root {
   /* Fonts */
-  --font-heading: "Instrument Serif", serif;
+  --font-heading: "DM Sans", sans-serif;
   --font-body: "DM Sans", sans-serif;
   --font-family-body: "DM Sans", sans-serif;
-  --font-family-heading: "Newsreader", serif;
-  --font-family-project-title: "Newsreader", serif;
+  --font-family-heading: "DM Sans", sans-serif;
+  --font-family-project-title: "DM Sans", sans-serif;
 
   /* Colors */
   --color-accent-primary: #c2bd42;
@@ -22,7 +22,7 @@
   --color-bg-rgb: 248, 248, 248;
 
   --color-bg-project-description: #282828;
-  --color-bg-sidebar-project: lightskyblue;
+  --color-bg-sidebar-project: ;
 
   --color-text-primary: #282828;
   --color-text-secondary: #000000;
