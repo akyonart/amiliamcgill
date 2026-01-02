@@ -40,6 +40,12 @@
   padding-top: var(--padding-large);
   padding-bottom: var(--padding-large);
 }
+
+.top-bottom-padding-ultra {
+  padding-top: var(--padding-ultra);
+  padding-bottom: var(--padding-ultra);
+}
+
 .top-bottom-padding-small {
   padding-top: var(--padding-small);
   padding-bottom: var(--padding-small);
@@ -96,12 +102,13 @@
 }
 
 .two-column-about {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1.67rem;
   align-items: flex-start;
-  margin-top: 8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  align-items: start;
 }
+
 
 .two-column-offset {
   display: grid;
@@ -210,7 +217,7 @@
 
 .on-tilt {
   /* Starts tilted to the left */
-  transform: rotate(-2deg);
+  transform: rotate(-3deg);
   transition: transform 0.35s ease;
   display: inline-block;
 }
@@ -218,7 +225,7 @@
 /* Ensure there is no space before the colon */
 .on-tilt:hover {
   /* Tilts the other way on hover */
-  transform: rotate(4deg);
+  transform: rotate(2deg);
 }
 
 /* Flex shorthand positioning utilities */
@@ -281,6 +288,10 @@
 
 .margin-bottom-large {
   margin-bottom: 3rem;
+}
+
+.margin-bottom-footer {
+  margin-bottom: 4rem;
 }
 
 .hero-height {

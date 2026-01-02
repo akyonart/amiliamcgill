@@ -1,41 +1,30 @@
-const elementsToLoadIn = new Set([
-  ...document.querySelectorAll(".hero-container"),
-  ...document.querySelectorAll(".overview"),
-  ...document.querySelectorAll(".tag"),
-  ...document.querySelectorAll(".gallery-item"),
-]);
+const elementsToLoadIn = [
+  ".hero-container",
+  ".overview",
+  ".tag",
+  ".gallery-item",
+];
 
-elementsToLoadIn.forEach((el) => {
-  el.classList.add("loadin");
-});
+// Select all elements based on the classes above
+const allElements = document.querySelectorAll(elementsToLoadIn.join(","));
 
 const observerOptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.3,
+  threshold: 0.2, // Trigger when 20% of the element is visible
 };
 
-function observerCallback(entries) {
+function observerCallback(entries, observer) {
   entries.forEach((entry) => {
-    entry.target.classList.toggle("loaded", entry.isIntersecting);
+    if (entry.isIntersecting) {
+      // Add the class to trigger the CSS transition
+      entry.target.classList.add("loaded");
+      // STOP observing so it never flickers or disappears again
+      observer.unobserve(entry.target);
+    }
   });
 }
 
 const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-elementsToLoadIn.forEach((el) => observer.observe(el));
-
-let lastScroll = 0;
-const nav = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-  const current = window.pageYOffset;
-
-  if (current > lastScroll) {
-    nav.classList.add("hide-nav"); // scrolling down
-  } else {
-    nav.classList.remove("hide-nav"); // scrolling up
-  }
-
-  lastScroll = current;
-});
+allElements.forEach((el) => observer.observe(el));

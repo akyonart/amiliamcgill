@@ -56,7 +56,7 @@
     <link rel="stylesheet" href="./styles/stt-button.css" />
     <link rel="stylesheet" href="./styles/motion.css" />
     <link rel="stylesheet" href="./styles/hero-button-style.css" />
-    <link rel="stylesheet" href="./styles/hero-button-style.js" />
+    <link rel="stylesheet" href="./styles/play-hover.js" />
     <link
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
       rel="stylesheet"
@@ -134,7 +134,7 @@
     </section>
     <section
       id="projects"
-      class="small-padding-sides margin-top"
+      class="small-padding-sides margin-top margin-bottom-large"
       data-scroll-section=""
     >
       <div class="projects-header">
@@ -163,7 +163,7 @@
           <div class="project-content top-padding-small one-column">
             <h3>La Compagnia</h3>
             <p class="cover-description">
-              Branding, packaging, and menu design for La Compagnia
+              Branding, packaging, and menu design
             </p>
             <div class="tags">Branding, Editorial, Illustration</div>
           </div>
@@ -186,31 +186,35 @@
           >
           <div class="project-content top-padding-small one-column">
             <h3>ONSI Magazine</h3>
-            <p class="cover-description">
-              Branding and editorial design for climbing magazine
-            </p>
+            <p class="cover-description">Branding and editorial design</p>
             <div class="tags">Branding, Editorial</div>
           </div>
         </li>
         <li class="project-card">
           <a class="page-link" href="spudbuds.html">
-            <div class="card-frame rounded-frame">
+            <div
+              class="card-frame rounded-frame"
+              onmouseenter="this.querySelector('lottie-player').stop(); this.querySelector('lottie-player').play();"
+              onmouseleave="this.querySelector('lottie-player').stop();"
+            >
               <img
                 src="assets/spudbuds/spudbuds-cover.jpg"
                 alt="spudbuds branding project cover"
                 class="cover cream"
               />
-              <img
-                src="assets/spudbuds/cover-spudbuds-hover.gif"
-                alt="spudbuds hover effect"
+              <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+              <lottie-player
+                src="assets/spudbuds/spudbuds-peeking.json"
+                speed="1"
                 class="hover"
-              /></div
-          ></a>
+                loop
+                background="transparent"
+              ></lottie-player>
+            </div>
+          </a>
           <div class="project-content top-padding-small one-column">
             <h3>Spudbuds</h3>
-            <p class="cover-description">
-              Branding and visual identity design for Spudbuds
-            </p>
+            <p class="cover-description">Branding and packaging design</p>
             <div class="tags">Branding, Art Direction</div>
           </div>
         </li>
@@ -321,17 +325,26 @@
             <h3>Worth a Peek</h3>
             <ul>
               <li>
-                <a class="footer-link" href="https://www.xhalr.com/" target="_blank"
+                <a
+                  class="footer-link"
+                  href="https://www.xhalr.com/"
+                  target="_blank"
                   >Take a deep breath</a
                 >
               </li>
               <li>
-                <a class="footer-link" href="https://thisiscolossal.com/" target="_blank"
+                <a
+                  class="footer-link"
+                  href="https://thisiscolossal.com/"
+                  target="_blank"
                   >Find something interesting</a
                 >
               </li>
               <li>
-                <a class="footer-link" href="https://reasonstobecheerful.world/" target="_blank"
+                <a
+                  class="footer-link"
+                  href="https://reasonstobecheerful.world/"
+                  target="_blank"
                   >A little cheer for you</a
                 >
               </li>

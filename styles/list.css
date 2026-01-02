@@ -1,54 +1,113 @@
-.awards-section {
-  background-color: transparent; /* Or your olive green #b5b644 */
-  font-family: 'Inter', sans-serif;
+:root {
+  --bg-color: #F8F8F7;
+  --text-main: #1A1A1A;
+  --text-secondary: #666;
+  --border-color: #000; /* Keeping your sharp black border style */
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+
+/* --- SPLIT TOOLS & EXPERIENCE SECTION --- */
+
+
+
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr; 
+  gap: 6rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.tools-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.tools-list li {
+  font-size: 1.1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.tool-note {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  max-width: 200px;
+  line-height: 1.4;
+}
+
+.experience-table { width: 100%; 
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #ddd;
+  align-items: baseline;
+}
+
+.table-row.last-row { border-bottom: none; }
+
+.col-info h3 { font-size: 1.75rem; margin: 0; font-weight: 500; }
+.col-info p { color: var(--text-secondary); margin: 0.4rem 0 0; font-size: 1.1rem; }
+.col-date { font-size: 1.75rem; font-weight: 500; text-align: right; }
+
+
+.awards-col{
+    border-top: 1px solid var(--border-color);
+        padding-top: 4rem;
+
 }
 
 .awards-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 400;
-  margin-bottom: 3rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 500;
+  margin-bottom: 2rem;
   letter-spacing: -0.02em;
 }
 
-.awards-table {
-  border-top: 1px solid #000;
-}
 
 .award-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid #000;
-  font-size: 1rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.1rem;
 }
 
-/* Specific column widths to match the screenshot layout */
-.award-name {
-  flex: 2;
-  text-align: left;
-}
 
-.award-org {
-  flex: 1;
-  text-align: left;
-}
 
-.award-year {
-  flex: 1;
-  text-align: right;
-}
+.award-name { flex: 2; text-align: left; font-weight: 500; }
+.award-org { flex: 1.5; text-align: left; color: var(--text-secondary); }
+.award-year { flex: 1; text-align: right; }
 
-/* Mobile adjustments */
-@media (max-width: 600px) {
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+  .split-grid { grid-template-columns: 1fr; gap: 4rem; }
+  .container { padding: 0 2rem; }
+  
   .award-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
+  
   .award-org, .award-year {
     text-align: left;
-    font-size: 0.85rem;
-    opacity: 0.7;
+    font-size: 0.9rem;
+    opacity: 0.8;
   }
 }
