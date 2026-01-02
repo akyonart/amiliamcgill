@@ -13,7 +13,7 @@
   width: 100%;
   max-width: 100%;
   aspect-ratio: 16 / 9; /* maintain ratio */
-  overflow: hidden;
+  overflow: visible;
 }
 
 .video-wrapper iframe {
