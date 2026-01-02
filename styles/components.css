@@ -219,8 +219,7 @@
 
 .project-title {
   font-weight: 400;
-  font-size: 5rem;
-  line-height: 1.4;
+font-size: clamp(2.5rem, 5vw, 4rem);  line-height: 1.4;
   color: var(--color-text-project-title);
   margin: 0;
   text-transform: none;
