@@ -105,10 +105,9 @@
   gap: 1.67rem;
   align-items: flex-start;
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr;
   align-items: start;
 }
-
 
 .two-column-offset {
   display: grid;
@@ -210,6 +209,13 @@
 .la-compagnia-cream {
   background-color: #eaebe5;
 }
+
+.la-compagnia-black {
+  background-color: #0b090900;
+}
+
+.black{
+  background-color: #000000;}
 
 .gap {
   gap: 1.6667rem;

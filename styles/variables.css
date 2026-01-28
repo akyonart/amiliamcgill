@@ -12,7 +12,7 @@
 
   /* Colors */
   --color-accent-primary: #c2bd42;
-  --color-accent-secondary: #282828;
+  --color-accent-secondary: #301934;
   --color-highlight: #fbd24b;
   --color-fallback: #fbd24b;
 
@@ -21,20 +21,20 @@
   --color-bg-footer: #FCFCFE;
   --color-bg-rgb: 248, 248, 248;
 
-  --color-bg-project-description: #282828;
+  --color-bg-project-description: #301934;
   --color-bg-sidebar-project: ;
 
-  --color-text-primary: #282828;
-  --color-text-secondary: #000000;
-  --color-text-project-title: #282828;
-  --color-text-project-description: #282828;
-  --color-text-project-category: #282828;
+  --color-text-primary: #301934;
+  --color-text-secondary: #301934;
+  --color-text-project-title: #301934;
+  --color-text-project-description: #301934;
+  --color-text-project-category: #301934;
   --color-text-project-title-secondary: lightgrey;
 
-  --color-link: #282828;
-  --color-link-hover: lightskyblue;
+  --color-link: #301934;
+  --color-link-hover: #87cefa;
 
-  --color-nav-link: #282828;
+  --color-nav-link: #301934;
   --color-nav-link-hover: lightskyblue;
 
 

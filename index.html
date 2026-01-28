@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <link
       rel="preload"
-      href="assets/hero/data.json"
+      href="assets/hero/signature.json"
       as="fetch"
       crossorigin="anonymous"
     />
@@ -97,7 +97,6 @@
       </div>
     </nav>
     <section class="hero-container-a">
-      <div class="work-background"><img src="assets/hero/green.jpg" /></div>
       <div
         class="gif-container center-horz hero-container gallery-fill margin-bottom-large"
       >
@@ -157,7 +156,7 @@
           <a class="page-link" href="la-compagnia.html">
             <div class="card-frame rounded-frame border">
               <img
-                src="assets/La%20Compagnia/covers/la-compagnia-cover.jpg"
+                src="assets/La%20Compagnia/covers/la-compagnia-cover-2.webp"
                 alt="La Compagnia branding project cover"
                 class="cover cream"
               />
@@ -201,8 +200,11 @@
           <a class="page-link" href="spudbuds-new.html">
             <div
               class="card-frame rounded-frame"
-              onmouseenter="this.querySelector('lottie-player').stop(); this.querySelector('lottie-player').play();"
-              onmouseleave="this.querySelector('lottie-player').stop();"
+              onmouseenter="
+                this.querySelector('lottie-player').stop();
+                this.querySelector('lottie-player').play();
+              "
+              onmouseleave="this.querySelector('lottie-player').stop()"
             >
               <img
                 src="assets/spudbuds/spudbuds-cover.jpg"
@@ -271,18 +273,18 @@
         </li>
         <li class="project-card">
           <a class="page-link" href="world-health-outreach.html">
-          <div class="card-frame rounded-frame">
-            <img
-              src="assets/Heath Outreach/Slide 16_9 - 15.png"
-              alt="Project 5 cover"
-              class="cover"
-            />
-            <img
-              src="assets/cappy/billboard-mockup-heirloom.png"
-              alt="Project 5 hover effect"
-              class="hover"
-            />
-          </div></a>
+            <div class="card-frame rounded-frame">
+              <img
+                src="assets/Heath Outreach/Slide 16_9 - 15.png"
+                alt="Project 5 cover"
+                class="cover"
+              />
+              <img
+                src="assets/Heath Outreach/Gemini_Generated_Image_bxwp8sbxwp8sbxwp.png"
+                alt="Project 5 hover effect"
+                class="hover"
+              /></div
+          ></a>
           <div class="project-content top-padding-small one-column">
             <h3 class="heading-3">World Health Outreach</h3>
             <p class="cover-description">
@@ -479,7 +481,7 @@
 
       const observer = new IntersectionObserver(
         observerCallback,
-        observerOptions
+        observerOptions,
       );
 
       elementsToLoadIn.forEach((el) => observer.observe(el));

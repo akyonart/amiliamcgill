@@ -6,12 +6,23 @@
 .carousel-items {
   display: flex;
   gap: 2rem;
-  height: 16vh;
+  height: 25vh;
+  z-index: 1;
+}
+
+.carousel-items-b {
+  display: flex;
+  gap: 2rem;
+  height: 30vh;
   z-index: 1;
 }
 
 .block-carousel[data-animated] .carousel-items {
   animation: scroll 18s linear infinite;
+}
+
+.block-carousel[data-animated] .carousel-items-b {
+  animation: scroll 30s linear infinite;
 }
 
 @keyframes scroll {
