@@ -263,6 +263,10 @@
   align-items: flex-end;
 }
 
+.miingle-blue {
+  background-color: #d2eaee;
+}
+
 /* Direction */
 .row {
   flex-direction: row;
@@ -315,4 +319,30 @@
   margin-top: 1rem;
   text-transform: uppercase;
   font-family: var(--font-family-body);
+}
+
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 16rem;   /* explicit height */
+  width: auto;     /* preserves aspect ratio */
+  pointer-events: none;
+  z-index: 10;
+  opacity: 100%;
+}
+
+.overlay-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* so it doesn’t block mouse */
+  z-index: 9; /* on top of blobs */
+  opacity: 60%;               /* subtle overlay */
+  mix-blend-mode: multiply;
+
 }

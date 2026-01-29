@@ -1,20 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y76882GVCX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Y76882GVCX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-Y76882GVCX');
-</script>
+      gtag("config", "G-Y76882GVCX");
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Amilia McGill | Branding & Inclusive Design | Miingle
-    </title>
+    <title>Amilia McGill | Branding & Inclusive Design | Miingle</title>
     <meta
       name="description"
       content="Student branding, visual identity, and inclusive design for Miingle — a social café created to support and celebrate neurodivergent connection and community."
@@ -78,19 +81,82 @@
       </div>
     </nav>
     <main data-scroll-container="">
-      <section
-        class="hero-container hero-height margin-top"
-        data-scroll-section=""
-      >
-        <div class="work-background">
-          <img
-            class="gallery-fill"
-            src="assets/miingle/mingle-cover.jpg"
-            alt="Miingle cover"
-            loading="lazy"
-            width="1920"
-            height="1080"
-          />
+      <section class="small-padding" data-scroll-section="">
+        <div class="hero-container margin-top hero-height hero full-bleed">
+          <div class="work-background la-compagnia-red">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+      <feColorMatrix in="blur" feColorMatrix in="blur" mode="matrix" 
+  values="1 0 0 0 0  
+          0 1 0 0 0  
+          0 0 1 0 0  
+          0 0 0 1.2 0" result="softGlow"/>
+    </filter>
+
+    <radialGradient id="G1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E5645A" />
+      <stop offset="100%" stop-color="#E5645A00" />
+    </radialGradient>
+    <radialGradient id="G2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8854F" />
+      <stop offset="100%" stop-color="#E8854F00" />
+    </radialGradient>
+    <radialGradient id="G3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E7A355" />
+      <stop offset="100%" stop-color="#E7A35500" />
+    </radialGradient>
+    <radialGradient id="G4" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ECCF64" />
+      <stop offset="100%" stop-color="#ECCF6400" />
+    </radialGradient>
+    <radialGradient id="G5" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F66F5A" />
+      <stop offset="100%" stop-color="#F66F5A00" />
+    </radialGradient>
+  </defs>
+
+  <rect width="100" height="100" fill="#F2F7F7" />
+
+  <g filter="url(#blur)">
+    <circle cx="50" cy="50" r="60" fill="url(#G5)">
+      <animate attributeName="cx" dur="25s" values="20;80;20" repeatCount="indefinite" />
+      <animate attributeName="cy" dur="30s" values="80;20;80" repeatCount="indefinite" />
+    </circle>
+
+    <circle cx="50" cy="50" r="50" fill="url(#G1)">
+      <animate attributeName="cx" dur="18s" values="10;90;10" repeatCount="indefinite" />
+      <animate attributeName="cy" dur="22s" values="20;70;20" repeatCount="indefinite" />
+    </circle>
+
+    <circle cx="50" cy="50" r="55" fill="url(#G2)">
+      <animate attributeName="cx" dur="20s" values="80;20;80" repeatCount="indefinite" />
+      <animate attributeName="cy" dur="25s" values="10;90;10" repeatCount="indefinite" />
+    </circle>
+
+    <circle cx="50" cy="50" r="45" fill="url(#G3)">
+      <animate attributeName="cx" dur="15s" values="30;70;30" repeatCount="indefinite" />
+      <animate attributeName="cy" dur="19s" values="30;70;30" repeatCount="indefinite" />
+    </circle>
+
+    <circle cx="50" cy="50" r="40" fill="url(#G4)">
+      <animate attributeName="cx" dur="28s" values="90;10;90" repeatCount="indefinite" />
+      <animate attributeName="cy" dur="24s" values="50;10;50" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>
+          </div>
+</div>
+
+          </div>
+            <img
+    class="overlay"
+    src="assets/miingle/Miingle-Logo-white.svg" 
+    alt="Overlay Logo"
+  />
+</div>
+
         </div>
       </section>
       <section class="project" data-scroll-section="">
@@ -113,7 +179,6 @@
             reflects the space itself, making socializing approachable,
             comfortable, and memorable for everyone.
           </p>
-  
         </div>
       </section>
       <section class="gallery small-padding" data-scroll-section="">
@@ -138,15 +203,15 @@
           </div>
         </div>
         <div class="edge two-column-about margin-bottom gallery-item">
-          <div class="padding-jumbo">
+
             <img
-              class="gallery-fill rotate rounded-frame"
-              src="assets/miingle/bloom.png"
-              alt="Caffee takeaway mockup"
+              class="gallery-cover rotate rounded-frame"
+              src="assets/miingle/smiley-friends-enjoying-cup-coffee.jpg"
+              alt="Coffee takeaway mockup"
               width="1920"
               height="1080"
             />
-          </div>
+       
           <img
             class="gallery-cover rounded-frame"
             src="assets/miingle/Screenshot 2025-12-04 at 12.36.19.png"
@@ -241,89 +306,6 @@
         </p>
       </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <script>
-      const autoplayCarousel = document.querySelectorAll(".block-carousel");
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      );
-
-      function handleCarouselState(shouldReduce) {
-        autoplayCarousel.forEach((scroller) => {
-          const scrollerInner = scroller.querySelector(".carousel-items");
-
-          if (shouldReduce) {
-            scroller.removeAttribute("data-animated");
-            scrollerInner
-              .querySelectorAll(".clone")
-              .forEach((item) => item.remove());
-          } else {
-            scroller.setAttribute("data-animated", true);
-            Array.from(scrollerInner.children)
-              .filter((item) => !item.classList.contains("clone"))
-              .forEach((item) => {
-                const clone = item.cloneNode(true);
-                clone.setAttribute("aria-hidden", true);
-                clone.classList.add("clone");
-                scrollerInner.appendChild(clone);
-              });
-          }
-        });
-      }
-
-      // Initialize
-      handleCarouselState(prefersReducedMotion.matches);
-
-      // Listen for preference changes
-      prefersReducedMotion.addEventListener("change", (e) =>
-        handleCarouselState(e.matches)
-      );
-
-      const elementsToLoadIn = new Set([
-        ...document.querySelectorAll(".hero-container"),
-        ...document.querySelectorAll(".overview"),
-        ...document.querySelectorAll(".tag"),
-        ...document.querySelectorAll(".project-description"),
-        ...document.querySelectorAll(".gallery-item"),
-      ]);
-
-      elementsToLoadIn.forEach((el) => {
-        el.classList.add("loadin");
-      });
-
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.3,
-      };
-
-      function observerCallback(entries) {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle("loaded", entry.isIntersecting);
-        });
-      }
-
-      const observer = new IntersectionObserver(
-        observerCallback,
-        observerOptions
-      );
-
-      elementsToLoadIn.forEach((el) => observer.observe(el));
-
-      let lastScroll = 0;
-      const nav = document.querySelector(".navbar");
-
-      window.addEventListener("scroll", () => {
-        const current = window.pageYOffset;
-
-        if (current > lastScroll) {
-          nav.classList.add("hide-nav"); // scrolling down
-        } else {
-          nav.classList.remove("hide-nav"); // scrolling up
-        }
-
-        lastScroll = current;
-      });
-    </script>
+    
   </body>
 </html>
