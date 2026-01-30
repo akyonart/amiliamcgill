@@ -33,6 +33,22 @@
   padding-right: var(--padding-small-sides);
 }
 
+/* mobile */
+@media (max-width: 767px) {
+  :root {
+    --padding-small-sides: 0.5rem;
+  }
+}
+
+/* tablet + desktop */
+@media (min-width: 768px) {
+  :root {
+    --padding-small-sides: 1rem;
+  }
+}
+
+
+
 .top-padding-large {
   padding-top: 6rem;
 }
