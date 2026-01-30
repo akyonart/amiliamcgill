@@ -181,4 +181,8 @@
   .mobile-only {
     display: block !important;
   }
+    .small-padding-sides {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
