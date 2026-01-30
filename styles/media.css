@@ -21,13 +21,10 @@
     height: 1.5rem;
   }
 
-
   /* Optional: move hamburger menu to right if you have one */
   .hamburger {
     order: 3;
   }
-
-
 
   :root {
     --padding-small: 0.8rem;
@@ -46,9 +43,6 @@
     --padding-jumbo: 4.5rem;
     --padding-ultra: 5rem; /* slightly smaller for tablet */
   }
-
-
-
 
   .gallery-moodboard {
     flex-direction: column; /* columns stacked on top of each other */
@@ -100,7 +94,6 @@
 
   .span {
     grid-template-columns: 1fr;
-
   }
 
   .work-hero-box {
@@ -125,7 +118,7 @@
 
   .hero-text {
     font-size: 1.2rem;
-      max-width: 84%;
+    max-width: 84%;
   }
 
   .margin-bottom {
@@ -181,7 +174,7 @@
   .mobile-only {
     display: block !important;
   }
-    .small-padding-sides {
+  .small-padding-sides {
     padding-left: 1rem;
     padding-right: 1rem;
   }
