@@ -53,7 +53,6 @@ svg {
   object-fit: cover;
   object-position: center;
   display: block;
-  vertical-align: top;
   z-index: 1;
 }
 
