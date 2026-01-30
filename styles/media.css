@@ -3,6 +3,11 @@
     grid-template-columns: 1fr;
   }
 
+  .small-padding-sides {
+    padding-left: var(--padding-small);
+    padding-right: var(--padding-small);
+  }
+
   .edge {
     height: 90vh;
   }

@@ -1,67 +1,223 @@
-.final-onsi-section {
-  height: 100vh !important;
-  width: 100%;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  background: #fff;
+/* ===============================
+   SLIDER WRAPPER
+   =============================== */
+.CSSgal {
+  position: relative;
   overflow: hidden;
+  color: #fff;
+  text-align: center;
 }
 
-.final-onsi-container {
-  display: flex !important; /* Forces horizontal row */
-  flex-direction: row !important;
+/* ===============================
+   SLIDER
+   =============================== */
+.CSSgal .slider {
+  height: 100%;
   width: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  gap: 0;
+  white-space: nowrap;
+  font-size: 0;
+  transition: transform 0.8s ease;
 }
 
-.final-onsi-container::-webkit-scrollbar { display: none; }
-
-.final-onsi-card {
-  flex: 0 0 100% !important;
-  width: 100%;
-  scroll-snap-align: center;
-  aspect-ratio: 16 / 9; /* Locks the 16:9 shape */
-  overflow: hidden;
-}
-
-.final-onsi-card img {
+.CSSgal .slider > div {
+  display: inline-block;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Keeps mockup visible */
-  display: block;
+  font-size: 1rem;
+  vertical-align: top;
+  white-space: normal;
+  background-size: cover;
+  background-position: center;
 }
 
-.final-onsi-controls {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
+/* ===============================
+   SLIDE CONTENT
+   =============================== */
+.CSSgal .slider h2 {
+  margin-top: 40vh;
+  font-weight: 200;
+  font-size: 3em;
 }
 
-.final-onsi-pill {
-  background: #f5f5f7;
-  padding: 10px 18px;
-  border-radius: 30px;
-  display: flex;
-  gap: 12px;
+/* ===============================
+   PREV / NEXT BUTTONS
+   =============================== */
+.CSSgal .prevNext {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 0;
+  z-index: 3;
 }
 
-.f-dot {
-  width: 8px;
-  height: 8px;
-  background: #86868b;
-  border-radius: 50%;
+.CSSgal .prevNext > div {
+  visibility: hidden;
+}
+
+.CSSgal .prevNext a {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background: #c7c7c7;
+  opacity: 0.7;
+  text-decoration: none;
   cursor: pointer;
-  transition: all 0.4s ease;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  font-size: 28px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #000;
 }
 
-.f-dot.active {
-  width: 24px; /* Becomes a pill */
-  background: #1d1d1f;
-  border-radius: 10px;
+/* padding from edges */
+.CSSgal .prevNext a:first-child {
+  left: 20px;
+}
+
+.CSSgal .prevNext a:last-child {
+  right: 20px;
+}
+
+.CSSgal .prevNext a:hover {
+  opacity: 1;
+}
+
+/* arrow symbols */
+.CSSgal .prevNext a::before {
+  content: "‹";
+}
+
+.CSSgal .prevNext a:last-child::before {
+  content: "›";
+}
+
+/* ===============================
+   BULLETS (GRAY WRAPPED BOX)
+   =============================== */
+.CSSgal .bullets {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 10px;
+  background: rgba(120, 120, 120, 0.6);
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.CSSgal .bullets a {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  margin: 0 2px;
+  border-radius: 50%;
+  text-align: center;
+  background: #002;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.CSSgal .bullets a:hover {
+  background: grey;
+}
+
+/* reset bullets */
+.CSSgal > s:target ~ .bullets a {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* active bullet */
+#s1:target ~ .bullets a:nth-child(1) {
+  background: #fff;
+}
+#s2:target ~ .bullets a:nth-child(2) {
+  background: #fff;
+}
+#s3:target ~ .bullets a:nth-child(3) {
+  background: #fff;
+}
+#s4:target ~ .bullets a:nth-child(4) {
+  background: #fff;
+}
+#s5:target ~ .bullets a:nth-child(5) {
+  background: #fff;
+}
+#s6:target ~ .bullets a:nth-child(6) {
+  background: #fff;
+}
+#s7:target ~ .bullets a:nth-child(7) {
+  background: #fff;
+}
+#s8:target ~ .bullets a:nth-child(8) {
+  background: #fff;
+}
+#s9:target ~ .bullets a:nth-child(9) {
+  background: #fff;
+}
+
+/* ===============================
+   PREV/NEXT VISIBILITY
+   =============================== */
+#s1:target ~ .prevNext > div:nth-child(1) {
+  visibility: visible;
+}
+#s2:target ~ .prevNext > div:nth-child(2) {
+  visibility: visible;
+}
+#s3:target ~ .prevNext > div:nth-child(3) {
+  visibility: visible;
+}
+#s4:target ~ .prevNext > div:nth-child(4) {
+  visibility: visible;
+}
+#s5:target ~ .prevNext > div:nth-child(5) {
+  visibility: visible;
+}
+#s6:target ~ .prevNext > div:nth-child(6) {
+  visibility: visible;
+}
+#s7:target ~ .prevNext > div:nth-child(7) {
+  visibility: visible;
+}
+#s8:target ~ .prevNext > div:nth-child(8) {
+  visibility: visible;
+}
+#s9:target ~ .prevNext > div:nth-child(9) {
+  visibility: visible;
+}
+
+/* ===============================
+   SLIDER POSITIONS
+   =============================== */
+#s1:target ~ .slider {
+  transform: translateX(0%);
+}
+#s2:target ~ .slider {
+  transform: translateX(-100%);
+}
+#s3:target ~ .slider {
+  transform: translateX(-200%);
+}
+#s4:target ~ .slider {
+  transform: translateX(-300%);
+}
+#s5:target ~ .slider {
+  transform: translateX(-400%);
+}
+#s6:target ~ .slider {
+  transform: translateX(-500%);
+}
+#s7:target ~ .slider {
+  transform: translateX(-600%);
+}
+#s8:target ~ .slider {
+  transform: translateX(-700%);
+}
+#s9:target ~ .slider {
+  transform: translateX(-800%);
 }
