@@ -221,3 +221,42 @@
 #s9:target ~ .slider {
   transform: translateX(-800%);
 }
+
+.CSSgal:not(:target) .slider {
+  transform: translateX(0%);
+}
+
+@media (max-width: 768px) {
+
+  /* prev / next buttons */
+  .CSSgal .prevNext a {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 20px;
+  }
+
+  /* bring arrows in a bit */
+  .CSSgal .prevNext a:first-child {
+    left: 10px;
+  }
+
+  .CSSgal .prevNext a:last-child {
+    right: 10px;
+  }
+
+  /* bullets wrapper */
+  .CSSgal .bullets {
+    padding: 6px 8px;
+    bottom: 14px;
+    border-radius: 10px;
+  }
+
+  /* bullets themselves */
+  .CSSgal .bullets a {
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    margin: 0 2px;
+  }
+}
