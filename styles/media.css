@@ -2,6 +2,9 @@
   .two-column {
     grid-template-columns: 1fr;
   }
+  .two-column-about {
+    grid-template-columns: 1fr;
+  }
 
   .small-padding-sides {
     padding-left: 1rem;
