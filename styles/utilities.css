@@ -33,6 +33,10 @@
   padding-right: var(--padding-small-sides);
 }
 
+.margin-top-large {
+  margin-top: 6rem;
+}
+
 /* mobile */
 @media (max-width: 767px) {
   :root {
