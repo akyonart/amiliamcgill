@@ -36,14 +36,14 @@
 /* mobile */
 @media (max-width: 767px) {
   :root {
-    --padding-small-sides: 0.5rem;
+    --padding-small-sides: 1rem;
   }
 }
 
 /* tablet + desktop */
 @media (min-width: 768px) {
   :root {
-    --padding-small-sides: 1rem;
+    --padding-small-sides: 1.6667rem;
   }
 }
 
