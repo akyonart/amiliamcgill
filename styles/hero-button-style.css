@@ -5,8 +5,8 @@
   display: inline-flex;
   align-items: center;
   padding-left: 2rem;
-  background: #301934;
-  border: 1px solid #301934; /* 1.5px */
+  background: #16161d;
+  border: 1px solid #16161d; /* 1.5px */
   border-radius: 6.25rem;
   text-decoration: none;
   color: var(--color-accent-secondary);

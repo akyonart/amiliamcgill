@@ -1,12 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link
-      rel="preload"
-      href="assets/hero/signature.json"
-      as="fetch"
-      crossorigin="anonymous"
-    />
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -37,6 +31,12 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -96,28 +96,21 @@
         <a href="about.html">About</a>
       </div>
     </nav>
-    <section class="hero-container-a">
+    <section class="hero-container-a full-background-section">
+      <!-- Background image -->
+      <img
+        src="assets/hero/green.jpg"
+        alt="Desktop Background Image"
+        class="background-image"
+      />
+
+      <!-- GIF container -->
       <div
         class="gif-container center-horz hero-container gallery-fill margin-bottom-large"
       >
-        <!-- Desktop GIF -->
-        <dotlottie-wc
-          src="assets/hero/data.json"
-          background="transparent"
-          speed="1.5"
-          autoplay
-          class="gif desktop-only"
-          style="
-            width: 100%;
-            scale: 1.08;
-            overflow: visible;
-            aspect-ratio: 1920 / 600 !important;
-            object-fit: cover;
-            padding-top: 2rem;
-            height: auto;
-          "
-        >
-        </dotlottie-wc>
+        <!-- Desktop JSON animation -->
+        <div id="signature-animation" class="desktop-only"></div>
+
         <!-- Mobile static image -->
         <img
           src="assets/hero/mobile-hero-image.png"
@@ -125,10 +118,14 @@
           class="gif mobile-only"
         />
       </div>
+
+      <!-- Hero text -->
       <h1 class="hero-text margin-bottom">
         A designer who draws, an illustrator who designs, and a human who tries
         her best.
       </h1>
+
+      <!-- CTA button -->
       <a href="about.html" class="stranger-btn">
         <span class="btn-text">Don’t be a stranger </span>
         <div class="bg-fill"></div>
@@ -138,6 +135,18 @@
         </div>
       </a>
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js"></script>
+    <script>
+      lottie.loadAnimation({
+        container: document.getElementById("signature-animation"),
+        renderer: "svg",
+        loop: false,
+        autoplay: true,
+        path: "assets/hero/signature-animation (3).json",
+      });
+    </script>
+
     <section
       id="projects"
       class="small-padding-sides margin-top margin-bottom-large"

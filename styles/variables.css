@@ -4,15 +4,14 @@
 
 :root {
   /* Fonts */
-  --font-heading: "DM Sans", sans-serif;
+  --font-heading: "Hedvig Letters Serif", sans-serif;
   --font-body: "DM Sans", sans-serif;
   --font-family-body: "DM Sans", sans-serif;
-  --font-family-heading: "DM Sans", sans-serif;
-  --font-family-project-title: "DM Sans", sans-serif;
-
+  --font-family-heading: "Hedvig Letters Serif", sans-serif;
+  --font-family-project-title: "Hedvig Letters Serif", sans-serif;
   /* Colors */
   --color-accent-primary: #c2bd42;
-  --color-accent-secondary: #301934;
+  --color-accent-secondary: #16161d;
   --color-highlight: #fbd24b;
   --color-fallback: #fbd24b;
 
@@ -21,20 +20,20 @@
   --color-bg-footer: #FCFCFE;
   --color-bg-rgb: 248, 248, 248;
 
-  --color-bg-project-description: #301934;
+  --color-bg-project-description: #16161d;
   --color-bg-sidebar-project: ;
 
-  --color-text-primary: #301934;
-  --color-text-secondary: #301934;
-  --color-text-project-title: #301934;
-  --color-text-project-description: #301934;
-  --color-text-project-category: #301934;
+  --color-text-primary: #16161d;
+  --color-text-secondary: #16161d;
+  --color-text-project-title: #16161d;
+  --color-text-project-description: #16161d;
+  --color-text-project-category: #16161d;
   --color-text-project-title-secondary: lightgrey;
 
-  --color-link: #301934;
+  --color-link: #16161d;
   --color-link-hover: #87cefa;
 
-  --color-nav-link: #301934;
+  --color-nav-link: #16161d;
   --color-nav-link-hover: lightskyblue;
 
 
