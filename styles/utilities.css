@@ -235,7 +235,7 @@
 }
 
 .black{
-  background-color: #000000;}
+  background-color: #16161d;}
 
 .gap {
   gap: 1.6667rem;
@@ -367,3 +367,55 @@
 
 }
 
+.left {
+  display: flex;          /* required */
+}
+
+.space-between {
+  justify-content: space-between;  /* 🔥 this is the key */
+}
+
+.hero-tall{
+  height: 70vh;
+  display: flex;
+  width: 100%;
+}
+
+.button {
+  display:inline-block;
+  height:60px;
+  line-height:60px;
+  overflow:hidden;
+  position:relative;
+  text-align:center;
+  color:white;
+  border-radius:2px;
+  transition:0.3s;
+}
+
+
+/* BUTTON UP */
+.label-up {
+  display:block;
+  margin:0px 30px;
+  height:100%;
+  position:relative;
+  top:0%;
+  transition:0.3s;
+}
+.label-up-2 {
+  text-decoration: underline;
+  display:block;
+  margin:0px 30px;
+  height:100%;
+  position:relative;
+  top:0%;
+  transition:0.3s;
+}
+
+.button:hover .label-up {
+  top:-100%;
+}
+.button:hover .label-up-2 {
+  top:-100%;
+}

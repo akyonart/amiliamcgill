@@ -1,11 +1,11 @@
 .stranger-btn {
-  height: 4rem;
-  width: 16rem;
+  height: 3.4rem;
+  width:6rem;
   position: relative;
   display: inline-flex;
   align-items: center;
   padding-left: 2rem;
-  background: #16161d;
+  background: whitesmoke;
   border: 1px solid #16161d; /* 1.5px */
   border-radius: 6.25rem;
   text-decoration: none;
@@ -13,15 +13,21 @@
   font-family: sans-serif;
   font-weight: 700;
   overflow: hidden;
-  align-self: center;
+  display: flex;
+width: 13.1875rem;
+height: 2.9375rem;
+padding: 0 1.25rem;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
 }
 
 .btn-text {
   position: relative;
   z-index: 3;
-  color: lightskyblue;
+  color: #16161d;
   font-family: var(--font-family-body);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 
@@ -29,9 +35,10 @@
 .bg-fill {
   position: absolute;
   top: 0.5rem;
-  right: 0.5rem;
-  bottom: 0.5rem;
-  width: 3rem; 
+  right: 6rem;
+  bottom: 1rem;
+  width: 0rem; 
+  height: 0;
   background: lightskyblue;
   border-radius: 3.125rem;
   z-index: 1;
@@ -39,18 +46,7 @@
   transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.icon-wrap {
-  position: absolute;
-  right: 0.5rem;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  /* This masks the arrows as they slide in and out */
-  overflow: hidden; 
-}
+
 
 .arrow {
   position: absolute;
