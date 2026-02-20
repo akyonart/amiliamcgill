@@ -39,3 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial call to set slide 1 as active
   updateDots();
 });
+document.querySelectorAll('.bullets a, .prevNext a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault(); // This is the line that deletes the "jump"
+    
+    // Manually handle the sliding logic here instead
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    // ... logic to slide the carousel ...
+  });
+});
