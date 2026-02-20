@@ -148,4 +148,8 @@ body.work-page {
   background-color: #FCFCFE;
 }
 
-
+button{
+  background-color: 0;
+  background: none;
+  border:0;
+}

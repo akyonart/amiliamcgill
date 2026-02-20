@@ -91,7 +91,46 @@
     </nav>
 
     <section class="small-padding-sides margin-top margin-bottom-large hero-tall col left space-between">
-<div class="gif-container center-horz hero-container gallery-fill margin-bottom-large">
+
+    <video autoplay loop muted class="flex full " id="loading-screen">
+    <source src="My_logo_video.mp4" type="video/mp4" class="loader">
+    <!-- Optional: Add other formats for cross-browser compatibility -->
+    <source src="My_logo_video.mp4" type="video/webm">
+    Your browser does not support the video tag.
+</video>
+
+    <script>
+    // A recommended approach is to ensure both a minimum time has passed
+// AND the window has finished loading
+
+var loadingScreen = document.getElementById('loading-screen');
+var mainContent = document.getElementById('main-content');
+var minTimeElapsed = false;
+var pageLoaded = false;
+
+// Function to hide the loading screen and show content
+function hideLoadingScreen() {
+    if (minTimeElapsed && pageLoaded) {
+        loadingScreen.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+        document.body.style.overflow = 'auto'; // Restore scrollbar
+    }
+}
+
+// 1. Ensure a minimum time has elapsed (e.g., 2000 milliseconds or 2 seconds)
+setTimeout(function() {
+    minTimeElapsed = true;
+    hideLoadingScreen();
+}, 3000);
+
+// 2. Wait for the window to fully load (images, etc.)
+window.addEventListener('load', function() {
+    pageLoaded = true;
+    hideLoadingScreen();
+});
+</script>
+
+      <div id="main-content"gif-container center-horz hero-container gallery-fill margin-bottom-large">
   <!-- Desktop static SVG -->
   <img
     src="assets/hero/amilia-mcgill.svg"
@@ -99,7 +138,7 @@
     class="desktop-only"
   />
 </div>
-<div class="flex row space-between">
+<div id="main-content" class="flex row space-between">
 <div>
 <!-- Hero text -->
 <h1 class="hero-text margin-bottom">

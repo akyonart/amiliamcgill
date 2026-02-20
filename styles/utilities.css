@@ -419,3 +419,39 @@
 .button:hover .label-up-2 {
   top:-100%;
 }
+.cv-container {
+  margin-top: 100px;
+}
+
+/* 404.css */
+
+model-viewer {
+  width: 80vw;
+  max-width: 600px;
+  height: 80vh;
+}
+
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Viewport height */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100; /* Make sure it's on top of everything */
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#main-content.hidden {
+    display: none;
+}

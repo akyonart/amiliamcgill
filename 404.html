@@ -5,35 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page Not Found | Amilia McGill</title>
 
-  <!-- Spotlight CSS -->
+  <!-- Your existing CSS -->
   <link rel="stylesheet" href="./styles/404.css" />
-      <link rel="stylesheet" href="./styles/components.css" />
-    <link rel="stylesheet" href="./styles/utilities.css" />
-    <link rel="stylesheet" href="./styles/base.css" />
-    <link rel="stylesheet" href="./styles/variables.css" />
-    <link rel="stylesheet" href="./styles/media.css" />
-    <link rel="stylesheet" href="./styles/logo.css" />
-    <link rel="stylesheet" href="./styles/gallery.css" />
-    <link rel="stylesheet" href="./styles/carousel.css" />
-    <link rel="stylesheet" href="./styles/motion.css" />
+  <link rel="stylesheet" href="./styles/components.css" />
+  <link rel="stylesheet" href="./styles/utilities.css" />
+  <link rel="stylesheet" href="./styles/base.css" />
+  <link rel="stylesheet" href="./styles/variables.css" />
+  <link rel="stylesheet" href="./styles/media.css" />
+  <link rel="stylesheet" href="./styles/logo.css" />
+  <link rel="stylesheet" href="./styles/gallery.css" />
+  <link rel="stylesheet" href="./styles/carousel.css" />
+  <link rel="stylesheet" href="./styles/motion.css" />
+
+  <!-- Model Viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
 </head>
 <body>
+<video autoplay loop muted class="flex full ">
+    <source src="My_logo_video.mp4" type="video/mp4">
+    <!-- Optional: Add other formats for cross-browser compatibility -->
+    <source src="My_logo_video.mp4" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 
-  <div class="page-container">
-    <!-- 404 Content -->
-    <div class="content">
-      <h1>Who turned out <br> the lights?</h1>
-      <p>There must be a door around here somewhere...</p>
-    </div>
-
-
-        <a href="/" class="home-button">Go Home</a>
-
-    <!-- Spotlight overlay -->
-    <div id="overlay"></div>
-  </div>
-
-  <!-- Spotlight JS -->
-  <script src="./styles/404.js"></script>
 </body>
 </html>
