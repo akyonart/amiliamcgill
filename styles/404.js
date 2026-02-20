@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!overlay) return;
 
   // Current spotlight position
-  let spotlightX = window.innerWidth / 2;
-  let spotlightY = window.innerHeight / 2;
+  let spotlightX = window.innerWidth / 40;
+  let spotlightY = window.innerHeight / 40;
 
   // Target position (follows mouse)
   let targetX = spotlightX;
