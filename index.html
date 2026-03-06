@@ -91,45 +91,6 @@
     </nav >
 
     <section class="small-padding-sides margin-top margin-bottom-large hero-tall col left space-between">
-
-    <video autoplay loop muted class="flex full " id="loading-screen">
-    <source src="My_logo_video.mp4" type="video/mp4" class="loader">
-    <!-- Optional: Add other formats for cross-browser compatibility -->
-    <source src="My_logo_video.mp4" type="video/webm">
-    Your browser does not support the video tag.
-</video>
-
-    <script>
-    // A recommended approach is to ensure both a minimum time has passed
-// AND the window has finished loading
-
-var loadingScreen = document.getElementById('loading-screen');
-var mainContent = document.getElementById('main-content');
-var minTimeElapsed = false;
-var pageLoaded = false;
-
-// Function to hide the loading screen and show content
-function hideLoadingScreen() {
-    if (minTimeElapsed && pageLoaded) {
-        loadingScreen.classList.add('hidden');
-        mainContent.classList.remove('hidden');
-        document.body.style.overflow = 'auto'; // Restore scrollbar
-    }
-}
-
-// 1. Ensure a minimum time has elapsed (e.g., 2000 milliseconds or 2 seconds)
-setTimeout(function() {
-    minTimeElapsed = true;
-    hideLoadingScreen();
-}, 2000);
-
-// 2. Wait for the window to fully load (images, etc.)
-window.addEventListener('load', function() {
-    pageLoaded = true;
-    hideLoadingScreen();
-});
-</script>
-
       <div id="main-content"gif-container center-horz hero-container gallery-fill margin-bottom-large">
   <!-- Desktop static SVG -->
   <img
@@ -142,7 +103,7 @@ window.addEventListener('load', function() {
 <div>
 <!-- Hero text -->
 <h1 class="hero-text margin-bottom">
-A designer and illustrator balancing clarity  with character, creating visuals that feel  thoughtful, intentional, and human.
+A designer and illustrator balancing clarity with character, creating visuals that feel thoughtful, intentional, and human.
 </h1>
 
 <!-- CTA button -->
@@ -284,16 +245,18 @@ Rebranding for the Wild Bird Trust bird Sanctuary            </p>
         </h1>
 
         <div class="footer-grid">
-          <div class="footer-col">
+               <div class="footer-col">
             <h3>Don't be shy</h3>
-            <a href="mailto:hello@yourname.com" class="email-btn">
+            <ul> <a href="mailto:amiliamcgill@gmail.com" class="email-btn">
               <span class="btn-text-b">Let’s chat</span>
               <div class="bg-fill-b"></div>
-              <div class="icon-wrap">
-                <span class="arrow arrow-1-b">↗</span>
-                <span class="arrow arrow-2-b">↗</span>
-              </div>
-            </a>
+              <div class="icon-wrap" aria-hidden="true">
+                  <span class="smiley-eye smiley-eye-left"></span>
+                  <span class="smiley-eye smiley-eye-right"></span>
+                  <span class="smiley-mouth"></span>
+                </div>
+            </a></ul>
+           
           </div>
 
           <div class="footer-col">
@@ -435,39 +398,6 @@ Rebranding for the Wild Bird Trust bird Sanctuary            </p>
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       });
-
-      const elementsToLoadIn = new Set([
-        ...document.querySelectorAll(".hero-text"),
-        ...document.querySelectorAll(".hero-container-a"),
-        ...document.querySelectorAll(".pill"),
-      ]);
-
-      elementsToLoadIn.forEach((el) => {
-        el.classList.add("loadin");
-      });
-
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.3,
-      };
-
-      function observerCallback(entries, observer) {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("loaded");
-            observer.unobserve(entry.target); // stop observing after first load
-          }
-        });
-      }
-
-      const observer = new IntersectionObserver(
-        observerCallback,
-        observerOptions,
-      );
-
-      elementsToLoadIn.forEach((el) => observer.observe(el));
-
       let lastScroll = 0;
       const nav = document.querySelector(".navbar");
 
@@ -483,5 +413,6 @@ Rebranding for the Wild Bird Trust bird Sanctuary            </p>
         lastScroll = current;
       });
     </script>
+    <script src="scrolling.js"></script>
   </body>
 </html>

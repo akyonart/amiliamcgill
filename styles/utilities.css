@@ -127,6 +127,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
+  height: 100vh;
+}
+
+.about-hero {
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+}
+
+.about-hero .two-column-about {
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - 4rem);
+  align-items: center;
 }
 
 .two-column-offset {

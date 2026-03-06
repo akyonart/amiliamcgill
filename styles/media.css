@@ -5,6 +5,14 @@
   .two-column-about {
     grid-template-columns: 1fr;
   }
+  .about-hero {
+    min-height: auto;
+    display: block;
+  }
+  .about-hero .two-column-about {
+    min-height: auto;
+    height: auto;
+  }
 
   .small-padding-sides {
     padding-left: 1rem;

@@ -525,15 +525,6 @@ height: 2.37644rem;
 }
 
 /* THE STRANGER BUTTON / EMAIL BUTTON */
-.arrow-1-b {
-  position: absolute;
-  font-size: 1.5rem;
-  color: var(--color-text-primary);
-  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.arrow-2-b { transform: translateX(-2.5rem); }
 
 .email-btn {
   height: 4rem;
@@ -547,6 +538,7 @@ height: 2.37644rem;
   border-radius: 6.25rem;
   overflow: hidden;
   transition: transform 0.2s ease; /* Essential for your JS scale to be smooth */
+  justify-content: flex-start;
 }
 
 .email-btn:hover .bg-fill-b {
@@ -574,14 +566,88 @@ height: 2.37644rem;
   color: var(--color-text-primary);
 }
 
-.email-btn:hover .arrow-1 {
-  transform: translateX(2.5rem);
-  color: #282828;
+.icon-wrap {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 3;
+  pointer-events: none;
 }
 
-.stranger-btn:hover .arrow-2 {
-  transform: translateX(0);
-  color: #282828;
+.smiley-eye,
+.smiley-mouth {
+  position: absolute;
+  background: #16161d;
+  transition: all 0.28s ease-out;
+}
+
+.smiley-eye {
+  width: 0.56rem;
+  height: 0.3rem;
+  border: 0.12rem solid #16161d;
+  border-top: 0;
+  background: transparent;
+  border-radius: 0 0 999px 999px;
+  top: 1.02rem;
+}
+
+.smiley-eye-left {
+  left: 0.66rem;
+}
+
+.smiley-eye-right {
+  right: 0.66rem;
+}
+
+.smiley-mouth {
+  width: 0.66rem;
+  height: 0.26rem;
+  border: 2px solid #16161d;
+  border-top: 0;
+  background: transparent;
+  border-radius: 0 0 999px 999px;
+  left: 50%;
+  top: 1.68rem;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+.smiley-mouth::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  right: 0.1rem;
+  top: 0.08rem;
+  height: 0.24rem;
+  background: #c2bd42;
+  border-radius: 0 0 999px 999px;
+  opacity: 0;
+  transition: opacity 0.28s ease-out;
+}
+
+.email-btn:hover .smiley-eye {
+  width: 0.32rem;
+  height: 0.32rem;
+  border: 0;
+  background: #16161d;
+  border-radius: 50%;
+  top: 1.02rem;
+}
+
+.email-btn:hover .smiley-mouth {
+  width: 0.9rem;
+  height: 0.5rem;
+  border: 0;
+  background: #16161d;
+  border-radius: 0 0 999px 999px;
+  top: 1.56rem;
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+.email-btn:hover .smiley-mouth::before {
+  opacity: 1;
 }
 
 .btn-text-b {

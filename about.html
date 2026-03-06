@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="./styles/gallery.css" />
         <link rel="stylesheet" href="./styles/play-hover.js" />
     <link rel="stylesheet" href="./styles/hero-button-style.css" />
-     <link rel="stylesheet" href="./styles/download-btn.js" />
+     <link rel="stylesheet" href="./styles/download-btn.css" />
 
     <link rel="stylesheet" href="./styles/motion.css" />
     <link rel="stylesheet" href="./styles/list.css" />
@@ -79,7 +79,7 @@
 </a></div>
     </nav>
     <section
-      class="gallery small-padding margin-bottom"
+      class="gallery small-padding margin-bottom about-hero"
       data-scroll-section=""
     >
       <div class="two-column-about">
@@ -109,6 +109,7 @@
   <button id="downloadBtn" class="btn-text">Download my full CV</button>
   <div class="bg-fill"></div></a>
         </div>
+      </div>
     </section>
 
     <section class="awards-section small-padding-sides top-bottom-padding margin-bottom-footer">
@@ -168,14 +169,16 @@
         <div class="footer-grid">
           <div class="footer-col">
             <h3>Don't be shy</h3>
-            <a href="mailto:hello@amiliamcgill.com" class="email-btn">
+            <ul> <a href="mailto:amiliamcgill@gmail.com" class="email-btn">
               <span class="btn-text-b">Let’s chat</span>
               <div class="bg-fill-b"></div>
-              <div class="icon-wrap">
-                <span class="arrow arrow-1-b">↗</span>
-                <span class="arrow arrow-2-b">↗</span>
-              </div>
-            </a>
+              <div class="icon-wrap" aria-hidden="true">
+                  <span class="smiley-eye smiley-eye-left"></span>
+                  <span class="smiley-eye smiley-eye-right"></span>
+                  <span class="smiley-mouth"></span>
+                </div>
+            </a></ul>
+           
           </div>
 
           <div class="footer-col">
@@ -218,5 +221,6 @@
         </div>
       </div>
     </footer>
+    <script src="scrolling.js"></script>
   </body>
 </html>
