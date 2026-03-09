@@ -84,7 +84,7 @@
       <section class="hero-wrapper" data-scroll-section="">
         <div class="hero-container margin-top hero-height hero full-bleed">
           <div class="work-background">
-         picture>
+         <picture>
     <!-- mobile -->
     <source
       srcset="assets/La%20Compagnia/covers/cover-mobile.jpg"
@@ -94,9 +94,11 @@
     <!-- desktop / default -->
     <img
       class="gallery-fill back"
-      src="assets/miingle/cover.jpg"
+      src="assets/miingle/cover-opt.jpg"
       alt="La Compagnia Project Cover"
-      loading="lazy"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
       width="1920"
       height="1080"
     />
@@ -137,6 +139,8 @@
           <img
             src="assets/miingle/Miingle-Logo.gif"
             alt="Miingle logo animated gif"
+            loading="lazy"
+            decoding="async"
             width="1920"
             height="1080"
           />
@@ -159,14 +163,18 @@
               class="gallery-cover rotate rounded-frame"
               src="assets/miingle/smiley-friends-enjoying-cup-coffee.jpg"
               alt="Coffee takeaway mockup"
+              loading="lazy"
+              decoding="async"
               width="1920"
               height="1080"
             />
        
           <img
             class="gallery-cover rounded-frame"
-            src="assets/miingle/cover.jpg"
+            src="assets/miingle/cover-opt.jpg"
             alt="Caffee takeaway mockup"
+            loading="lazy"
+            decoding="async"
             width="1920"
             height="1080"
           />
@@ -189,13 +197,17 @@
             src="assets/miingle/smiley-friends-enjoying-cup-coffee.jpg"
             alt="Smiley friends enjoying a cup of coffee"
             class="rounded-frame"
+            loading="lazy"
+            decoding="async"
             width="1920"
             height="1080"
           />
           <img
-            src="assets/miingle/Name_tags_and_lanyard.png"
+            src="assets/miingle/Name_tags_and_lanyard-opt.jpg"
             alt="Miingle lanyards with written names Katherine, Lily, and Jack"
             class="miingle-cream rounded-frame"
+            loading="lazy"
+            decoding="async"
             width="1920"
             height="1080"
           />

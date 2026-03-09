@@ -62,7 +62,6 @@
     <link rel="stylesheet" href="./styles/stt-button.css" />
     <link rel="stylesheet" href="./styles/motion.css" />
     <link rel="stylesheet" href="./styles/hero-button-style.css" />
-    <link rel="stylesheet" href="./styles/play-hover.js" />
     <link
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
       rel="stylesheet"
@@ -128,6 +127,9 @@ Avaliable wordwide </h4></div></div>
                 src="assets/La%20Compagnia/covers/la-compagnia-cover-2.jpg"
                 alt="La Compagnia branding project cover"
                 class="cover cream"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
               /></div
           ></a>
           <div class="project-content top-padding-small one-column">
@@ -145,6 +147,8 @@ Avaliable wordwide </h4></div></div>
                 src="assets/onsi/onsi-cover.webp"
                 alt="Project Cover"
                 class="cover"
+                loading="eager"
+                decoding="async"
               />
         
             </div></a
@@ -169,6 +173,8 @@ Avaliable wordwide </h4></div></div>
                 src="assets/spudbuds/spudbuds-cover.jpg"
                 alt="spudbuds branding project cover"
                 class="cover cream"
+                loading="lazy"
+                decoding="async"
               />
              
             </div>
@@ -183,9 +189,11 @@ Avaliable wordwide </h4></div></div>
           <a class="page-link" href="world-health-outreach.html">
             <div class="card-frame rounded-frame">
               <img
-                src="assets/Heath Outreach/Slide 16_9 - 15.png"
+                src="assets/Heath Outreach/Slide-16_9-15-opt.jpg"
                 alt="Project 5 cover"
                 class="cover"
+                loading="lazy"
+                decoding="async"
               />
               </div
           ></a>
@@ -201,9 +209,11 @@ Avaliable wordwide </h4></div></div>
           <a class="page-link" href="wild-bird-trust.html">
             <div class="card-frame rounded-frame cream">
               <img
-                src="assets/wild-bird-trust/Free-Eco-Bag-Carrying-by-Man-Mockup.jpg"
+                src="assets/Wild-bird-trust/Free-Eco-Bag-Carrying-by-Man-Mockup-opt.jpg"
                 alt="wild bird trust cover"
                 class="cover"
+                loading="lazy"
+                decoding="async"
               /></div
           ></a>
           <div class="project-content top-padding-small">
@@ -217,14 +227,18 @@ Rebranding for the Wild Bird Trust bird Sanctuary            </p>
           <a class="page-link" href="404.html">
             <div class="card-frame rounded-frame">
               <img
-                src="assets/miingle/cover.jpg"
+                src="assets/miingle/cover-opt.jpg"
                 alt="Miingle branding project cover"
                 class="cover cream"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="assets/miingle/mingle-cover.jpg"
                 alt="Miingle branding project hover effect"
                 class="hover"
+                loading="lazy"
+                decoding="async"
               /></div
           ></a>
           <div class="project-content top-padding-small one-column">
@@ -320,8 +334,6 @@ Rebranding for the Wild Bird Trust bird Sanctuary            </p>
         }
       });
     </script>
-    <script src="./scripts/scroll.js"></script>
-    <script src="./scripts/filter.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const pills = document.querySelectorAll(".pill");
