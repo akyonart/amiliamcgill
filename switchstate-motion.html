@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switchstate Freak Motion</title>
+    <style>
+      :root {
+        --bg-light: #ececec;
+        --bg-dark: #020202;
+        --fg-light: #ececec;
+        --fg-dark: #020202;
+        --stage-height: 100svh;
+        --word-size: clamp(3.2rem, 13vw, 12rem);
+        --wipe-duration: 920ms;
+        --chaos-duration: 620ms;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100svh;
+        background: var(--bg-light);
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      }
+
+      .split-stage {
+        position: relative;
+        min-height: var(--stage-height);
+        overflow: clip;
+        background: var(--bg-light);
+      }
+
+      .split-stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 50%;
+        background: var(--bg-dark);
+        z-index: 1;
+      }
+
+      .divider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        background: #111;
+        transform: translateX(-1px);
+        z-index: 4;
+      }
+
+      .word-stack {
+        position: absolute;
+        left: 50%;
+        bottom: clamp(3rem, 6.5vw, 6rem);
+        transform: translateX(-50%);
+        white-space: nowrap;
+        line-height: 0.84;
+        font-size: var(--word-size);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .word {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        pointer-events: none;
+      }
+
+      .word.left {
+        color: var(--fg-light);
+        z-index: 2;
+      }
+
+      .word.right {
+        color: var(--fg-dark);
+        z-index: 3;
+      }
+
+      .mask-right {
+        clip-path: inset(0 0 0 50%);
+      }
+
+      .mask-left {
+        clip-path: inset(0 50% 0 0);
+      }
+
+      .split-stage.is-playing .mask-right {
+        animation: wipe-right var(--wipe-duration) cubic-bezier(0.79, 0.02, 0.2, 0.99)
+          forwards;
+      }
+
+      .split-stage.is-playing .mask-left {
+        animation: wipe-left var(--wipe-duration) cubic-bezier(0.79, 0.02, 0.2, 0.99)
+          forwards;
+      }
+
+      .split-stage.is-playing .word-stack {
+        animation: slam-in 410ms cubic-bezier(0.3, 1.2, 0.36, 1) both;
+      }
+
+      .split-stage.is-chaos .word {
+        animation: jitter calc(var(--chaos-duration) / 3) steps(2, end) 3 both;
+      }
+
+      .split-stage.is-chaos .word.left {
+        animation-name: jitter-left;
+      }
+
+      .split-stage.is-chaos .word.right {
+        animation-name: jitter-right;
+      }
+
+      .split-stage.is-chaos .word-stack {
+        filter: contrast(1.12) saturate(1.02);
+      }
+
+      .split-stage.is-settled .word,
+      .split-stage.is-settled .word-stack {
+        animation: none;
+        filter: none;
+      }
+
+      .split-stage.is-settled .mask-right {
+        clip-path: inset(0);
+      }
+
+      .split-stage.is-settled .mask-left {
+        clip-path: inset(0);
+      }
+
+      @keyframes wipe-right {
+        0% {
+          clip-path: inset(0 0 0 50%);
+        }
+        56% {
+          clip-path: inset(0 0 0 49.6%);
+        }
+        74% {
+          clip-path: inset(0 0 0 8%);
+        }
+        100% {
+          clip-path: inset(0);
+        }
+      }
+
+      @keyframes wipe-left {
+        0% {
+          clip-path: inset(0 50% 0 0);
+        }
+        56% {
+          clip-path: inset(0 49.6% 0 0);
+        }
+        74% {
+          clip-path: inset(0 8% 0 0);
+        }
+        100% {
+          clip-path: inset(0);
+        }
+      }
+
+      @keyframes slam-in {
+        0% {
+          transform: translateX(-50%) translateY(28px) scale(0.965);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(-50%) translateY(0) scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes jitter-left {
+        0% {
+          transform: translate(0, 0) skewX(0deg);
+          filter: blur(0);
+        }
+        20% {
+          transform: translate(-6px, 1px) skewX(-7deg);
+          filter: blur(1px);
+        }
+        40% {
+          transform: translate(5px, -2px) skewX(6deg);
+          filter: blur(0.6px);
+        }
+        65% {
+          transform: translate(-3px, 1px) skewX(-4deg);
+          filter: blur(0.2px);
+        }
+        100% {
+          transform: translate(0, 0) skewX(0deg);
+          filter: blur(0);
+        }
+      }
+
+      @keyframes jitter-right {
+        0% {
+          transform: translate(0, 0) skewX(0deg);
+          filter: blur(0);
+        }
+        20% {
+          transform: translate(7px, -1px) skewX(8deg);
+          filter: blur(1px);
+        }
+        40% {
+          transform: translate(-5px, 1px) skewX(-5deg);
+          filter: blur(0.6px);
+        }
+        65% {
+          transform: translate(3px, -1px) skewX(3deg);
+          filter: blur(0.2px);
+        }
+        100% {
+          transform: translate(0, 0) skewX(0deg);
+          filter: blur(0);
+        }
+      }
+
+      @media (max-width: 720px) {
+        :root {
+          --word-size: clamp(2.4rem, 18vw, 5.4rem);
+        }
+
+        .word-stack {
+          bottom: 3rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .split-stage,
+        .split-stage * {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        .mask-right,
+        .mask-left {
+          clip-path: inset(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="split-stage" id="switchstateStage" aria-label="Animated switchstate wordmark">
+      <span class="divider" aria-hidden="true"></span>
+
+      <div class="word-stack" aria-hidden="true">
+        <h1 class="word left mask-right">Switchstate</h1>
+        <h1 class="word right mask-left">Switchstate</h1>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        var stage = document.getElementById("switchstateStage");
+        if (!stage) return;
+
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) {
+          stage.classList.add("is-settled");
+          return;
+        }
+
+        requestAnimationFrame(function () {
+          stage.classList.add("is-playing");
+
+          window.setTimeout(function () {
+            stage.classList.add("is-chaos");
+          }, 520);
+
+          window.setTimeout(function () {
+            stage.classList.remove("is-chaos");
+            stage.classList.add("is-settled");
+          }, 1300);
+        });
+      })();
+    </script>
+  </body>
+</html>
