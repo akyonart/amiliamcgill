@@ -207,6 +207,25 @@
       align-items: center;
     }
 
+    .chart-stack {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .chart-block {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.8rem;
+      background: #fff;
+    }
+
+    .chart-subtitle {
+      margin: 0 0 0.6rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
     canvas {
       width: 180px;
       height: 180px;
@@ -520,10 +539,22 @@
       </article>
 
       <article class="card">
-        <h2 class="section-title">Spending Breakdown</h2>
-        <div class="donut-wrap">
-          <canvas id="donutChart" width="220" height="220" aria-label="Spending Donut Chart"></canvas>
-          <div class="legend" id="donutLegend"></div>
+        <h2 class="section-title">Spending &amp; Forecast</h2>
+        <div class="chart-stack">
+          <div class="chart-block">
+            <h3 class="chart-subtitle">Spending Breakdown (Actual)</h3>
+            <div class="donut-wrap">
+              <canvas id="donutChart" width="220" height="220" aria-label="Spending Donut Chart"></canvas>
+              <div class="legend" id="donutLegend"></div>
+            </div>
+          </div>
+          <div class="chart-block">
+            <h3 class="chart-subtitle">Budget Forecast (Meal Portions)</h3>
+            <div class="donut-wrap">
+              <canvas id="forecastChart" width="220" height="220" aria-label="Budget Forecast Donut Chart"></canvas>
+              <div class="legend" id="forecastLegend"></div>
+            </div>
+          </div>
         </div>
       </article>
     </section>
@@ -647,6 +678,8 @@
       goalsGrid: document.getElementById("goalsGrid"),
       donutChart: document.getElementById("donutChart"),
       donutLegend: document.getElementById("donutLegend"),
+      forecastChart: document.getElementById("forecastChart"),
+      forecastLegend: document.getElementById("forecastLegend"),
       reflectionPanel: document.getElementById("reflectionPanel"),
       roseInput: document.getElementById("roseInput"),
       thornInput: document.getElementById("thornInput"),
@@ -732,6 +765,7 @@
       renderMonthTabs();
       renderGoals(data);
       renderDonut(data);
+      renderForecastDonut(data);
       renderReflectionWeeks();
       renderReflections();
     }
@@ -1013,24 +1047,61 @@
     }
 
     function renderDonut(data) {
-      const canvas = els.donutChart;
-      const ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       const totals = data.categories.map((cat, index) => ({
         id: cat.id,
         name: cat.name || "Untitled",
         value: sum(data.transactions.filter((tx) => tx.categoryId === cat.id).map((tx) => toNumber(tx.amount))),
         color: CATEGORY_COLORS[index % CATEGORY_COLORS.length]
       })).filter((item) => item.value > 0);
+      drawDonutChart(els.donutChart, els.donutLegend, totals, "Log spending to see your monthly category mix.");
+    }
 
-      els.donutLegend.innerHTML = "";
+    function renderForecastDonut(data) {
+      const totalIncome = totalIncomeForMonth(currentMonth);
+      const categoryLimits = data.categories
+        .map((cat, index) => ({
+          id: cat.id,
+          name: cat.name || "Untitled",
+          value: toNumber(cat.limit),
+          color: CATEGORY_COLORS[index % CATEGORY_COLORS.length]
+        }))
+        .filter((item) => item.value > 0);
 
-      if (!totals.length) {
+      const totalBudgeted = sum(categoryLimits.map((item) => item.value));
+      const savings = Math.max(totalIncome - totalBudgeted, 0);
+      const overBudget = Math.max(totalBudgeted - totalIncome, 0);
+
+      const slices = [...categoryLimits];
+      if (savings > 0) {
+        slices.push({
+          id: "savings",
+          name: "Savings",
+          value: savings,
+          color: "#6C9D7A"
+        });
+      }
+      if (overBudget > 0) {
+        slices.push({
+          id: "over-budget",
+          name: "Over budget",
+          value: overBudget,
+          color: "#E8734A"
+        });
+      }
+
+      drawDonutChart(els.forecastChart, els.forecastLegend, slices, "Set category limits to build your monthly portions.");
+    }
+
+    function drawDonutChart(canvas, legendTarget, slices, emptyMessage) {
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      legendTarget.innerHTML = "";
+
+      if (!slices.length) {
         const empty = document.createElement("p");
         empty.className = "empty";
-        empty.textContent = "Log spending to see your monthly category mix.";
-        els.donutLegend.appendChild(empty);
+        empty.textContent = emptyMessage;
+        legendTarget.appendChild(empty);
 
         ctx.beginPath();
         ctx.arc(110, 110, 72, 0, Math.PI * 2);
@@ -1040,10 +1111,10 @@
         return;
       }
 
-      const overall = sum(totals.map((item) => item.value));
+      const overall = sum(slices.map((item) => item.value));
       let start = -Math.PI / 2;
 
-      totals.forEach((item) => {
+      slices.forEach((item) => {
         const arc = (item.value / overall) * Math.PI * 2;
         ctx.beginPath();
         ctx.arc(110, 110, 72, start, start + arc);
@@ -1059,7 +1130,7 @@
           <span><span class="dot" style="background:${item.color};"></span>${escapeHtml(item.name)}</span>
           <strong>${money(item.value)}</strong>
         `;
-        els.donutLegend.appendChild(legend);
+        legendTarget.appendChild(legend);
       });
     }
 
