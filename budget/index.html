@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Garden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FAF8F5;
+      --sage: #4A7C59;
+      --peach: #E8734A;
+      --border: #E0DDD8;
+      --text: #2f3731;
+      --muted: #6f756f;
+      --card: #fffdfb;
+      --rose-pill: #e2f0e5;
+      --thorn-pill: #ffe7df;
+      --shadow: 0 10px 30px rgba(74, 124, 89, 0.06);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top right, #fffdf8 0%, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1120px, 94vw);
+      margin: 2rem auto 4rem;
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.6rem;
+    }
+
+    .brand {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.1vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+
+    .today {
+      margin: 0.35rem 0 0;
+      color: var(--sage);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .month-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.35rem 0.6rem;
+      background: #fff;
+    }
+
+    button {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover:not(:disabled) {
+      border-color: var(--sage);
+      color: var(--sage);
+      transform: translateY(-1px);
+    }
+
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .month-arrow {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      padding: 0;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .kpi h3 {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .kpi .value {
+      margin: 0.55rem 0 0;
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi .value.negative {
+      color: var(--peach);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .section-title {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr auto;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      align-items: center;
+    }
+
+    .mini-row.categories {
+      grid-template-columns: 1.2fr 0.8fr auto;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.55rem 0.65rem;
+      font-size: 0.95rem;
+      background: #fff;
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .ghost {
+      background: #f9f7f3;
+    }
+
+    .text-btn {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      padding: 0.2rem 0.45rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .text-btn:hover {
+      color: var(--peach);
+      border-color: #f1d8d0;
+      background: #fff4ef;
+    }
+
+    .donut-wrap {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    canvas {
+      width: 180px;
+      height: 180px;
+      max-width: 100%;
+    }
+
+    .legend {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      display: inline-block;
+      margin-right: 0.45rem;
+    }
+
+    .category-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.75rem;
+      margin-bottom: 0.65rem;
+      background: #fff;
+    }
+
+    .category-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .progress-track {
+      height: 10px;
+      border-radius: 999px;
+      background: #ebe9e4;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--sage);
+      width: 0;
+      transition: width 0.2s ease;
+    }
+
+    .progress-fill.over {
+      background: var(--peach);
+    }
+
+    .tx-form {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr 1fr 1fr auto;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .month-tabs {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+      overflow-x: auto;
+      padding-bottom: 0.2rem;
+    }
+
+    .month-tab {
+      white-space: nowrap;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .month-tab.active {
+      border-color: var(--sage);
+      color: var(--sage);
+      background: #f0f6f1;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th,
+    td {
+      border-top: 1px solid var(--border);
+      padding: 0.6rem 0.45rem;
+      text-align: left;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: #edf3ee;
+      color: var(--sage);
+      border: 1px solid #d6e4d8;
+    }
+
+    .amount {
+      font-weight: 600;
+    }
+
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .goal {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem;
+      background: #fff;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .goal h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .goal p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .goal-nums {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      align-items: end;
+    }
+
+    .reflection.prominent {
+      border-color: #d4e3d8;
+      box-shadow: 0 12px 28px rgba(74, 124, 89, 0.12);
+      background: linear-gradient(180deg, #fffefb 0%, #f9fbf7 100%);
+    }
+
+    .reflection-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+
+    .reflection-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.8rem;
+      background: #fff;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      min-height: 2rem;
+    }
+
+    .rose-pill,
+    .thorn-pill {
+      border-radius: 999px;
+      padding: 0.32rem 0.65rem;
+      font-size: 0.82rem;
+      border: 1px solid transparent;
+    }
+
+    .rose-pill {
+      background: var(--rose-pill);
+      border-color: #d3e5d7;
+      color: #2f5a3a;
+    }
+
+    .thorn-pill {
+      background: var(--thorn-pill);
+      border-color: #f2d0c3;
+      color: #91533f;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin: 0;
+    }
+
+    .banner {
+      border: 1px solid #eed9d0;
+      background: #fff5f0;
+      color: #91533f;
+      border-radius: 12px;
+      padding: 0.7rem 0.85rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .empty {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 0.4rem 0;
+    }
+
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 980px) {
+      .kpis,
+      .split,
+      .goals-grid,
+      .reflection-grid,
+      .tx-form {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+      }
+
+      .donut-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      canvas {
+        margin-inline: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card header">
+      <div>
+        <h1 class="brand">Budget Garden</h1>
+        <p class="today" id="todayLabel"></p>
+      </div>
+      <div class="month-nav" aria-label="Month Navigation">
+        <button class="month-arrow" id="prevMonth" aria-label="Previous month">←</button>
+        <strong id="monthLabel"></strong>
+        <button class="month-arrow" id="nextMonth" aria-label="Next month">→</button>
+      </div>
+    </section>
+
+    <div id="notificationBanner" class="banner" role="status">
+      Come back Sundays for your weekly review.
+    </div>
+
+    <section class="kpis">
+      <article class="card kpi">
+        <h3>Monthly Income</h3>
+        <p class="value" id="kpiIncome">$0.00</p>
+      </article>
+      <article class="card kpi">
+        <h3>Total Budgeted</h3>
+        <p class="value" id="kpiBudgeted">$0.00</p>
+      </article>
+      <article class="card kpi">
+        <h3>Remaining</h3>
+        <p class="value" id="kpiRemaining">$0.00</p>
+      </article>
+    </section>
+
+    <section class="split">
+      <article class="card">
+        <div class="title-row">
+          <h2 class="section-title">Income Sources</h2>
+          <button id="addIncome" class="ghost">+ Add Source</button>
+        </div>
+        <div id="incomeList"></div>
+      </article>
+
+      <article class="card">
+        <h2 class="section-title">Spending Breakdown</h2>
+        <div class="donut-wrap">
+          <canvas id="donutChart" width="220" height="220" aria-label="Spending Donut Chart"></canvas>
+          <div class="legend" id="donutLegend"></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="title-row">
+        <h2 class="section-title">Budget Categories</h2>
+        <button id="addCategory" class="ghost">+ Add Category</button>
+      </div>
+      <div id="categoryEditor"></div>
+      <div id="categoryProgress"></div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Receipts &amp; Transactions</h2>
+
+      <div class="tx-form">
+        <input id="txDescription" type="text" placeholder="Description" />
+        <input id="txAmount" type="number" min="0" step="0.01" placeholder="Amount" />
+        <select id="txCategory"></select>
+        <input id="txDate" type="date" />
+        <button id="addTransaction">Add</button>
+      </div>
+
+      <div class="month-tabs" id="monthTabs"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="transactionBody"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Goals</h2>
+      <div class="goals-grid" id="goalsGrid"></div>
+    </section>
+
+    <section class="card reflection" id="reflectionPanel">
+      <div class="title-row">
+        <h2 class="section-title">Weekly Reflection</h2>
+        <select id="reflectionWeekSelect"></select>
+      </div>
+      <div class="reflection-grid">
+        <div class="reflection-box">
+          <h3 class="section-title" style="margin:0;">🌹 Roses</h3>
+          <textarea id="roseInput" placeholder="What went well financially this week?"></textarea>
+          <button id="addRose" class="ghost">Save Rose</button>
+          <div class="pill-list" id="roseList"></div>
+        </div>
+        <div class="reflection-box">
+          <h3 class="section-title" style="margin:0;">🌵 Thorns</h3>
+          <textarea id="thornInput" placeholder="What was hard or felt like an overspend?"></textarea>
+          <button id="addThorn" class="ghost">Save Thorn</button>
+          <div class="pill-list" id="thornList"></div>
+        </div>
+      </div>
+      <p class="muted" id="reflectionMeta"></p>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = "budget-page-v1";
+    const CATEGORY_COLORS = ["#4A7C59", "#E8734A", "#87A97E", "#D6A57A", "#8CB5A2", "#F2AA8F", "#9CB48E"];
+
+    const DEFAULT_INCOME = [
+      { id: uid(), name: "Part-time role", amount: 1200 },
+      { id: uid(), name: "Freelance", amount: 450 }
+    ];
+
+    const DEFAULT_CATEGORIES = [
+      { id: uid(), name: "Housing", limit: 900 },
+      { id: uid(), name: "Groceries", limit: 240 },
+      { id: uid(), name: "Transport", limit: 110 },
+      { id: uid(), name: "Health", limit: 80 },
+      { id: uid(), name: "Learning", limit: 65 },
+      { id: uid(), name: "Fun", limit: 120 }
+    ];
+
+    const GOAL_LIBRARY = [
+      { id: "apt-deposit", emoji: "🏠", title: "First apartment deposit", description: "Move-in cushion and deposit.", target: 2000 },
+      { id: "intern-kit", emoji: "💼", title: "Internship starter kit", description: "Wardrobe, commute, and essentials.", target: 900 },
+      { id: "emergency", emoji: "🧯", title: "Emergency fund", description: "One month of baseline expenses.", target: 2500 },
+      { id: "post-degree-trip", emoji: "✈️", title: "Post-degree trip", description: "Celebrate the finish line with travel.", target: 1800 },
+      { id: "tech-upgrade", emoji: "💻", title: "Tech upgrade", description: "Laptop and accessories refresh.", target: 1600 },
+      { id: "grad-celebration", emoji: "🎓", title: "Graduation celebration", description: "Family dinner and memorable photos.", target: 700 }
+    ];
+
+    const state = loadState();
+    const now = new Date();
+    let currentMonth = monthKey(now);
+    let selectedReflectionWeek = weekKey(now);
+
+    const els = {
+      todayLabel: document.getElementById("todayLabel"),
+      monthLabel: document.getElementById("monthLabel"),
+      prevMonth: document.getElementById("prevMonth"),
+      nextMonth: document.getElementById("nextMonth"),
+      kpiIncome: document.getElementById("kpiIncome"),
+      kpiBudgeted: document.getElementById("kpiBudgeted"),
+      kpiRemaining: document.getElementById("kpiRemaining"),
+      incomeList: document.getElementById("incomeList"),
+      addIncome: document.getElementById("addIncome"),
+      addCategory: document.getElementById("addCategory"),
+      categoryEditor: document.getElementById("categoryEditor"),
+      categoryProgress: document.getElementById("categoryProgress"),
+      txDescription: document.getElementById("txDescription"),
+      txAmount: document.getElementById("txAmount"),
+      txCategory: document.getElementById("txCategory"),
+      txDate: document.getElementById("txDate"),
+      addTransaction: document.getElementById("addTransaction"),
+      monthTabs: document.getElementById("monthTabs"),
+      transactionBody: document.getElementById("transactionBody"),
+      goalsGrid: document.getElementById("goalsGrid"),
+      donutChart: document.getElementById("donutChart"),
+      donutLegend: document.getElementById("donutLegend"),
+      reflectionPanel: document.getElementById("reflectionPanel"),
+      roseInput: document.getElementById("roseInput"),
+      thornInput: document.getElementById("thornInput"),
+      addRose: document.getElementById("addRose"),
+      addThorn: document.getElementById("addThorn"),
+      roseList: document.getElementById("roseList"),
+      thornList: document.getElementById("thornList"),
+      reflectionWeekSelect: document.getElementById("reflectionWeekSelect"),
+      reflectionMeta: document.getElementById("reflectionMeta"),
+      notificationBanner: document.getElementById("notificationBanner")
+    };
+
+    init();
+
+    function init() {
+      ensureMonth(currentMonth);
+      ensureReflectionWeek(selectedReflectionWeek);
+      els.txDate.value = dateInputValue(now);
+      els.todayLabel.textContent = formatDayDate(now);
+      wireEvents();
+      updateReflectionProminence();
+      setupNotifications();
+      render();
+    }
+
+    function wireEvents() {
+      els.prevMonth.addEventListener("click", () => {
+        currentMonth = shiftMonth(currentMonth, -1);
+        ensureMonth(currentMonth);
+        render();
+      });
+
+      els.nextMonth.addEventListener("click", () => {
+        const next = shiftMonth(currentMonth, 1);
+        if (next <= monthKey(now)) {
+          currentMonth = next;
+          ensureMonth(currentMonth);
+          render();
+        }
+      });
+
+      els.addIncome.addEventListener("click", () => {
+        monthData().income.push({ id: uid(), name: "New source", amount: 0 });
+        commitAndRender();
+      });
+
+      els.addCategory.addEventListener("click", () => {
+        monthData().categories.push({ id: uid(), name: "New category", limit: 0 });
+        commitAndRender();
+      });
+
+      els.addTransaction.addEventListener("click", addTransaction);
+
+      els.addRose.addEventListener("click", () => addReflectionEntry("roses", els.roseInput));
+      els.addThorn.addEventListener("click", () => addReflectionEntry("thorns", els.thornInput));
+
+      els.reflectionWeekSelect.addEventListener("change", (event) => {
+        selectedReflectionWeek = event.target.value;
+        ensureReflectionWeek(selectedReflectionWeek);
+        renderReflections();
+      });
+    }
+
+    function render() {
+      const data = monthData();
+      const monthDate = monthStartFromKey(currentMonth);
+      const monthTitle = monthDate.toLocaleDateString(undefined, { month: "long", year: "numeric" });
+      els.monthLabel.textContent = monthTitle;
+      els.nextMonth.disabled = currentMonth >= monthKey(now);
+
+      renderKpis(data);
+      renderIncome(data);
+      renderCategories(data);
+      renderCategoryDropdown(data);
+      renderTransactions(data);
+      renderMonthTabs();
+      renderGoals(data);
+      renderDonut(data);
+      renderReflectionWeeks();
+      renderReflections();
+    }
+
+    function renderKpis(data) {
+      const totalIncome = sum(data.income.map((source) => toNumber(source.amount)));
+      const totalBudgeted = sum(data.categories.map((cat) => toNumber(cat.limit)));
+      const spent = sum(data.transactions.map((tx) => toNumber(tx.amount)));
+      const remaining = totalIncome - spent;
+
+      els.kpiIncome.textContent = money(totalIncome);
+      els.kpiBudgeted.textContent = money(totalBudgeted);
+      els.kpiRemaining.textContent = money(remaining);
+      els.kpiRemaining.classList.toggle("negative", remaining < 0);
+    }
+
+    function renderIncome(data) {
+      if (!data.income.length) {
+        data.income.push({ id: uid(), name: "New source", amount: 0 });
+      }
+
+      els.incomeList.innerHTML = "";
+      data.income.forEach((source) => {
+        const row = document.createElement("div");
+        row.className = "mini-row";
+
+        const nameInput = document.createElement("input");
+        nameInput.value = source.name;
+        nameInput.placeholder = "Income source";
+        nameInput.addEventListener("input", (event) => {
+          source.name = event.target.value;
+          commitState();
+        });
+
+        const amountInput = document.createElement("input");
+        amountInput.type = "number";
+        amountInput.min = "0";
+        amountInput.step = "0.01";
+        amountInput.value = toNumber(source.amount);
+        amountInput.addEventListener("input", (event) => {
+          source.amount = toNumber(event.target.value);
+          commitAndRender();
+        });
+
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "text-btn";
+        removeBtn.textContent = "Remove";
+        removeBtn.addEventListener("click", () => {
+          data.income = data.income.filter((item) => item.id !== source.id);
+          monthData().income = data.income;
+          commitAndRender();
+        });
+
+        row.append(nameInput, amountInput, removeBtn);
+        els.incomeList.appendChild(row);
+      });
+    }
+
+    function renderCategories(data) {
+      if (!data.categories.length) {
+        data.categories = [{ id: uid(), name: "New category", limit: 0 }];
+      }
+
+      els.categoryEditor.innerHTML = "";
+      els.categoryProgress.innerHTML = "";
+
+      data.categories.forEach((category) => {
+        const editRow = document.createElement("div");
+        editRow.className = "mini-row categories";
+
+        const nameInput = document.createElement("input");
+        nameInput.value = category.name;
+        nameInput.placeholder = "Category";
+        nameInput.addEventListener("input", (event) => {
+          category.name = event.target.value;
+          updateTransactionCategoryFallback();
+          commitAndRender();
+        });
+
+        const limitInput = document.createElement("input");
+        limitInput.type = "number";
+        limitInput.step = "0.01";
+        limitInput.min = "0";
+        limitInput.value = toNumber(category.limit);
+        limitInput.addEventListener("input", (event) => {
+          category.limit = toNumber(event.target.value);
+          commitAndRender();
+        });
+
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "text-btn";
+        removeBtn.textContent = "Remove";
+        removeBtn.addEventListener("click", () => {
+          data.categories = data.categories.filter((item) => item.id !== category.id);
+          monthData().categories = data.categories;
+          commitAndRender();
+        });
+
+        editRow.append(nameInput, limitInput, removeBtn);
+        els.categoryEditor.appendChild(editRow);
+
+        const spent = sum(data.transactions
+          .filter((tx) => tx.categoryId === category.id)
+          .map((tx) => toNumber(tx.amount)));
+
+        const limit = toNumber(category.limit);
+        const ratio = limit > 0 ? Math.min((spent / limit) * 100, 100) : (spent > 0 ? 100 : 0);
+        const over = limit > 0 && spent > limit;
+
+        const item = document.createElement("div");
+        item.className = "category-item";
+
+        const head = document.createElement("div");
+        head.className = "category-head";
+        head.innerHTML = `
+          <strong>${escapeHtml(category.name || "Untitled")}</strong>
+          <span>${money(spent)} / ${money(limit)}</span>
+        `;
+
+        const track = document.createElement("div");
+        track.className = "progress-track";
+
+        const fill = document.createElement("div");
+        fill.className = "progress-fill" + (over ? " over" : "");
+        fill.style.width = ratio + "%";
+
+        track.appendChild(fill);
+        item.append(head, track);
+        els.categoryProgress.appendChild(item);
+      });
+    }
+
+    function renderCategoryDropdown(data) {
+      els.txCategory.innerHTML = "";
+      data.categories.forEach((cat) => {
+        const option = document.createElement("option");
+        option.value = cat.id;
+        option.textContent = cat.name || "Untitled";
+        els.txCategory.appendChild(option);
+      });
+
+      if (!els.txCategory.options.length) {
+        const option = document.createElement("option");
+        option.value = "";
+        option.textContent = "No category";
+        els.txCategory.appendChild(option);
+      }
+    }
+
+    function renderTransactions(data) {
+      els.transactionBody.innerHTML = "";
+      const sorted = [...data.transactions].sort((a, b) => b.date.localeCompare(a.date));
+
+      if (!sorted.length) {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td colspan="5" class="empty">No transactions yet for this month.</td>`;
+        els.transactionBody.appendChild(row);
+        return;
+      }
+
+      sorted.forEach((tx) => {
+        const row = document.createElement("tr");
+        const cat = findCategoryName(tx.categoryId);
+
+        row.innerHTML = `
+          <td>${prettyDate(tx.date)}</td>
+          <td>${escapeHtml(tx.description)}</td>
+          <td><span class="pill">${escapeHtml(cat)}</span></td>
+          <td class="amount">${money(tx.amount)}</td>
+          <td><button class="text-btn" data-txid="${tx.id}">Delete</button></td>
+        `;
+
+        row.querySelector("button")?.addEventListener("click", () => {
+          monthData().transactions = monthData().transactions.filter((item) => item.id !== tx.id);
+          commitAndRender();
+        });
+
+        els.transactionBody.appendChild(row);
+      });
+    }
+
+    function renderMonthTabs() {
+      const keys = Array.from(new Set([...Object.keys(state.months), currentMonth])).sort().reverse();
+      els.monthTabs.innerHTML = "";
+
+      keys.forEach((key) => {
+        const tab = document.createElement("button");
+        tab.className = "month-tab" + (key === currentMonth ? " active" : "");
+        tab.textContent = monthStartFromKey(key).toLocaleDateString(undefined, { month: "short", year: "numeric" });
+        tab.addEventListener("click", () => {
+          currentMonth = key;
+          ensureMonth(currentMonth);
+          render();
+        });
+        els.monthTabs.appendChild(tab);
+      });
+    }
+
+    function renderGoals(data) {
+      const goals = GOAL_LIBRARY.map((goal) => {
+        const snapshot = data.goals[goal.id] || { target: goal.target, saved: 0 };
+        return {
+          ...goal,
+          target: toNumber(snapshot.target),
+          saved: toNumber(snapshot.saved)
+        };
+      });
+
+      els.goalsGrid.innerHTML = "";
+
+      goals.forEach((goal) => {
+        const ratio = goal.target > 0 ? Math.min((goal.saved / goal.target) * 100, 100) : 0;
+        const done = goal.saved >= goal.target;
+
+        const card = document.createElement("article");
+        card.className = "goal";
+
+        card.innerHTML = `
+          <h4>${goal.emoji} ${escapeHtml(goal.title)}</h4>
+          <p>${escapeHtml(goal.description)}</p>
+          <div class="goal-nums">
+            <label>
+              <span class="muted">Target</span>
+              <input value="${goal.target}" type="number" min="0" step="0.01" data-goal-target="${goal.id}" />
+            </label>
+            <label>
+              <span class="muted">Saved</span>
+              <input value="${goal.saved}" type="number" min="0" step="0.01" data-goal-saved="${goal.id}" />
+            </label>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill ${done ? "" : ""}" style="width:${ratio}%;"></div>
+          </div>
+          <p class="muted">${money(goal.saved)} of ${money(goal.target)}</p>
+        `;
+
+        card.querySelector("[data-goal-target]").addEventListener("input", (event) => {
+          const existing = data.goals[goal.id] || { target: goal.target, saved: goal.saved };
+          data.goals[goal.id] = {
+            ...existing,
+            target: toNumber(event.target.value)
+          };
+          commitAndRender();
+        });
+
+        card.querySelector("[data-goal-saved]").addEventListener("input", (event) => {
+          const existing = data.goals[goal.id] || { target: goal.target, saved: 0 };
+          data.goals[goal.id] = {
+            ...existing,
+            saved: toNumber(event.target.value)
+          };
+          commitAndRender();
+        });
+
+        els.goalsGrid.appendChild(card);
+      });
+    }
+
+    function renderDonut(data) {
+      const canvas = els.donutChart;
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const totals = data.categories.map((cat, index) => ({
+        id: cat.id,
+        name: cat.name || "Untitled",
+        value: sum(data.transactions.filter((tx) => tx.categoryId === cat.id).map((tx) => toNumber(tx.amount))),
+        color: CATEGORY_COLORS[index % CATEGORY_COLORS.length]
+      })).filter((item) => item.value > 0);
+
+      els.donutLegend.innerHTML = "";
+
+      if (!totals.length) {
+        const empty = document.createElement("p");
+        empty.className = "empty";
+        empty.textContent = "Log spending to see your monthly category mix.";
+        els.donutLegend.appendChild(empty);
+
+        ctx.beginPath();
+        ctx.arc(110, 110, 72, 0, Math.PI * 2);
+        ctx.strokeStyle = "#e9e6e1";
+        ctx.lineWidth = 24;
+        ctx.stroke();
+        return;
+      }
+
+      const overall = sum(totals.map((item) => item.value));
+      let start = -Math.PI / 2;
+
+      totals.forEach((item) => {
+        const arc = (item.value / overall) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.arc(110, 110, 72, start, start + arc);
+        ctx.strokeStyle = item.color;
+        ctx.lineWidth = 24;
+        ctx.lineCap = "round";
+        ctx.stroke();
+        start += arc;
+
+        const legend = document.createElement("div");
+        legend.className = "legend-item";
+        legend.innerHTML = `
+          <span><span class="dot" style="background:${item.color};"></span>${escapeHtml(item.name)}</span>
+          <strong>${money(item.value)}</strong>
+        `;
+        els.donutLegend.appendChild(legend);
+      });
+    }
+
+    function renderReflectionWeeks() {
+      const weeks = reflectionWeeks();
+      if (!weeks.includes(selectedReflectionWeek)) {
+        selectedReflectionWeek = weeks[0];
+      }
+
+      els.reflectionWeekSelect.innerHTML = "";
+      weeks.forEach((week) => {
+        const option = document.createElement("option");
+        option.value = week;
+        option.textContent = weekLabel(week);
+        option.selected = week === selectedReflectionWeek;
+        els.reflectionWeekSelect.appendChild(option);
+      });
+    }
+
+    function renderReflections() {
+      ensureReflectionWeek(selectedReflectionWeek);
+      const weekData = state.reflections[selectedReflectionWeek];
+
+      renderReflectionPills(els.roseList, weekData.roses, "rose-pill");
+      renderReflectionPills(els.thornList, weekData.thorns, "thorn-pill");
+
+      const thisWeek = weekKey(now) === selectedReflectionWeek ? "Current week" : "Past week";
+      const updatedAt = weekData.updatedAt ? new Date(weekData.updatedAt).toLocaleString() : "No entries yet";
+      els.reflectionMeta.textContent = `${thisWeek} · ${weekLabel(selectedReflectionWeek)} · Last updated: ${updatedAt}`;
+    }
+
+    function renderReflectionPills(target, entries, className) {
+      target.innerHTML = "";
+      if (!entries.length) {
+        const p = document.createElement("p");
+        p.className = "empty";
+        p.textContent = "No entries yet.";
+        target.appendChild(p);
+        return;
+      }
+
+      entries.forEach((entry) => {
+        const pill = document.createElement("span");
+        pill.className = className;
+        pill.title = new Date(entry.createdAt).toLocaleString();
+        pill.textContent = entry.text;
+        target.appendChild(pill);
+      });
+    }
+
+    function addTransaction() {
+      const description = els.txDescription.value.trim();
+      const amount = toNumber(els.txAmount.value);
+      const categoryId = els.txCategory.value;
+      const date = els.txDate.value || dateInputValue(now);
+
+      if (!description || amount <= 0) {
+        return;
+      }
+
+      monthData().transactions.push({
+        id: uid(),
+        description,
+        amount,
+        categoryId,
+        date
+      });
+
+      els.txDescription.value = "";
+      els.txAmount.value = "";
+      els.txDate.value = dateInputValue(now);
+      commitAndRender();
+    }
+
+    function addReflectionEntry(type, inputEl) {
+      const text = inputEl.value.trim();
+      if (!text) {
+        return;
+      }
+
+      ensureReflectionWeek(weekKey(now));
+      const currentWeek = weekKey(now);
+      state.reflections[currentWeek][type].push({
+        id: uid(),
+        text,
+        createdAt: new Date().toISOString()
+      });
+      state.reflections[currentWeek].updatedAt = new Date().toISOString();
+      selectedReflectionWeek = currentWeek;
+      inputEl.value = "";
+      commitAndRender();
+    }
+
+    function updateReflectionProminence() {
+      const day = now.getDay();
+      const prominent = day === 0 || day === 1;
+      els.reflectionPanel.classList.toggle("prominent", prominent);
+    }
+
+    function setupNotifications() {
+      const unsupported = !("Notification" in window);
+      if (unsupported) {
+        els.notificationBanner.style.display = "block";
+        return;
+      }
+
+      const asked = state.notifications?.permissionRequested;
+      if (!asked) {
+        Notification.requestPermission().then(() => {
+          state.notifications.permissionRequested = true;
+          commitState();
+          scheduleWeeklyReminder();
+        }).catch(() => {
+          state.notifications.permissionRequested = true;
+          commitState();
+          els.notificationBanner.style.display = "block";
+        });
+      } else {
+        scheduleWeeklyReminder();
+      }
+    }
+
+    function scheduleWeeklyReminder() {
+      if (!("Notification" in window)) {
+        els.notificationBanner.style.display = "block";
+        return;
+      }
+
+      if (Notification.permission !== "granted") {
+        els.notificationBanner.style.display = "block";
+        return;
+      }
+
+      const next = nextSundaySevenPm();
+      const wait = next.getTime() - Date.now();
+
+      if (wait <= 0) {
+        return;
+      }
+
+      setTimeout(() => {
+        const week = weekKey(new Date());
+        if (state.notifications.lastNotifiedWeek !== week) {
+          new Notification("Weekly budget check-in", {
+            body: "Open your budget page for your Sunday overview.",
+            tag: "budget-weekly-reminder"
+          });
+          state.notifications.lastNotifiedWeek = week;
+          commitState();
+        }
+
+        setInterval(() => {
+          const currentWeek = weekKey(new Date());
+          if (state.notifications.lastNotifiedWeek !== currentWeek) {
+            new Notification("Weekly budget check-in", {
+              body: "Open your budget page for your Sunday overview.",
+              tag: "budget-weekly-reminder"
+            });
+            state.notifications.lastNotifiedWeek = currentWeek;
+            commitState();
+          }
+        }, 7 * 24 * 60 * 60 * 1000);
+      }, wait);
+    }
+
+    function nextSundaySevenPm() {
+      const date = new Date();
+      const target = new Date(date);
+      target.setHours(19, 0, 0, 0);
+      const day = target.getDay();
+      const daysUntilSunday = (7 - day) % 7;
+      if (daysUntilSunday > 0 || target <= date) {
+        target.setDate(target.getDate() + (daysUntilSunday === 0 ? 7 : daysUntilSunday));
+      }
+      return target;
+    }
+
+    function monthData() {
+      ensureMonth(currentMonth);
+      return state.months[currentMonth];
+    }
+
+    function ensureMonth(key) {
+      let didMutate = false;
+      if (!state.months[key]) {
+        state.months[key] = {
+          income: structuredClone(DEFAULT_INCOME),
+          categories: structuredClone(DEFAULT_CATEGORIES),
+          transactions: [],
+          goals: {}
+        };
+        GOAL_LIBRARY.forEach((goal) => {
+          state.months[key].goals[goal.id] = { target: goal.target, saved: 0 };
+        });
+        didMutate = true;
+      }
+
+      if (!state.months[key].goals) {
+        state.months[key].goals = {};
+        didMutate = true;
+      }
+
+      GOAL_LIBRARY.forEach((goal) => {
+        const snapshot = state.months[key].goals[goal.id];
+        if (typeof snapshot === "undefined") {
+          state.months[key].goals[goal.id] = { target: goal.target, saved: 0 };
+          didMutate = true;
+        } else if (typeof snapshot === "number") {
+          state.months[key].goals[goal.id] = { target: goal.target, saved: snapshot };
+          didMutate = true;
+        } else {
+          const normalizedTarget = toNumber(snapshot.target || goal.target);
+          const normalizedSaved = toNumber(snapshot.saved);
+          if (snapshot.target !== normalizedTarget || snapshot.saved !== normalizedSaved) {
+            state.months[key].goals[goal.id].target = normalizedTarget;
+            state.months[key].goals[goal.id].saved = normalizedSaved;
+            didMutate = true;
+          }
+        }
+      });
+
+      if (didMutate) {
+        commitState();
+      }
+    }
+
+    function ensureReflectionWeek(key) {
+      if (!state.reflections[key]) {
+        state.reflections[key] = {
+          roses: [],
+          thorns: [],
+          updatedAt: null
+        };
+        commitState();
+      }
+    }
+
+    function reflectionWeeks() {
+      const weeks = Object.keys(state.reflections);
+      if (!weeks.includes(weekKey(now))) {
+        weeks.push(weekKey(now));
+      }
+      return weeks.sort().reverse();
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          return {
+            months: parsed.months || {},
+            reflections: parsed.reflections || {},
+            notifications: {
+              permissionRequested: Boolean(parsed.notifications?.permissionRequested),
+              lastNotifiedWeek: parsed.notifications?.lastNotifiedWeek || null
+            }
+          };
+        }
+      } catch (error) {
+        console.warn("Storage reset due to parse error", error);
+      }
+
+      return {
+        months: {},
+        reflections: {},
+        notifications: {
+          permissionRequested: false,
+          lastNotifiedWeek: null
+        }
+      };
+    }
+
+    function commitAndRender() {
+      commitState();
+      render();
+    }
+
+    function commitState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function findCategoryName(categoryId) {
+      const found = monthData().categories.find((cat) => cat.id === categoryId);
+      return found?.name || "Uncategorized";
+    }
+
+    function updateTransactionCategoryFallback() {
+      const validIds = new Set(monthData().categories.map((item) => item.id));
+      monthData().transactions.forEach((tx) => {
+        if (!validIds.has(tx.categoryId)) {
+          tx.categoryId = "";
+        }
+      });
+    }
+
+    function money(value) {
+      return new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(toNumber(value));
+    }
+
+    function sum(arr) {
+      return arr.reduce((acc, value) => acc + toNumber(value), 0);
+    }
+
+    function toNumber(value) {
+      const num = Number(value);
+      return Number.isFinite(num) ? num : 0;
+    }
+
+    function uid() {
+      return Math.random().toString(36).slice(2, 10);
+    }
+
+    function monthKey(date) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      return `${y}-${m}`;
+    }
+
+    function monthStartFromKey(key) {
+      const [year, month] = key.split("-").map(Number);
+      return new Date(year, month - 1, 1);
+    }
+
+    function shiftMonth(key, offset) {
+      const d = monthStartFromKey(key);
+      d.setMonth(d.getMonth() + offset);
+      return monthKey(d);
+    }
+
+    function dateInputValue(date) {
+      return [
+        date.getFullYear(),
+        String(date.getMonth() + 1).padStart(2, "0"),
+        String(date.getDate()).padStart(2, "0")
+      ].join("-");
+    }
+
+    function prettyDate(value) {
+      if (!value) {
+        return "-";
+      }
+      const d = new Date(value + "T00:00:00");
+      if (Number.isNaN(d.getTime())) {
+        return value;
+      }
+      return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    }
+
+    function formatDayDate(date) {
+      return date.toLocaleDateString(undefined, {
+        weekday: "long",
+        month: "long",
+        day: "numeric"
+      });
+    }
+
+    function weekKey(date) {
+      const d = new Date(date);
+      d.setHours(0, 0, 0, 0);
+      const day = d.getDay();
+      const diffToMonday = (day + 6) % 7;
+      d.setDate(d.getDate() - diffToMonday);
+      return dateInputValue(d);
+    }
+
+    function weekLabel(key) {
+      const start = new Date(key + "T00:00:00");
+      const end = new Date(start);
+      end.setDate(start.getDate() + 6);
+      const startLabel = start.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+      const endLabel = end.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+      return `Week ${startLabel} - ${endLabel}`;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>

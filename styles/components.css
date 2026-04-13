@@ -538,7 +538,6 @@ height: 2.37644rem;
   border-radius: 6.25rem;
   overflow: hidden;
   transition: transform 0.2s ease; /* Essential for your JS scale to be smooth */
-  justify-content: flex-start;
 }
 
 .email-btn:hover .bg-fill-b {
@@ -566,147 +565,24 @@ height: 2.37644rem;
   color: var(--color-text-primary);
 }
 
-.icon-wrap {
+.arrow-1-b {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 3rem;
-  height: 3rem;
-  z-index: 3;
-  pointer-events: none;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.icon-wrap::before {
-  content: "";
-  position: absolute;
-  left: 1.34rem;
-  top: 1.56rem;
-  width: 0.34rem;
-  height: 0.24rem;
-  border-right: 0.11rem solid #16161d;
-  border-bottom: 0.11rem solid #16161d;
-  border-radius: 0 0 0.18rem 0;
-  transform: rotate(-12deg);
-  transition: all 0.28s ease-out;
+.arrow-2-b { transform: translateX(-2.5rem); }
+
+.email-btn:hover .arrow-1 {
+  transform: translateX(2.5rem);
+  color: #282828;
 }
 
-.icon-wrap::after {
-  content: "";
-  position: absolute;
-  right: 0.34rem;
-  top: 0.28rem;
-  width: 0.6rem;
-  height: 0.34rem;
-  border: 0.11rem solid #16161d;
-  border-left: 0;
-  border-bottom: 0;
-  border-radius: 0 999px 0 0;
-  transform: rotate(16deg);
-  opacity: 0;
-  transition: opacity 0.28s ease-out;
-}
-
-.smiley-eye,
-.smiley-mouth {
-  position: absolute;
-  transition: all 0.28s ease-out;
-}
-
-.smiley-eye {
-  width: 0.62rem;
-  height: 0.44rem;
-  border: 0.11rem solid #16161d;
-  border-top: 0;
-  border-right: 0;
-  background: transparent;
-  border-radius: 0 0 0 999px;
-}
-
-.smiley-eye-left {
-  left: 0.36rem;
-  top: 1rem;
-}
-
-.smiley-eye-right {
-  right: 0.36rem;
-  top: 0.62rem;
-  transform: scaleX(-1);
-}
-
-.smiley-mouth {
-  width: 1.42rem;
-  height: 0.74rem;
-  border: 0.11rem solid #16161d;
-  border-top: 0;
-  border-left: 0;
-  background: transparent;
-  border-radius: 0 0 999px 0;
-  left: 50%;
-  top: 1.68rem;
-  transform: translateX(-54%) rotate(-7deg);
-  overflow: hidden;
-}
-
-.smiley-mouth::before {
-  content: "";
-  position: absolute;
-  left: 0.14rem;
-  right: 0.14rem;
-  top: 0.16rem;
-  height: 0.56rem;
-  background: #c2bd42;
-  border-radius: 0 0 999px 999px;
-  opacity: 0;
-  transition: opacity 0.28s ease-out;
-}
-
-.email-btn:hover .icon-wrap::before {
-  top: 1.5rem;
-  left: 1.34rem;
-  transform: rotate(-8deg);
-}
-
-.email-btn:hover .icon-wrap::after {
-  opacity: 1;
-}
-
-.email-btn:hover .smiley-eye-left {
-  width: 0.42rem;
-  height: 0.14rem;
-  border: 0;
-  background: #16161d;
-  border-radius: 999px;
-  left: 0.48rem;
-  top: 1.12rem;
-  transform: rotate(34deg);
-}
-
-.email-btn:hover .smiley-eye-right {
-  width: 0.44rem;
-  height: 0.44rem;
-  border: 0;
-  border-right: 0.11rem solid #16161d;
-  border-top: 0.11rem solid #16161d;
-  border-radius: 0.05rem;
-  background: transparent;
-  right: 0.74rem;
-  top: 0.96rem;
-  transform: rotate(45deg);
-}
-
-.email-btn:hover .smiley-mouth {
-  width: 1.38rem;
-  height: 0.82rem;
-  border: 0;
-  background: #16161d;
-  border-radius: 0 0 999px 999px;
-  top: 1.54rem;
-  transform: translateX(-50%) rotate(-1deg);
-}
-
-.email-btn:hover .smiley-mouth::before {
-  opacity: 1;
-  transform: skewX(-26deg);
+.stranger-btn:hover .arrow-2 {
+  transform: translateX(0);
+  color: #282828;
 }
 
 .btn-text-b {
