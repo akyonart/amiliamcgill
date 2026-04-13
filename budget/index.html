@@ -156,6 +156,10 @@
       align-items: center;
     }
 
+    .mini-row.income {
+      grid-template-columns: 1.3fr 0.8fr 1fr 1fr auto;
+    }
+
     .mini-row.categories {
       grid-template-columns: 1.2fr 0.8fr auto;
     }
@@ -454,6 +458,11 @@
         grid-template-columns: 1fr;
       }
 
+      .mini-row.income,
+      .mini-row.categories {
+        grid-template-columns: 1fr;
+      }
+
       .header {
         grid-template-columns: 1fr;
       }
@@ -588,8 +597,8 @@
     const CATEGORY_COLORS = ["#4A7C59", "#E8734A", "#87A97E", "#D6A57A", "#8CB5A2", "#F2AA8F", "#9CB48E"];
 
     const DEFAULT_INCOME = [
-      { id: uid(), name: "Part-time role", amount: 1200 },
-      { id: uid(), name: "Freelance", amount: 450 }
+      { id: uid(), name: "Part-time role", amount: 1200, type: "recurring", date: "" },
+      { id: uid(), name: "Freelance", amount: 450, type: "recurring", date: "" }
     ];
 
     const DEFAULT_CATEGORIES = [
@@ -654,6 +663,7 @@
 
     function init() {
       ensureMonth(currentMonth);
+      ensureIncomeEntries();
       ensureReflectionWeek(selectedReflectionWeek);
       els.txDate.value = dateInputValue(now);
       els.todayLabel.textContent = formatDayDate(now);
@@ -680,7 +690,13 @@
       });
 
       els.addIncome.addEventListener("click", () => {
-        monthData().income.push({ id: uid(), name: "New source", amount: 0 });
+        state.incomeEntries.push({
+          id: uid(),
+          name: "New source",
+          amount: 0,
+          type: "recurring",
+          date: ""
+        });
         commitAndRender();
       });
 
@@ -709,7 +725,7 @@
       els.nextMonth.disabled = currentMonth >= monthKey(now);
 
       renderKpis(data);
-      renderIncome(data);
+      renderIncome();
       renderCategories(data);
       renderCategoryDropdown(data);
       renderTransactions(data);
@@ -721,7 +737,7 @@
     }
 
     function renderKpis(data) {
-      const totalIncome = sum(data.income.map((source) => toNumber(source.amount)));
+      const totalIncome = totalIncomeForMonth(currentMonth);
       const totalBudgeted = sum(data.categories.map((cat) => toNumber(cat.limit)));
       const spent = sum(data.transactions.map((tx) => toNumber(tx.amount)));
       const remaining = totalIncome - spent;
@@ -732,15 +748,13 @@
       els.kpiRemaining.classList.toggle("negative", remaining < 0);
     }
 
-    function renderIncome(data) {
-      if (!data.income.length) {
-        data.income.push({ id: uid(), name: "New source", amount: 0 });
-      }
+    function renderIncome() {
+      ensureIncomeEntries();
 
       els.incomeList.innerHTML = "";
-      data.income.forEach((source) => {
+      state.incomeEntries.forEach((source) => {
         const row = document.createElement("div");
-        row.className = "mini-row";
+        row.className = "mini-row income";
 
         const nameInput = document.createElement("input");
         nameInput.value = source.name;
@@ -755,8 +769,33 @@
         amountInput.min = "0";
         amountInput.step = "0.01";
         amountInput.value = toNumber(source.amount);
-        amountInput.addEventListener("input", (event) => {
+        amountInput.addEventListener("change", (event) => {
           source.amount = toNumber(event.target.value);
+          commitAndRender();
+        });
+
+        const typeSelect = document.createElement("select");
+        typeSelect.innerHTML = `
+          <option value="recurring">Recurring monthly</option>
+          <option value="one-time">One-time</option>
+        `;
+        typeSelect.value = source.type || "recurring";
+        typeSelect.addEventListener("change", (event) => {
+          source.type = event.target.value;
+          if (source.type === "recurring") {
+            source.date = "";
+          } else if (!source.date) {
+            source.date = dateInputValue(now);
+          }
+          commitAndRender();
+        });
+
+        const dateInput = document.createElement("input");
+        dateInput.type = "date";
+        dateInput.value = source.date || "";
+        dateInput.disabled = (source.type || "recurring") !== "one-time";
+        dateInput.addEventListener("change", (event) => {
+          source.date = event.target.value;
           commitAndRender();
         });
 
@@ -764,12 +803,11 @@
         removeBtn.className = "text-btn";
         removeBtn.textContent = "Remove";
         removeBtn.addEventListener("click", () => {
-          data.income = data.income.filter((item) => item.id !== source.id);
-          monthData().income = data.income;
+          state.incomeEntries = state.incomeEntries.filter((item) => item.id !== source.id);
           commitAndRender();
         });
 
-        row.append(nameInput, amountInput, removeBtn);
+        row.append(nameInput, amountInput, typeSelect, dateInput, removeBtn);
         els.incomeList.appendChild(row);
       });
     }
@@ -789,7 +827,7 @@
         const nameInput = document.createElement("input");
         nameInput.value = category.name;
         nameInput.placeholder = "Category";
-        nameInput.addEventListener("input", (event) => {
+        nameInput.addEventListener("change", (event) => {
           category.name = event.target.value;
           updateTransactionCategoryFallback();
           commitAndRender();
@@ -800,7 +838,7 @@
         limitInput.step = "0.01";
         limitInput.min = "0";
         limitInput.value = toNumber(category.limit);
-        limitInput.addEventListener("input", (event) => {
+        limitInput.addEventListener("change", (event) => {
           category.limit = toNumber(event.target.value);
           commitAndRender();
         });
@@ -952,7 +990,7 @@
           <p class="muted">${money(goal.saved)} of ${money(goal.target)}</p>
         `;
 
-        card.querySelector("[data-goal-target]").addEventListener("input", (event) => {
+        card.querySelector("[data-goal-target]").addEventListener("change", (event) => {
           const existing = data.goals[goal.id] || { target: goal.target, saved: goal.saved };
           data.goals[goal.id] = {
             ...existing,
@@ -961,7 +999,7 @@
           commitAndRender();
         });
 
-        card.querySelector("[data-goal-saved]").addEventListener("input", (event) => {
+        card.querySelector("[data-goal-saved]").addEventListener("change", (event) => {
           const existing = data.goals[goal.id] || { target: goal.target, saved: 0 };
           data.goals[goal.id] = {
             ...existing,
@@ -1204,11 +1242,89 @@
       return state.months[currentMonth];
     }
 
+    function totalIncomeForMonth(month) {
+      ensureIncomeEntries();
+      return sum(state.incomeEntries
+        .filter((entry) => incomeMatchesMonth(entry, month))
+        .map((entry) => toNumber(entry.amount)));
+    }
+
+    function incomeMatchesMonth(entry, month) {
+      if ((entry.type || "recurring") === "recurring") {
+        return true;
+      }
+      if (!entry.date) {
+        return false;
+      }
+      return monthKey(new Date(entry.date + "T00:00:00")) === month;
+    }
+
+    function ensureIncomeEntries() {
+      if (!Array.isArray(state.incomeEntries)) {
+        state.incomeEntries = [];
+      }
+
+      let didMutate = false;
+      if (!state.incomeEntries.length) {
+        const migrated = migrateLegacyIncome();
+        if (migrated.length) {
+          state.incomeEntries = migrated;
+          didMutate = true;
+        } else {
+          state.incomeEntries = structuredClone(DEFAULT_INCOME);
+          didMutate = true;
+        }
+      }
+
+      state.incomeEntries = state.incomeEntries.map((entry) => {
+        const type = entry.type === "one-time" ? "one-time" : "recurring";
+        const normalized = {
+          id: entry.id || uid(),
+          name: entry.name || "Income source",
+          amount: toNumber(entry.amount),
+          type,
+          date: type === "one-time" ? (entry.date || dateInputValue(now)) : ""
+        };
+
+        if (
+          normalized.id !== entry.id ||
+          normalized.name !== entry.name ||
+          normalized.amount !== entry.amount ||
+          normalized.type !== entry.type ||
+          normalized.date !== (entry.date || "")
+        ) {
+          didMutate = true;
+        }
+
+        return normalized;
+      });
+
+      if (didMutate) {
+        commitState();
+      }
+    }
+
+    function migrateLegacyIncome() {
+      const keys = Object.keys(state.months || {}).sort().reverse();
+      for (const key of keys) {
+        const legacy = state.months[key]?.income;
+        if (Array.isArray(legacy) && legacy.length) {
+          return legacy.map((entry) => ({
+            id: entry.id || uid(),
+            name: entry.name || "Income source",
+            amount: toNumber(entry.amount),
+            type: "recurring",
+            date: ""
+          }));
+        }
+      }
+      return [];
+    }
+
     function ensureMonth(key) {
       let didMutate = false;
       if (!state.months[key]) {
         state.months[key] = {
-          income: structuredClone(DEFAULT_INCOME),
           categories: structuredClone(DEFAULT_CATEGORIES),
           transactions: [],
           goals: {}
@@ -1274,6 +1390,7 @@
           const parsed = JSON.parse(raw);
           return {
             months: parsed.months || {},
+            incomeEntries: parsed.incomeEntries || [],
             reflections: parsed.reflections || {},
             notifications: {
               permissionRequested: Boolean(parsed.notifications?.permissionRequested),
@@ -1287,6 +1404,7 @@
 
       return {
         months: {},
+        incomeEntries: [],
         reflections: {},
         notifications: {
           permissionRequested: false,
