@@ -683,7 +683,7 @@
 
   <script>
     const STORAGE_KEY = "budget-page-v1";
-    const CATEGORY_COLORS = ["#4A7C59", "#4D8EB5", "#E8734A", "#9A7AB6", "#C89D46", "#B55E7A", "#6E9E90", "#D48E62", "#7389C4"];
+    const CATEGORY_COLORS = ["#4A7C59", "#4D8EB5", "#E8734A", "#9A7AB6", "#C89D46", "#B55E7A", "#2F6E9B", "#D48E62", "#7389C4", "#C95B7B"];
 
     const DEFAULT_INCOME = [
       { id: uid(), name: "Part-time role", amount: 1200, type: "recurring", date: "" },
@@ -1135,7 +1135,7 @@
           id: "savings",
           name: "Savings",
           value: savings,
-          color: "#6C9D7A"
+          color: "#6E56B8"
         });
       }
       if (overBudget > 0) {
@@ -1178,7 +1178,7 @@
         ctx.arc(110, 110, 72, start, start + arc);
         ctx.strokeStyle = item.color;
         ctx.lineWidth = 24;
-        ctx.lineCap = "round";
+        ctx.lineCap = "butt";
         ctx.stroke();
         start += arc;
 
